@@ -25,6 +25,9 @@ export const TEXT = {
   Tracks: 'Tracks of the Day',
   Artists: 'Popular artists',
   Producers: 'Popular producers',
+  Beatpacks: 'Beatpacks',
+  Plays: 'Plays',
+  Duration: 'Duration',
 };
 
 export const PREFER_TEXT = [
@@ -56,3 +59,5 @@ export const ContentTracksData = { left: TEXT.Tracks, right: TEXT.SeeAll };
 export const ContentArtistsData = { left: TEXT.Artists, right: TEXT.SeeAll };
 
 export const ContentProducersData = { left: TEXT.Producers, right: TEXT.SeeAll };
+
+export const ContentBeatpacksData = { left: TEXT.Beatpacks, right: TEXT.SeeAll };

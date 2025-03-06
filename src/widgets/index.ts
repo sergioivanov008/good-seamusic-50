@@ -8,3 +8,4 @@ export { MainMenu } from './main-menu/MainMenu';
 export { ContentTracks } from './content-tracks/ContentTracks';
 export { ContentArtists } from './content-artists/ContentArtists';
 export { ContentProducers } from './content-producers/ContentProducers';
+export { ContentBeatpacks } from './content-beatpacks/ContentBeatpacks';
