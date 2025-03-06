@@ -5,6 +5,7 @@ import imgTopRighttSrc from '@/shared/assets/images/ContentBiilie.png';
 import imgBottomLefTopSrc from '@/shared/assets/images/ContentGirl.png';
 import imgBottomLefBottomSrc from '@/shared/assets/icons/Logo.png';
 import imgBottomRightBottomSrc from '@/shared/assets/images/ContentGlassEffect.png';
+import { TEXT } from '@/shared/constants/constants';
 
 export const AuthLeftBlock = () => {
 	return (
@@ -23,7 +24,9 @@ export const AuthLeftBlock = () => {
 					className={s.imgTopRight}
 				/>
 			</div>
-			<div className={s.center}>Self-expression for everyone</div>
+			<div className={s.center}>
+				{TEXT.AuthLeftBlockTitle}
+			</div>
 			<div className={s.bottom}>
 				<div className={s.bottomLeft}>
 					<Image
