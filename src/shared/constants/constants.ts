@@ -24,6 +24,7 @@ export const TEXT = {
   SeeAll: 'See all',
   Tracks: 'Tracks of the Day',
   Artists: 'Popular artists',
+  Producers: 'Popular producers',
 };
 
 export const PREFER_TEXT = [
@@ -53,3 +54,5 @@ export const RegisterFormTitleData = { left: TEXT.SignUp, right: TEXT.LogoTitle 
 export const ContentTracksData = { left: TEXT.Tracks, right: TEXT.SeeAll };
 
 export const ContentArtistsData = { left: TEXT.Artists, right: TEXT.SeeAll };
+
+export const ContentProducersData = { left: TEXT.Producers, right: TEXT.SeeAll };
