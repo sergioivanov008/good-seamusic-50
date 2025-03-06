@@ -1,0 +1,30 @@
+@import "../../style/variables.scss";
+
+.artist {
+	height: 256px;
+	position: relative;
+
+	.photoArtist {
+		.photo {
+			width: 210px;
+			height: 210px;
+			border-radius: 300px;
+		}
+	}
+
+	.name {
+		position: absolute;
+		top: 228px;
+		left: 0px;
+
+		width: 210px;
+		display: flex;
+		justify-content: center;
+
+		font-family: $--font-family;
+		font-weight: 400;
+		font-size: 20px;
+		line-height: 140%;
+		color: $--main-white-000;
+	}
+}

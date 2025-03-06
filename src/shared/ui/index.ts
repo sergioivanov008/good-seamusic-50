@@ -9,3 +9,4 @@ export { FormTitle } from './form-title/FormTitle';
 export { PreferItem } from './prefer-item/PreferItem';
 export { Checkbox } from './checkbox/Checkbox';
 export { InputLogin } from './input-login/input-login';
+export { ArtistProducerItem } from './artist-producer-item/ArtistProducerItem';

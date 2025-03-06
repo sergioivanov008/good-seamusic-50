@@ -1,4 +1,5 @@
 import {
+	ContentArtists,
 	ContentTop,
 	ContentTracks,
 	MainHeader,
@@ -16,7 +17,7 @@ export const Main = () => {
 			<div className={s.mainContent}>
 				<ContentTop />
 				<ContentTracks />
-				<div className={s.contentArtists}>contentArtists</div>
+				<ContentArtists />
 				<div className={s.contentProducers}>contentProducers</div>
 				<div className={s.contentBeats}>contentBeats</div>
 				<div className={s.contentAlbums}>contentAlbums</div>
