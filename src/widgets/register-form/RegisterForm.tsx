@@ -4,7 +4,7 @@ import Link from 'next/link';
 import s from './RegisterForm.module.scss';
 import { useState } from 'react';
 import { FormTitle, PreferItem } from '@/shared/ui';
-import { ArrowBtn } from '@/shared/ui/buttons';
+import { ArrowBtn, GradientButton } from '@/shared/ui/buttons';
 import { PREFER_TEXT, RegisterFormTitleData, TEXT } from '@/shared/constants/constants';
 import ArrowForward from '@/shared/assets/icons/ArrowForward.svg';
 
@@ -93,11 +93,7 @@ export const RegisterForm = () => {
 							</Link>
 						</div>
 					</div>
-					<Link href="/">
-						<button className={s.btnAuth} role="presentation">
-							{TEXT.SignUp}
-						</button>
-					</Link>
+					<GradientButton text={TEXT.SignUp} to='/' />
 					<div className={s.signUpLine}>
 						<div>{TEXT.HaveAcc}</div>
 						<Link href="/login" className={s.linkUnderline}>

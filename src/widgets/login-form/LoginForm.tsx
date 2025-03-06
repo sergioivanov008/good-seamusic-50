@@ -4,6 +4,7 @@ import { Divider, FormTitle } from '@/shared/ui';
 import IconGoogle from '@/shared/assets/icons/SocialMediaLogoGoogle.svg';
 import IconSpotify from '@/shared/assets/icons/SocialMediaLogoSpotify.svg';
 import { LoginFormTitleData, TEXT } from '@/shared/constants/constants';
+import { GradientButton } from '@/shared/ui/buttons';
 
 export const LoginForm = () => {
 	return (
@@ -47,11 +48,7 @@ export const LoginForm = () => {
 					</div>
 				</div>
 			</div>
-			<Link href="/">
-				<button className={s.btnAuth} role="presentation">
-					{TEXT.SignIn}
-				</button>
-			</Link>
+			<GradientButton text={TEXT.SignIn} to='/' />
 			<div className={s.signUpLine}>
 				<div>{TEXT.DontHaveAcc}</div>
 				<Link href="/register" className={s.linkUnderline}>
