@@ -34,11 +34,11 @@ export const LoginForm = () => {
 			<Divider text={TEXT.OR} />
 			<div className={s.loginBlock}>
 				<div className={s.loginInput}>
-					<div className={s.inputHeader}>{TEXT.InputHeaderEmail}</div>
+					<div className={s.inputHeader}>{TEXT.EmailAdress}</div>
 					<input className={s.formInput} type="text" placeholder="" />
 				</div>
 				<div className={s.loginInput}>
-					<div className={s.inputHeader}>{TEXT.InputHeaderPassword}</div>
+					<div className={s.inputHeader}>{TEXT.Password}</div>
 					<input className={s.formInput} type="text" placeholder="" />
 					<div className={s.inputFooter}>
 						<Link href="/" className={s.linkUnderline}>

@@ -5,26 +5,8 @@ import s from './RegisterForm.module.scss';
 import { useState } from 'react';
 import { FormTitle, PreferItem } from '@/shared/ui';
 import { ArrowBtn } from '@/shared/ui/buttons';
-
-const PREFER_TEXT = [
-	'Deep house',
-	'Trap',
-	'Minimal',
-	'Indie rock',
-	'Metal',
-	'Mitol',
-	'Funk',
-	'Electronica',
-	'Rock',
-	'Chill-wave',
-	'NU Disco',
-	'NE Disco',
-	'Acoustic',
-	'Folk',
-	'Lo-fi',
-	'Indie-pop',
-	'Indee-pop',
-];
+import { PREFER_TEXT, RegisterFormTitleData, TEXT } from '@/shared/constants/constants';
+import ArrowForward from '@/shared/assets/icons/ArrowForward.svg';
 
 export const RegisterForm = () => {
 	const [step, setStep] = useState(1);
@@ -36,51 +18,37 @@ export const RegisterForm = () => {
 		<form className={s.form}>
 			{step === 1 && (
 				<>
-					<FormTitle data={{ left: 'Sign up', right: 'SeaMusic' }} />
+					<FormTitle data={RegisterFormTitleData} />
 					<div className={s.registerBlock}>
 						<div className={s.loginInput}>
-							<div className={s.inputHeader}>{'User Name'}</div>
+							<div className={s.inputHeader}>{TEXT.UserName}</div>
 							<input className={s.formInput} type="text" />
 						</div>
 						<div className={s.loginInput}>
-							<div className={s.inputHeader}>{'Email adress'}</div>
+							<div className={s.inputHeader}>{TEXT.EmailAdress}</div>
 							<input className={s.formInput} type="text" />
 						</div>
 						<div className={s.loginInput}>
-							<div className={s.inputHeader}>{'Password'}</div>
+							<div className={s.inputHeader}>{TEXT.Password}</div>
 							<input className={s.formInput} type="password" />
 							<div className={s.inputFooter}>
-								{
-									'Use 8 or more characters with a mix of letters, numbers & symbols'
-								}
+								{TEXT.PasswordTips}
 							</div>
 						</div>
 						<div className={s.loginInput}>
-							<div className={s.inputHeader}>{'Confirm your password'}</div>
+							<div className={s.inputHeader}>{TEXT.PasswordConfirm}</div>
 							<input className={s.formInput} type="password" />
 						</div>
 					</div>
 					<div className={s.nextStep}>
 						<div className={s.nextBtn} onClick={setNextStep}>
-							<div className={s.left}>{'Last Step'}</div>
-							<svg
-								width="15"
-								height="28"
-								viewBox="0 0 15 28"
-								fill="none"
-								xmlns="http://www.w3.org/2000/svg">
-								<path
-									d="M1 1L13.9293 13.9293C13.9683 13.9683 13.9683 14.0317 13.9293 14.0707L1 27"
-									stroke="white"
-									strokeWidth="3"
-									strokeLinecap="round"
-								/>
-							</svg>
+							<div className={s.left}>{TEXT.LastStep}</div>
+							<ArrowForward width={13} height={26} />
 						</div>
 						<div className={s.signUpLine}>
-							<div>{'Already have an account? '}</div>
+							<div>{TEXT.HaveAcc}</div>
 							<Link href="/login" className={s.linkUnderline}>
-								{'Sign in'}
+								{TEXT.SignIn}
 							</Link>
 						</div>
 					</div>
@@ -92,10 +60,10 @@ export const RegisterForm = () => {
 						<div onClick={setPrevStep} className={s.btnWrapper}>
 							<ArrowBtn variant="primary" />
 						</div>
-						<div className={s.logo}>{'SeaMusic'}</div>
+						<div className={s.logo}>{TEXT.LogoTitle}</div>
 					</div>
 					<div className={s.roleWrapper}>
-						<div className={s.roleTitle}>{'Who are you?'}</div>
+						<div className={s.roleTitle}>{TEXT.WhoAreYou}</div>
 						<div className={s.role}>
 							<div className={`${s.roleItem} ${s.active}`}>Artist</div>
 							<div className={s.roleItem}>Producer</div>
@@ -104,7 +72,7 @@ export const RegisterForm = () => {
 					</div>
 					<div className={s.preferWrapper}>
 						<div className={s.preferTitle}>
-							{'What do you prefer in music?'}
+							{TEXT.YouPrefer}
 						</div>
 						<div className={s.prefer}>
 							{PREFER_TEXT.map((el, index) => (
@@ -115,25 +83,25 @@ export const RegisterForm = () => {
 					<div className={s.termsWrapper}>
 						<input type="checkbox" className={s.termsCheckbox} />
 						<div className={s.termTextWrapper}>
-							{'By creating an account, I agree to our '}
+							{TEXT.Terms_1}
 							<Link href="/terms" className={s.termLink}>
-								{'Terms of use '}
+								{TEXT.Terms_2}
 							</Link>
-							{'and '}
+							{TEXT.Terms_3}
 							<Link href="/priacy-policy" className={s.termLink}>
-								{'Privacy Policy '}
+								{TEXT.Terms_4}
 							</Link>
 						</div>
 					</div>
 					<Link href="/">
 						<button className={s.btnAuth} role="presentation">
-							{'Sign up'}
+							{TEXT.SignUp}
 						</button>
 					</Link>
 					<div className={s.signUpLine}>
-						<div>{'Already have an account? '}</div>
+						<div>{TEXT.HaveAcc}</div>
 						<Link href="/login" className={s.linkUnderline}>
-							{'Sign in'}
+							{TEXT.SignIn}
 						</Link>
 					</div>
 				</>

@@ -1,8 +1,8 @@
+@import "../../shared/style/variables.scss";
+
 .form {
-	margin-right: 100px;
 	border-radius: 70px;
 	width: 989px;
-	height: 825px;
 	backdrop-filter: blur(4px);
 	background: rgba(132, 132, 132, 0.3);
 
@@ -21,7 +21,7 @@
 
 	text-align: center;
 
-	font-family: var(--font-family);
+	font-family: $--font-family;
 	font-weight: 400;
 	font-size: 22px;
 	color: #fff;
@@ -33,7 +33,7 @@
 	.inputHeader,
 	.inputFooter {
 		display: flex;
-		font-family: var(--font-family);
+		font-family: $--font-family;
 		font-weight: 400;
 		font-size: 18px;
 		line-height: 133%;
@@ -47,7 +47,7 @@
 		justify-content: flex-start;
 		margin-top: 8px;
 
-		font-family: var(--font-family);
+		font-family: $--font-family;
 		font-weight: 400;
 		font-size: 16px;
 		line-height: 137%;
@@ -65,7 +65,7 @@
 		display: flex;
 		justify-content: space-between;
 
-		font-family: var(--font-family);
+		font-family: $--font-family;
 		font-weight: 400;
 		font-size: 32px;
 		line-height: 131%;
@@ -81,7 +81,7 @@
 	background: linear-gradient(219deg, #0a946d 0%, #19385c 100%);
 	margin-top: 16px;
 
-	font-family: var(--font-family);
+	font-family: $--font-family;
 	font-weight: 400;
 	font-size: 24px;
 	color: #fff;
@@ -91,15 +91,20 @@
 	display: flex;
 	justify-content: flex-start;
 	gap: 8px;
-	font-family: var(--font-family);
+	font-family: $--font-family;
 	font-weight: 400;
 	font-size: 18px;
 	line-height: 133%;
 	color: #fff;
 }
 .linkUnderline {
+	font-family: $--font-family;
+	font-weight: 400;
+	font-size: 18px;
+	line-height: 133%;
 	text-decoration: underline;
 	text-decoration-skip-ink: none;
+	color: $--main-white-000;
 }
 .titleWrapper {
 	display: flex;
@@ -111,7 +116,7 @@
 		cursor: pointer;
 	}
 	.logo {
-		font-family: var(--font-family);
+		font-family: $--font-family;
 		font-weight: 800;
 		font-size: 44px;
 		text-align: center;
@@ -126,7 +131,7 @@
 	margin-bottom: 50px;
 
 	.roleTitle {
-		font-family: var(--font-family);
+		font-family: $--font-family;
 		font-weight: 400;
 		font-size: 18px;
 		line-height: 133%;
@@ -152,7 +157,7 @@
 			width: 100%;
 			height: 58px;
 
-			font-family: var(--font-family);
+			font-family: $--font-family;
 			font-weight: 600;
 			font-size: 18px;
 			line-height: 133%;
@@ -161,7 +166,7 @@
 		.roleItem.active {
 			background: #fff;
 
-			font-family: var(--font-family);
+			font-family: $--font-family;
 			font-weight: 700;
 			font-size: 18px;
 			line-height: 133%;
@@ -177,7 +182,7 @@
 	margin-bottom: 50px;
 
 	.preferTitle {
-		font-family: var(--font-family);
+		font-family: $--font-family;
 		font-weight: 400;
 		font-size: 18px;
 		line-height: 133%;
@@ -201,7 +206,7 @@
 		height: 18px;
 	}
 	.termTextWrapper {
-		font-family: var(--font-family);
+		font-family: $--font-family;
 		font-weight: 400;
 		font-size: 16px;
 		line-height: 137%;
@@ -220,8 +225,10 @@
 	height: 64px;
 	background: linear-gradient(219deg, #0a946d 0%, #19385c 100%);
 
-	font-family: var(--font-family);
+	font-family: $--font-family;
 	font-weight: 400;
 	font-size: 24px;
 	color: #fff;
+	border: none;
+	cursor: pointer;
 }
