@@ -28,6 +28,7 @@ export const TEXT = {
   Beatpacks: 'Beatpacks',
   Plays: 'Plays',
   Duration: 'Duration',
+  Albums: 'Albums',
 };
 
 export const PREFER_TEXT = [
@@ -61,3 +62,5 @@ export const ContentArtistsData = { left: TEXT.Artists, right: TEXT.SeeAll };
 export const ContentProducersData = { left: TEXT.Producers, right: TEXT.SeeAll };
 
 export const ContentBeatpacksData = { left: TEXT.Beatpacks, right: TEXT.SeeAll };
+
+export const ContentAlbumsData = { left: TEXT.Albums, right: TEXT.SeeAll };
