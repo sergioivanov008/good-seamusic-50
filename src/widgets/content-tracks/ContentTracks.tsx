@@ -2,13 +2,7 @@ import { TrackItem, TrackItemType } from '@/shared/ui/track-item/TrackItem';
 import s from './ContentTracks.module.scss';
 import trackItemImg from '@/shared/assets/images/track_item_01.png';
 import { ContentTitle } from '@/shared/ui';
-
-const CONTENT_TRACKS = {
-	title: {
-		left: 'Tracks of the Day',
-		right: 'See all',
-	},
-};
+import { ContentTracksData } from '@/shared/constants/constants';
 
 const TRACK_ITEM_TITLE: TrackItemType = {
 	number: '№',
@@ -76,10 +70,7 @@ const TRACK_ITEMS: TrackItemType[] = [
 export const ContentTracks = () => {
 	return (
 		<div className={s.wrapper}>
-			<ContentTitle
-				left={CONTENT_TRACKS.title.left}
-				right={CONTENT_TRACKS.title.right}
-			/>
+			<ContentTitle data={ContentTracksData} />
 			<div className={s.contentMain}>
 				<TrackItem data={TRACK_ITEM_TITLE} />
 				<div className={s.contentItems}>
