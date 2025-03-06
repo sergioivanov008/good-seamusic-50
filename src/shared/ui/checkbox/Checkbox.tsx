@@ -18,15 +18,15 @@ export const Checkbox = ({ figure, filling }: Props) => {
 		setIsChecked(event.target.checked);
 	};
 
-  return (
-    <div className={s.checkbox}>
-      <input
-        type="checkbox"
-        className={curStyle}
-        disabled={isDisabled}
-        checked={isChecked}
-        onChange={handleCheckboxChange}
-      />
-    </div>
-  );
+	return (
+		<div className={s.checkbox}>
+			<input
+				type="checkbox"
+				className={curStyle}
+				disabled={isDisabled}
+				checked={isChecked}
+				onChange={handleCheckboxChange}
+			/>
+		</div>
+	);
 };

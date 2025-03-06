@@ -61,13 +61,18 @@ export const ContentTopLeft = () => {
 				</div>
 				<div className={s.blockTags}>
 					{TAGS.contentTopLeftTags.map((el) => (
-						<Tag key={el.id} id={el.id} value={el.value}/>
+						<Tag key={el.id} id={el.id} value={el.value} />
 					))}
 				</div>
 			</div>
 			<div className={s.blockImages}>
 				{CONTENT_TOP_LEFT_IMAGES.map((el) => (
-					<TopImage key={el.id} id={el.data.id} value={el.data.value} image={el.data.image} />
+					<TopImage
+						key={el.id}
+						id={el.data.id}
+						value={el.data.value}
+						image={el.data.image}
+					/>
 				))}
 			</div>
 		</div>
