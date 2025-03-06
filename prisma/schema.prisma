@@ -7,18 +7,156 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Post {
-  id        Int     @id @default(autoincrement())
-  title     String
-  content   String?
-  published Boolean @default(false)
-  authorId  Int
-  User      User    @relation(fields: [authorId], references: [id])
+enum Role {
+  user
+  admin
+  superuser
+}
+
+enum Level {
+  none
+  bot
+  full
 }
 
 model User {
   id    Int     @id @default(autoincrement())
-  email String  @unique
-  name  String?
-  Post  Post[]
+  username String  @unique
+  description  String
+  email  String @unique
+  password String
+  picture_url String @unique
+  access_level  Role
+  telegram_id Int @unique
+  premium_level Level
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+  is_active Boolean
+  is_adult Boolean
+  is_verified Boolean
+  artist_id Int @unique
+  producer_id Int @unique
+  license_id Int @unique
+  artist_profile Artist?
+  producer_profile Producer?
+  licenses Licence?
+  followed_squads Squad[]
+  followed_artists Artist[]
+  coauthored_playlists Playlist[]
+  saved_playlists Playlist[]
+  followed_producers Producer[]
+  saved_albums Album[]
+  followed_tags Tag[]
+}
+
+model Artist {
+  id Int @id @default(autoincrement())
+  username User @relation(fields: [id], references: [artist_id])
+  description String
+  picture_url String
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+  is_available Boolean
+  tags Tag[]
+  albums Album[]
+  squads Squad[]
+  tracks Track[]
+  followers Follower[]
+}
+
+model Producer {
+  id Int @id @default(autoincrement())
+  username User @relation(fields: [id], references: [producer_id])
+  description String
+  picture_url String @unique
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+  is_available Boolean
+  followers Follower[]
+  beats Beat[]
+  squads Squad[]
+  tags Tag[]
+  beatpacks Beatpack[]
+  soundkits Soundkit[]
+}
+
+model Licence {
+  id Int @id @default(autoincrement())
+  title
+  text
+  description
+  created_at
+  updated_at
+  author User @relation(fields: [id], references: [license_id])
+}
+
+model Squad {
+  id Int @id @default(autoincrement())
+  title
+  description
+  picture_url
+  created_at
+  updated_at
+  followers
+  creator
+  applicant_artists
+  applicant_producers
+  artists
+  producers
+}
+
+model Playlist {
+  id
+  title
+  description
+  picture_url
+  viewers_ids
+  likers_ids
+  created_at
+  updated_at
+  creator
+  authors
+  beats
+  tracks
+  tags
+}
+
+model Album {
+  id Int @id @default(autoincrement())
+  username User @relation(fields: [id], references: [producer_id])
+  description String
+  picture_url String @unique
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+  is_available Boolean
+  followers Follower[]
+  beats Beat[]
+  squads Squad[]
+  tags Tag[]
+  beatpacks Beatpack[]
+  soundkits Soundkit[]
+}
+
+model Tag {
+
+}
+
+model Track {
+
+}
+
+model Follower {
+
+}
+
+model Beat {
+
+}
+
+model Beatpack {
+
+}
+
+model Soundkit {
+
 }
