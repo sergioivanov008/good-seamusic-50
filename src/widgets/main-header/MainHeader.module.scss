@@ -1,84 +1,94 @@
 .mainHeader {
 	width: calc(100vw - 425px);
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-
+	height: 108px;
 	position: fixed;
-	top: 71px;
+	top: 0px;
 	left: 358px;
-}
-.mainHeaderSearch {
-	position: relative;
-
-	.searchLogo {
-		position: absolute;
-		top: 12px;
-		left: 20px;
-		width: 24px;
-		height: 24px;
-		background: transparent url(../../shared/assets/icons/Search_24.svg) center
-			center no-repeat;
-	}
-	.headerSearch {
-		padding-left: 58px;
-		border-radius: 100px;
-		width: 567px;
-		height: 44px;
-		backdrop-filter: blur(4px);
-		background: #262626;
-
-		font-family: var(--font-family);
-		font-weight: 400;
-		font-size: 20px;
-		line-height: 140%;
-		color: #989898;
-	}
-}
-.mainHeaderNav {
+	z-index: 1;
+	background-color: bisque;
+	background: linear-gradient(to bottom, rgb(22 22 22), transparent);
 	display: flex;
-	gap: 30px;
-	align-items: center;
+	align-items: flex-end;
 
-	.navBell {
-		width: 36px;
-		height: 36px;
-		background: transparent url(../../shared/assets/icons/Bell_24.svg) center
-			center no-repeat;
-	}
-	.navAvatar {
-		border-radius: 22px;
-		width: 176px;
-		height: 44px;
-		background: #282828;
+	.mainHeaderWrapper {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		gap: 25px;
-		position: relative;
-		padding: 0 25px 0 68px;
+		width: 100%;
 
-		.avatarName {
-			font-family: var(--font-family);
-			font-weight: 600;
-			font-size: 20px;
-			line-height: 140%;
-			color: #fff;
+		.mainHeaderSearch {
+			position: relative;
+
+			.searchLogo {
+				position: absolute;
+				top: 12px;
+				left: 20px;
+				width: 24px;
+				height: 24px;
+				background: transparent url(../../shared/assets/icons/Search_24.svg) center
+					center no-repeat;
+			}
+			.headerSearch {
+				padding-left: 58px;
+				border-radius: 100px;
+				width: 567px;
+				height: 44px;
+				backdrop-filter: blur(4px);
+				background: #262626;
+
+				font-family: var(--font-family);
+				font-weight: 400;
+				font-size: 20px;
+				line-height: 140%;
+				color: #989898;
+			}
 		}
-		.avatarArrow {
-			width: 16px;
-			height: 14px;
-			background: transparent url(../../shared/assets/icons/Arrow_16.svg) center
-				center no-repeat;
-		}
-		.avatarFoto {
-			position: absolute;
-			top: 0px;
-			left: 0px;
-			width: 44px;
-			height: 44px;
-			background: transparent url(../../shared/assets/images/Image-60.png)
-				center center no-repeat;
+		.mainHeaderNav {
+			display: flex;
+			gap: 30px;
+			align-items: center;
+
+			.navBell {
+				width: 36px;
+				height: 36px;
+				background: transparent url(../../shared/assets/icons/Bell_24.svg) center
+					center no-repeat;
+			}
+			.navAvatar {
+				border-radius: 22px;
+				width: 176px;
+				height: 44px;
+				background: #282828;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				gap: 25px;
+				position: relative;
+				padding: 0 25px 0 68px;
+
+				.avatarName {
+					font-family: var(--font-family);
+					font-weight: 600;
+					font-size: 20px;
+					line-height: 140%;
+					color: #fff;
+				}
+				.avatarArrow {
+					width: 16px;
+					height: 14px;
+					background: transparent url(../../shared/assets/icons/Arrow_16.svg) center
+						center no-repeat;
+				}
+				.avatarFoto {
+					position: absolute;
+					top: 0px;
+					left: 0px;
+					width: 44px;
+					height: 44px;
+					background: transparent url(../../shared/assets/images/Image-60.png)
+						center center no-repeat;
+				}
+			}
 		}
 	}
 }

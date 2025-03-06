@@ -2,6 +2,8 @@
 	margin: 156px 50px 50px 358px;
 
 	.mainContent {
+		width: calc(100vw - 425px);
+
 		display: flex;
 		flex-direction: column;
 		gap: 50px;
