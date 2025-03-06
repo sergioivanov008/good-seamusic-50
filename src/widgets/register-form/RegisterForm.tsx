@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import s from './RegisterForm.module.scss';
 import { useState } from 'react';
-import { FormTitle, PreferItem } from '@/shared/ui';
+import { FormTitle, InputLogin, PreferItem } from '@/shared/ui';
 import { ArrowBtn, GradientButton } from '@/shared/ui/buttons';
 import { PREFER_TEXT, RegisterFormTitleData, TEXT } from '@/shared/constants/constants';
 import ArrowForward from '@/shared/assets/icons/ArrowForward.svg';
@@ -20,25 +20,10 @@ export const RegisterForm = () => {
 				<>
 					<FormTitle data={RegisterFormTitleData} />
 					<div className={s.registerBlock}>
-						<div className={s.loginInput}>
-							<div className={s.inputHeader}>{TEXT.UserName}</div>
-							<input className={s.formInput} type="text" />
-						</div>
-						<div className={s.loginInput}>
-							<div className={s.inputHeader}>{TEXT.EmailAdress}</div>
-							<input className={s.formInput} type="text" />
-						</div>
-						<div className={s.loginInput}>
-							<div className={s.inputHeader}>{TEXT.Password}</div>
-							<input className={s.formInput} type="password" />
-							<div className={s.inputFooter}>
-								{TEXT.PasswordTips}
-							</div>
-						</div>
-						<div className={s.loginInput}>
-							<div className={s.inputHeader}>{TEXT.PasswordConfirm}</div>
-							<input className={s.formInput} type="password" />
-						</div>
+						<InputLogin type={'text'} header={TEXT.UserName} />
+						<InputLogin type={'text'} header={TEXT.EmailAdress} />
+						<InputLogin type={'password'} header={TEXT.Password} footer={TEXT.PasswordTips} />
+						<InputLogin type={'password'} header={TEXT.PasswordConfirm} />
 					</div>
 					<div className={s.nextStep}>
 						<div className={s.nextBtn} onClick={setNextStep}>

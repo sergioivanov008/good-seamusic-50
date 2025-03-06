@@ -1,54 +1,30 @@
 import Link from 'next/link';
 import s from './LoginForm.module.scss';
-import { Divider, FormTitle } from '@/shared/ui';
-import IconGoogle from '@/shared/assets/icons/SocialMediaLogoGoogle.svg';
-import IconSpotify from '@/shared/assets/icons/SocialMediaLogoSpotify.svg';
+import { Divider, FormTitle, InputLogin } from '@/shared/ui';
+import ImportedIconGoogle from '@/shared/assets/icons/SocialMediaLogoGoogle.svg';
+import ImportedIconSpotify from '@/shared/assets/icons/SocialMediaLogoSpotify.svg';
 import { LoginFormTitleData, TEXT } from '@/shared/constants/constants';
 import { GradientButton } from '@/shared/ui/buttons';
+
+const IconGoogle: React.FC<React.SVGProps<SVGSVGElement>> = ImportedIconGoogle;
+const IconSpotify: React.FC<React.SVGProps<SVGSVGElement>> = ImportedIconSpotify;
 
 export const LoginForm = () => {
 	return (
 		<form className={s.form}>
 			<FormTitle data={LoginFormTitleData} />
 			<div className={s.loginBlock}>
-				<div className={s.loginInput}>
-				  <input
-				  	className={s.formInput}
-				  	type="text"
-				  	placeholder={TEXT.LogInGooglePlaceholder}
-				  />
-					<div className={s.imgLogoInput}>
-						<IconGoogle width={24} height={24} />
-					</div>
-				</div>
-				<div className={s.loginInput}>
-				  <input
-				  	className={s.formInput}
-				  	type="text"
-				  	placeholder={TEXT.LogInSpotifyPlaceholder}
-				  />
-					<div className={s.imgLogoInput}>
-						<IconSpotify width={24} height={24} />
-					</div>
-				</div>
+				<InputLogin type={'text'} placeholder={TEXT.LogInGooglePlaceholder} icon={IconGoogle} />
+				<InputLogin type={'text'} placeholder={TEXT.LogInSpotifyPlaceholder} icon={IconSpotify} />
 			</div>
 			<Divider text={TEXT.OR} />
 			<div className={s.loginBlock}>
-				<div className={s.loginInput}>
-					<div className={s.inputHeader}>{TEXT.EmailAdress}</div>
-					<input className={s.formInput} type="text" placeholder="" />
-				</div>
-				<div className={s.loginInput}>
-					<div className={s.inputHeader}>{TEXT.Password}</div>
-					<input className={s.formInput} type="text" placeholder="" />
-					<div className={s.inputFooter}>
-						<Link href="/" className={s.linkUnderline}>
-						  {TEXT.ForgetPass}
-						</Link>
-					</div>
-				</div>
+				<InputLogin type={'text'} header={TEXT.EmailAdress} />
+				<InputLogin type={'password'} header={TEXT.Password} footer={TEXT.ForgetPass} footerTo='/'/>
 			</div>
-			<GradientButton text={TEXT.SignIn} to='/' />
+			<div className={s.btnWrapper}>
+			  <GradientButton text={TEXT.SignIn} to='/' />
+			</div>
 			<div className={s.signUpLine}>
 				<div>{TEXT.DontHaveAcc}</div>
 				<Link href="/register" className={s.linkUnderline}>
