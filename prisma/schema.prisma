@@ -37,16 +37,16 @@ model User {
   artist_id Int @unique
   producer_id Int @unique
   license_id Int @unique
-  artist_profile Artist?
-  producer_profile Producer?
+  artist_profile String
+  producer_profile String
   licenses Licence?
   followed_squads Squad[]
   followed_artists Artist[]
-  coauthored_playlists Playlist[]
-  saved_playlists Playlist[]
+  coauthored_playlists String
+  saved_playlists String
   followed_producers Producer[]
   saved_albums Album[]
-  followed_tags Tag[]
+  followed_tags String
 }
 
 model Artist {
@@ -58,10 +58,10 @@ model Artist {
   updated_at DateTime @updatedAt
   is_available Boolean
   tags Tag[]
-  albums Album[]
+  albums String
   squads Squad[]
   tracks Track[]
-  followers Follower[]
+  followers String
 }
 
 model Producer {
@@ -72,7 +72,7 @@ model Producer {
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
   is_available Boolean
-  followers Follower[]
+  followers String
   beats Beat[]
   squads Squad[]
   tags Tag[]
@@ -82,43 +82,43 @@ model Producer {
 
 model Licence {
   id Int @id @default(autoincrement())
-  title
-  text
-  description
-  created_at
-  updated_at
+  title String
+  text String
+  description String
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
   author User @relation(fields: [id], references: [license_id])
 }
 
 model Squad {
   id Int @id @default(autoincrement())
-  title
-  description
-  picture_url
-  created_at
-  updated_at
-  followers
-  creator
-  applicant_artists
-  applicant_producers
-  artists
-  producers
+  title String
+  description String
+  picture_url String @unique
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+  followers String
+  creator User[]
+  applicant_artists String
+  applicant_producers String
+  artists Artist[]
+  producers Producer[]
 }
 
 model Playlist {
-  id
-  title
-  description
-  picture_url
-  viewers_ids
-  likers_ids
-  created_at
-  updated_at
-  creator
-  authors
-  beats
-  tracks
-  tags
+  id Int @id @default(autoincrement())
+  title String
+  description String
+  picture_url String @unique
+  viewers_ids Int[]
+  likers_ids Int[]
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+  creator String
+  authors String
+  beats String
+  tracks String
+  tags Tag[]
 }
 
 model Album {
@@ -129,34 +129,122 @@ model Album {
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
   is_available Boolean
-  followers Follower[]
-  beats Beat[]
-  squads Squad[]
+  followers String
+  beats String
+  squads String
   tags Tag[]
-  beatpacks Beatpack[]
-  soundkits Soundkit[]
+  beatpacks String
+  soundkits String
 }
 
 model Tag {
-
+  id Int @id @default(autoincrement())
+  name String @unique
+  artists Artist[]
+  producers Producer[]
+  albums Album[]
+  beats Beat[]
+  beatpacks Beatpack[]
+  soundkits Soundkit[]
+  tracks Track[]
+  playlists Playlist[]
 }
 
 model Track {
-
-}
-
-model Follower {
-
+  id Int @id @default(autoincrement())
+  title String
+  description String
+  file_url String @unique
+  price Int
+  viewers_ids Int[]
+  likers_ids Int[]
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+  artists Artist[]
+  album String
+  license String
+  producers String
+  comments String
+  tags Tag[]
 }
 
 model Beat {
-
+  id Int @id @default(autoincrement())
+  title String
+  description String
+  picture_url String @unique
+  file_url String @unique
+  price Int
+  viewers_ids Int[]
+  likers_ids Int[]
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+  comments String
+  license String
+  producers Producer[]
+  tags Tag[]
+  beatpacks Beatpack[]
 }
 
 model Beatpack {
-
+  id Int @id @default(autoincrement())
+  title String
+  description String
+  viewers_ids Int[]
+  likers_ids Int[]
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+  producers Producer[]
+  beats Beat[]
+  tags Tag[]
 }
 
 model Soundkit {
+  id Int @id @default(autoincrement())
+  title String
+  description String
+  picture_url String @unique
+  file_url String @unique
+  price Int
+  viewers_ids Int[]
+  likers_ids Int[]
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+  license String
+  producers Producer[]
+  beats String
+  tags Tag[]
+}
 
+model Comment {
+  id Int @id @default(autoincrement())
+  text String
+  author_id Int
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+  author String
+}
+
+model Chat {
+  id Int @id @default(autoincrement())
+  messages String
+  participants String
+}
+
+model Messages {
+  id Int @id @default(autoincrement())
+  text String
+  author_id Int
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+  chat String
+  author String
+}
+
+model Notification {
+  id Int @id @default(autoincrement())
+  title String
+  description String
+  reciever String
+  created_at DateTime @default(now())
 }
