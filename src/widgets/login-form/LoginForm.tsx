@@ -18,10 +18,8 @@ export const LoginForm = () => {
 				<InputLogin type={'text'} placeholder={TEXT.LogInSpotifyPlaceholder} icon={IconSpotify} />
 			</div>
 			<Divider text={TEXT.OR} />
-			<div className={s.loginBlock}>
-				<InputLogin type={'text'} header={TEXT.EmailAdress} />
-				<InputLogin type={'password'} header={TEXT.Password} footer={TEXT.ForgetPass} footerTo='/'/>
-			</div>
+			<InputLogin type={'text'} header={TEXT.EmailAdress} />
+			<InputLogin type={'password'} header={TEXT.Password} footer={TEXT.ForgetPass} footerTo='/'/>
 			<div className={s.btnWrapper}>
 			  <GradientButton text={TEXT.SignIn} to='/' />
 			</div>
