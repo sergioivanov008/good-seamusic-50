@@ -3,7 +3,7 @@ import s from './Register.module.scss';
 
 export const Register = () => {
 	return (
-		<div className={s.auth}>
+		<div className={s.register}>
 			<AuthLeftBlock />
 			<RegisterForm />
 		</div>

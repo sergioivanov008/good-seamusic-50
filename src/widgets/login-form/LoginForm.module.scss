@@ -1,77 +1,42 @@
+@import "../../shared/style/variables.scss";
+
 .form {
-	margin-right: 100px;
 	border-radius: 70px;
 	width: 989px;
-	height: 825px;
 	backdrop-filter: blur(4px);
 	background: rgba(132, 132, 132, 0.3);
 
 	padding: 55px 60px;
-}
-.loginBlock {
-	display: flex;
-	flex-direction: column;
-	gap: 16px;
-}
-.formInput {
-	border: 1px solid #fff;
-	border-radius: 40px;
-	height: 64px;
-	background: transparent;
 
-	text-align: center;
-
-	font-family: var(--font-family);
-	font-weight: 400;
-	font-size: 22px;
-	color: #fff;
-}
-.loginInput {
-	display: flex;
-	flex-direction: column;
-
-	.inputHeader,
-	.inputFooter {
+	.loginBlock {
 		display: flex;
-		font-family: var(--font-family);
+		flex-direction: column;
+		gap: 16px;
+	}
+
+	.signUpLine {
+		margin-top: 8px;
+		display: flex;
+		justify-content: flex-start;
+		gap: 8px;
+		font-family: $--font-family;
 		font-weight: 400;
 		font-size: 18px;
 		line-height: 133%;
 		color: #fff;
 	}
-	.inputHeader {
-		justify-content: flex-start;
-		margin-bottom: 5px;
-	}
-	.inputFooter {
-		justify-content: flex-end;
-		margin-top: 8px;
-	}
-}
-.btnAuth {
-	border-radius: 40px;
-	width: 328px;
-	height: 64px;
-	background: linear-gradient(219deg, #0a946d 0%, #19385c 100%);
-	margin-top: 16px;
 
-	font-family: var(--font-family);
-	font-weight: 400;
-	font-size: 24px;
-	color: #fff;
-}
-.signUpLine {
-	margin-top: 8px;
-	display: flex;
-	justify-content: flex-start;
-	gap: 8px;
-	font-family: var(--font-family);
-	font-weight: 400;
-	font-size: 18px;
-	line-height: 133%;
-	color: #fff;
-}
-.linkUnderline {
-	text-decoration: underline;
-	text-decoration-skip-ink: none;
+	.linkUnderline {
+		font-family: $--font-family;
+		font-weight: 400;
+		font-size: 18px;
+		line-height: 133%;
+		text-decoration: underline;
+		text-decoration-skip-ink: none;
+		color: $--main-white-000;
+	}
+
+	.btnWrapper {
+		margin-top: 16px;
+	}
 }

@@ -6,3 +6,9 @@ export type MainButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
 	IconLeft?: React.ComponentType<React.HTMLAttributes<HTMLElement>>;
 	IconRight?: React.ComponentType<React.HTMLAttributes<HTMLElement>>;
 };
+
+export type GradientButtonProps = {
+	text: string;
+	to: string;
+	handler?: () => void;
+};

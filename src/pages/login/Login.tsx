@@ -3,7 +3,7 @@ import s from './Login.module.scss';
 
 export const Login = () => {
 	return (
-		<div className={s.auth}>
+		<div className={s.login}>
 			<AuthLeftBlock />
 			<LoginForm />
 		</div>

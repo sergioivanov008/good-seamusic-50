@@ -1,46 +1,34 @@
 import Link from 'next/link';
 import s from './LoginForm.module.scss';
-import { Divider, FormTitle } from '@/shared/ui';
+import { Divider, FormTitle, InputLogin } from '@/shared/ui';
+import ImportedIconGoogle from '@/shared/assets/icons/SocialMediaLogoGoogle.svg';
+import ImportedIconSpotify from '@/shared/assets/icons/SocialMediaLogoSpotify.svg';
+import { LoginFormTitleData, TEXT } from '@/shared/constants/constants';
+import { GradientButton } from '@/shared/ui/buttons';
+
+const IconGoogle: React.FC<React.SVGProps<SVGSVGElement>> = ImportedIconGoogle;
+const IconSpotify: React.FC<React.SVGProps<SVGSVGElement>> = ImportedIconSpotify;
 
 export const LoginForm = () => {
 	return (
 		<form className={s.form}>
-			<FormTitle data={{ left: 'Sign in', right: 'SeaMusic' }} />
+			<FormTitle data={LoginFormTitleData} />
 			<div className={s.loginBlock}>
-				<input
-					className={s.formInput}
-					type="text"
-					placeholder={'Continue with Google'}
-				/>
-				<input
-					className={s.formInput}
-					type="text"
-					placeholder={'Continue with Spotify'}
-				/>
+				<InputLogin type={'text'} placeholder={TEXT.LogInGooglePlaceholder} icon={IconGoogle} />
+				<InputLogin type={'text'} placeholder={TEXT.LogInSpotifyPlaceholder} icon={IconSpotify} />
 			</div>
-			<Divider text={'OR'} />
+			<Divider text={TEXT.OR} />
 			<div className={s.loginBlock}>
-				<div className={s.loginInput}>
-					<div className={s.inputHeader}>{'Email adress'}</div>
-					<input className={s.formInput} type="text" placeholder="" />
-				</div>
-				<div className={s.loginInput}>
-					<div className={s.inputHeader}>{'Password'}</div>
-					<input className={s.formInput} type="text" placeholder="" />
-					<div className={s.inputFooter}>
-						<Link href="/">{'Forget your password'}</Link>
-					</div>
-				</div>
+				<InputLogin type={'text'} header={TEXT.EmailAdress} />
+				<InputLogin type={'password'} header={TEXT.Password} footer={TEXT.ForgetPass} footerTo='/'/>
 			</div>
-			<Link href="/">
-				<button className={s.btnAuth} role="presentation">
-					{'Sign in'}
-				</button>
-			</Link>
+			<div className={s.btnWrapper}>
+			  <GradientButton text={TEXT.SignIn} to='/' />
+			</div>
 			<div className={s.signUpLine}>
-				<div>{'Don’t have an account?'}</div>
+				<div>{TEXT.DontHaveAcc}</div>
 				<Link href="/register" className={s.linkUnderline}>
-					{'Sign up'}
+					{TEXT.SignUp}
 				</Link>
 			</div>
 		</form>

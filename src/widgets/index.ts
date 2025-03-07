@@ -6,3 +6,8 @@ export { MainHeader } from './main-header/MainHeader';
 export { MainLogo } from './main-logo/MainLogo';
 export { MainMenu } from './main-menu/MainMenu';
 export { ContentTracks } from './content-tracks/ContentTracks';
+export { ContentArtists } from './content-artists/ContentArtists';
+export { ContentProducers } from './content-producers/ContentProducers';
+export { ContentBeatpacks } from './content-beatpacks/ContentBeatpacks';
+export { ContentAlbums } from './content-albums/ContentAlbums';
+export { ContentPlaylists } from './content-playlists/ContentPlaylists';

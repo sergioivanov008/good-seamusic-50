@@ -8,3 +8,7 @@ export { TrackItem } from './track-item/TrackItem';
 export { FormTitle } from './form-title/FormTitle';
 export { PreferItem } from './prefer-item/PreferItem';
 export { Checkbox } from './checkbox/Checkbox';
+export { InputLogin } from './input-login/input-login';
+export { ArtistProducerItem } from './artist-producer-item/ArtistProducerItem';
+export { BeatpackItem } from './beatpack-item/BeatpackItem';
+export { CircleLike } from './circle-like/CircleLike';
