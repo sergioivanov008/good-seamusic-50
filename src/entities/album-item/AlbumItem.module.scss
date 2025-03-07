@@ -47,17 +47,5 @@
 		position: absolute;
 		bottom: 0px;
 		right: 0px;
-
-		.circleLike {
-			border-radius: 900px;
-			width: 51px;
-			height: 51px;
-			background: $--main-black-850;
-			opacity: 0.8;
-
-			display: flex;
-			justify-content: center;
-			align-items: center;
-		}
 	}
 }

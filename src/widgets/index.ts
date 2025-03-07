@@ -10,3 +10,4 @@ export { ContentArtists } from './content-artists/ContentArtists';
 export { ContentProducers } from './content-producers/ContentProducers';
 export { ContentBeatpacks } from './content-beatpacks/ContentBeatpacks';
 export { ContentAlbums } from './content-albums/ContentAlbums';
+export { ContentPlaylists } from './content-playlists/ContentPlaylists';

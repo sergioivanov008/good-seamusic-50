@@ -2,6 +2,7 @@ import {
 	ContentAlbums,
 	ContentArtists,
 	ContentBeatpacks,
+	ContentPlaylists,
 	ContentProducers,
 	ContentTop,
 	ContentTracks,
@@ -24,7 +25,7 @@ export const Main = () => {
 				<ContentProducers />
 				<ContentBeatpacks />
 				<ContentAlbums />
-				<div className={s.contentPlaylists}>contentPlaylists</div>
+				<ContentPlaylists />
 			</div>
 		</div>
 	);
