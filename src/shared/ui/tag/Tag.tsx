@@ -1,6 +1,6 @@
 import s from './Tag.module.scss';
 
-type TagProps = {
+export type TagProps = {
 	id: string;
 	value: string;
 };

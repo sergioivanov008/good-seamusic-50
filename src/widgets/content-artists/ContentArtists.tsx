@@ -8,31 +8,61 @@ const ARTIST_ITEMS = [
 		id: '1',
 		photo: artistItemImg,
 		name: 'Tiago PZK',
+		text: 'Bizzarap: “some info” mb about next concert or smth either ',
+		tags: [
+			{id: '1', value: 'hip-hop'},
+			{id: '2', value: 'retrowave'},
+		],
 	},
 	{
 		id: '2',
 		photo: artistItemImg,
 		name: 'Tiago PZK',
+		text: 'Bizzarap: “some info” mb about next concert or smth either ',
+		tags: [
+			{id: '1', value: 'hip-hop'},
+			{id: '2', value: 'retrowave'},
+		],
 	},
 	{
 		id: '3',
 		photo: artistItemImg,
 		name: 'Tiago PZK',
+		text: 'Bizzarap: “some info” mb about next concert or smth either ',
+		tags: [
+			{id: '1', value: 'hip-hop'},
+			{id: '2', value: 'retrowave'},
+		],
 	},
 	{
 		id: '4',
 		photo: artistItemImg,
 		name: 'Tiago PZK',
+		text: 'Bizzarap: “some info” mb about next concert or smth either ',
+		tags: [
+			{id: '1', value: 'hip-hop'},
+			{id: '2', value: 'retrowave'},
+		],
 	},
 	{
 		id: '5',
 		photo: artistItemImg,
 		name: 'Tiago PZK',
+		text: 'Bizzarap: “some info” mb about next concert or smth either ',
+		tags: [
+			{id: '1', value: 'hip-hop'},
+			{id: '2', value: 'retrowave'},
+		],
 	},
 	{
 		id: '6',
 		photo: artistItemImg,
 		name: 'Tiago PZK',
+		text: 'Bizzarap: “some info” mb about next concert or smth either ',
+		tags: [
+			{id: '1', value: 'hip-hop'},
+			{id: '2', value: 'retrowave'},
+		],
 	},
 ];
 
