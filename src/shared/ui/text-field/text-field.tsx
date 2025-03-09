@@ -6,7 +6,7 @@ import { ChangeEvent, useState } from 'react';
 
 export const TextField = ({
 	name,
-	placeholder='Text input',
+	placeholder = 'Text input',
 	text,
 	hint,
 	status,
@@ -26,15 +26,15 @@ export const TextField = ({
 			{name && <div className={s.name}>{name}</div>}
 			<div className={s.inputWrapper}>
 				<input
-				  type="text"
+					type="text"
 					placeholder={placeholder}
 					className={s.inputText}
 					value={value}
 					onChange={handlerInput}
 				/>
 				<div className={s.inputColorField} />
-			  {IconLeft && <IconLeft className={s.iconLeft} />}
-			  {IconRight && <IconRight className={s.iconRight} />}
+				{IconLeft && <IconLeft className={s.iconLeft} />}
+				{IconRight && <IconRight className={s.iconRight} />}
 			</div>
 			{hint && <div className={s.hint}>{hint}</div>}
 		</div>
