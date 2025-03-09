@@ -1,4 +1,5 @@
 import {
+	AudioPlayer,
 	ContentAlbums,
 	ContentArtists,
 	ContentBeatpacks,
@@ -27,6 +28,7 @@ export const Main = () => {
 				<ContentAlbums />
 				<ContentPlaylists />
 			</div>
+			<AudioPlayer />
 		</div>
 	);
 };
