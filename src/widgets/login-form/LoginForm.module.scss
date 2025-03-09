@@ -2,11 +2,12 @@
 
 .form {
 	border-radius: 70px;
-	width: 989px;
+	width: 100%;
+	max-width: 870px;
 	backdrop-filter: blur(4px);
 	background: rgba(132, 132, 132, 0.3);
 
-	padding: 55px 60px;
+	padding: 60px;
 
 	.loginBlock {
 		display: flex;

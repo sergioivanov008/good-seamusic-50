@@ -26,4 +26,5 @@ body {
 	/* Осторожно относимся к выбору контента */
 	-webkit-user-select: none;
 	background: #161616;
+	padding: 0 16px;
 }
