@@ -1,20 +1,17 @@
 .mainHeader {
-	width: calc(100vw - 425px);
-	height: 108px;
+	height: 156px;
 	position: fixed;
 	top: 0px;
-	left: 358px;
+	padding-left: 308px;
 	z-index: 10;
-	background-color: bisque;
-	background: linear-gradient(to bottom, rgb(22 22 22), transparent);
-	display: flex;
-	align-items: flex-end;
+	background-color: #161616;
+	padding-top: 60px;
 
 	.mainHeaderWrapper {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		width: 100%;
+		width: 1512px;
 
 		.mainHeaderSearch {
 			position: relative;
@@ -89,6 +86,12 @@
 						center center no-repeat;
 				}
 			}
+		}
+	}
+
+	@media (max-width: 1866px) {
+		& .mainHeaderWrapper {
+			width: calc(100vw - 355px);
 		}
 	}
 }

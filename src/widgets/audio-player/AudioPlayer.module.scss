@@ -1,14 +1,13 @@
 @import "../../shared/style/variables.scss";
 
 .audioWrapper {
-  width: calc(100vw - 425px);
-  height: 100px;
   position: fixed;
-  bottom: 40px;
-  left: 358px;
+  bottom: 20px;
+  padding-left: 308px;
   z-index: 10;
 
   .audioPlayer {
+    width: 1512px;
     border-radius: 55px;
     background: #282828;
     padding: 15px;
@@ -138,4 +137,10 @@
       }
     }
   }
+
+	@media (max-width: 1866px) {
+		& .audioPlayer {
+			width: calc(100vw - 355px);
+		}
+	}
 }

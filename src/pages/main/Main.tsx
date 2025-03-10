@@ -19,14 +19,16 @@ export const Main = () => {
 			<MainLogo />
 			<MainHeader />
 			<MainMenu />
-			<div className={s.mainContent}>
-				<ContentTop />
-				<ContentTracks />
-				<ContentArtists />
-				<ContentProducers />
-				<ContentBeatpacks />
-				<ContentAlbums />
-				<ContentPlaylists />
+			<div className={s.content}>
+			  <div className={s.mainContent}>
+			  	<ContentTop />
+			  	<ContentTracks />
+			  	<ContentArtists />
+			  	<ContentProducers />
+			  	<ContentBeatpacks />
+			  	<ContentAlbums />
+			  	<ContentPlaylists />
+			  </div>
 			</div>
 			<AudioPlayer />
 		</div>
