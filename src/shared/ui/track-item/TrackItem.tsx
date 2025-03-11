@@ -15,6 +15,7 @@ export type TrackItemType = {
 	listens: string;
 	playTime: string;
 	like: string;
+	trackUrl?: string;
 	isTitle?: boolean;
 };
 

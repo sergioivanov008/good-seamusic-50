@@ -12,6 +12,7 @@ import {
 	MainMenu,
 } from '@/widgets';
 import s from './Main.module.scss';
+import { TRACK_ITEMS } from '@/shared/constants/constants';
 
 export const Main = () => {
 	return (
@@ -30,7 +31,7 @@ export const Main = () => {
 			  	<ContentPlaylists />
 			  </div>
 			</div>
-			<AudioPlayer />
+			<AudioPlayer tracks={TRACK_ITEMS} />
 		</div>
 	);
 };
