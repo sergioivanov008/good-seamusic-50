@@ -1,6 +1,26 @@
 import { TrackItemType } from "../ui/track-item/TrackItem";
 import trackItemImg from '@/shared/assets/images/track_item_01.png';
 
+import ImportedIconShuffle from '@/shared/assets/icons/action_shuffle.svg';
+import ImportedIconPrev from '@/shared/assets/icons/action_prev.svg';
+import ImportedIconPause from '@/shared/assets/icons/action_pause.svg';
+import ImportedIconPlay from '@/shared/assets/icons/action_play.svg';
+import ImportedIconNext from '@/shared/assets/icons/action_next.svg';
+import ImportedIconRepeat from '@/shared/assets/icons/action_repeat.svg';
+import ImportedIconMute from '@/shared/assets/icons/action_mute.svg';
+import ImportedIconSound from '@/shared/assets/icons/action_sound.svg';
+import ImportedIconLink from '@/shared/assets/icons/action_link.svg';
+
+const IconShuffle: React.FC<React.SVGProps<SVGSVGElement>> = ImportedIconShuffle;
+const IconPrev: React.FC<React.SVGProps<SVGSVGElement>> = ImportedIconPrev;
+const IconPause: React.FC<React.SVGProps<SVGSVGElement>> = ImportedIconPause;
+const IconPlay: React.FC<React.SVGProps<SVGSVGElement>> = ImportedIconPlay;
+const IconNext: React.FC<React.SVGProps<SVGSVGElement>> = ImportedIconNext;
+const IconRepeat: React.FC<React.SVGProps<SVGSVGElement>> = ImportedIconRepeat;
+const IconMute: React.FC<React.SVGProps<SVGSVGElement>> = ImportedIconMute;
+const IconSound: React.FC<React.SVGProps<SVGSVGElement>> = ImportedIconSound;
+const IconLink: React.FC<React.SVGProps<SVGSVGElement>> = ImportedIconLink;
+
 export const TEXT = {
   LogoTitle: 'SeaMusic',
   AuthLeftBlockTitle: 'Self-expression for everyone',
@@ -137,3 +157,15 @@ export const TRACK_ITEMS: TrackItemType[] = [
     trackUrl: 'https://dl.musopen.org/recordings/0d2b20df-6ba6-46c9-b058-62f5e7976cb0.mp3',
 	},
 ];
+
+export const AUDIO_ICONS = {
+	IconShuffle,
+	IconPrev,
+	IconPause,
+	IconPlay,
+	IconNext,
+	IconRepeat,
+	IconMute,
+	IconSound,
+	IconLink,
+};

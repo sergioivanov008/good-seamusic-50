@@ -1,29 +1,10 @@
 'use client';
 
 import s from './AudioPlayer.module.scss';
-import ImportedIconShuffle from '@/shared/assets/icons/action_shuffle.svg';
-import ImportedIconPrev from '@/shared/assets/icons/action_prev.svg';
-import ImportedIconPause from '@/shared/assets/icons/action_pause.svg';
-import ImportedIconPlay from '@/shared/assets/icons/action_play.svg';
-import ImportedIconNext from '@/shared/assets/icons/action_next.svg';
-import ImportedIconRepeat from '@/shared/assets/icons/action_repeat.svg';
-import ImportedIconMute from '@/shared/assets/icons/action_mute.svg';
-import ImportedIconSound from '@/shared/assets/icons/action_sound.svg';
-import ImportedIconLink from '@/shared/assets/icons/action_link.svg';
 import { ActionIcon } from '@/shared/ui';
 import { useRef, useState } from 'react';
 import { TrackItemType } from '@/shared/ui/track-item/TrackItem';
-import { TEXT } from '@/shared/constants/constants';
-
-const IconShuffle: React.FC<React.SVGProps<SVGSVGElement>> = ImportedIconShuffle;
-const IconPrev: React.FC<React.SVGProps<SVGSVGElement>> = ImportedIconPrev;
-const IconPause: React.FC<React.SVGProps<SVGSVGElement>> = ImportedIconPause;
-const IconPlay: React.FC<React.SVGProps<SVGSVGElement>> = ImportedIconPlay;
-const IconNext: React.FC<React.SVGProps<SVGSVGElement>> = ImportedIconNext;
-const IconRepeat: React.FC<React.SVGProps<SVGSVGElement>> = ImportedIconRepeat;
-const IconMute: React.FC<React.SVGProps<SVGSVGElement>> = ImportedIconMute;
-const IconSound: React.FC<React.SVGProps<SVGSVGElement>> = ImportedIconSound;
-const IconLink: React.FC<React.SVGProps<SVGSVGElement>> = ImportedIconLink;
+import { AUDIO_ICONS, TEXT } from '@/shared/constants/constants';
 
 type AudioPlayerProps = {
 	tracks: TrackItemType[];
@@ -148,15 +129,15 @@ export const AudioPlayer = ({ tracks }: AudioPlayerProps) => {
 		  	</div>
 		  	<div className={s.center}>
 				  <div className={s.time}>{currentTimeFormatted}</div>
-					<ActionIcon icon={IconShuffle} />
-					<ActionIcon icon={IconPrev} handler={handlePlayPrevTrack} />
-					<ActionIcon icon={isAudioPlaying ? IconPause : IconPlay} handler={handlePlayTrack} />
-					<ActionIcon icon={IconNext} handler={handlePlayNextTrack} />
-					<ActionIcon icon={IconRepeat} />
+					<ActionIcon icon={AUDIO_ICONS.IconShuffle} />
+					<ActionIcon icon={AUDIO_ICONS.IconPrev} handler={handlePlayPrevTrack} />
+					<ActionIcon icon={isAudioPlaying ? AUDIO_ICONS.IconPause : AUDIO_ICONS.IconPlay} handler={handlePlayTrack} />
+					<ActionIcon icon={AUDIO_ICONS.IconNext} handler={handlePlayNextTrack} />
+					<ActionIcon icon={AUDIO_ICONS.IconRepeat} />
 					<div className={s.time}>{durationFormatted}</div>
 		  	</div>
 		  	<div className={s.right}>
-				  <ActionIcon icon={muted ? IconMute : IconSound} handler={handleMute} />
+				  <ActionIcon icon={muted ? AUDIO_ICONS.IconMute : AUDIO_ICONS.IconSound} handler={handleMute} />
 		  	  <div className={s.volumeWrapper}>
 						<input
               type="range"
@@ -169,7 +150,7 @@ export const AudioPlayer = ({ tracks }: AudioPlayerProps) => {
               className={s.volume}
             />
 					</div>
-				  <ActionIcon icon={IconLink}/>
+				  <ActionIcon icon={AUDIO_ICONS.IconLink}/>
 		  	</div>
 		  	<div className={s.durationWrapper}>
 					<input
