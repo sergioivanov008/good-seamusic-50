@@ -1,4 +1,5 @@
 import {
+	AudioPlayer,
 	ContentAlbums,
 	ContentArtists,
 	ContentBeatpacks,
@@ -11,6 +12,7 @@ import {
 	MainMenu,
 } from '@/widgets';
 import s from './Main.module.scss';
+import { TRACK_ITEMS } from '@/shared/constants/constants';
 
 export const Main = () => {
 	return (
@@ -18,15 +20,18 @@ export const Main = () => {
 			<MainLogo />
 			<MainHeader />
 			<MainMenu />
-			<div className={s.mainContent}>
-				<ContentTop />
-				<ContentTracks />
-				<ContentArtists />
-				<ContentProducers />
-				<ContentBeatpacks />
-				<ContentAlbums />
-				<ContentPlaylists />
+			<div className={s.content}>
+			  <div className={s.mainContent}>
+			  	<ContentTop />
+			  	<ContentTracks />
+			  	<ContentArtists />
+			  	<ContentProducers />
+			  	<ContentBeatpacks />
+			  	<ContentAlbums />
+			  	<ContentPlaylists />
+			  </div>
 			</div>
+			<AudioPlayer tracks={TRACK_ITEMS} />
 		</div>
 	);
 };

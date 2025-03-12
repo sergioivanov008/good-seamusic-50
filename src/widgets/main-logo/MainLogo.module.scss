@@ -1,11 +1,13 @@
+@import "../../shared/style/variables.scss";
+
 .mainLogo {
-	font-family: var(--font-family);
+	font-family: $--font-family;
 	font-weight: 800;
 	font-size: 44px;
 	text-align: center;
-	color: #fff;
+	color: $--main-white-000;
 
 	position: fixed;
 	top: 60px;
-	left: 50px;
+	z-index: 11;
 }
