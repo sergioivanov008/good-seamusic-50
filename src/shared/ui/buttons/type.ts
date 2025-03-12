@@ -8,7 +8,7 @@ export type MainButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
 };
 
 export type GradientButtonProps = {
-	text: string;
+	children: ReactNode;
 	to: string;
 	handler?: () => void;
 };

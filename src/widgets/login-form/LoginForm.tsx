@@ -21,7 +21,7 @@ export const LoginForm = () => {
 			<InputLogin type={'text'} header={TEXT.EmailAdress} />
 			<InputLogin type={'password'} header={TEXT.Password} footer={TEXT.ForgetPass} footerTo='/'/>
 			<div className={s.btnWrapper}>
-			  <GradientButton text={TEXT.SignIn} to='/' />
+			  <GradientButton to='/'>{TEXT.SignIn}</GradientButton>
 			</div>
 			<div className={s.signUpLine}>
 				<div>{TEXT.DontHaveAcc}</div>

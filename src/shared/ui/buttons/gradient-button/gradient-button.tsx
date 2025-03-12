@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { GradientButtonProps } from '../type';
 import s from './gradient-button.module.scss';
 
-export const GradientButton = ({ text, to, handler }: GradientButtonProps) => {
+export const GradientButton = ({ children, to, handler }: GradientButtonProps) => {
 	const handlerClick = () => handler && handler();
 
 	return (
@@ -15,7 +15,7 @@ export const GradientButton = ({ text, to, handler }: GradientButtonProps) => {
 		  	onClick={handlerClick}
 		  >
 		  	<div className={s.btnText}>
-		  	  {text}
+		  	  {children}
 		  	</div>
 		  </div>
 		</Link>

@@ -78,7 +78,7 @@ export const RegisterForm = () => {
 							</Link>
 						</div>
 					</div>
-					<GradientButton text={TEXT.SignUp} to='/' />
+					<GradientButton to='/'>{TEXT.SignUp}</GradientButton>
 					<div className={s.signUpLine}>
 						<div>{TEXT.HaveAcc}</div>
 						<Link href="/login" className={s.linkUnderline}>
