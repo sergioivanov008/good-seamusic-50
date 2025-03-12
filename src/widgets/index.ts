@@ -12,3 +12,4 @@ export { ContentBeatpacks } from './content-beatpacks/ContentBeatpacks';
 export { ContentAlbums } from './content-albums/ContentAlbums';
 export { ContentPlaylists } from './content-playlists/ContentPlaylists';
 export { AudioPlayer } from './audio-player/AudioPlayer';
+export { ProfileHeader } from './profile-header/ProfileHeader';

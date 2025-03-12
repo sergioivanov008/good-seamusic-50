@@ -10,6 +10,7 @@ import {
 	MainHeader,
 	MainLogo,
 	MainMenu,
+	ProfileHeader,
 } from '@/widgets';
 import s from './Main.module.scss';
 import { TRACK_ITEMS } from '@/shared/constants/constants';
@@ -29,6 +30,7 @@ export const Main = () => {
 			  	<ContentBeatpacks />
 			  	<ContentAlbums />
 			  	<ContentPlaylists />
+			    <ProfileHeader />
 			  </div>
 			</div>
 			<AudioPlayer tracks={TRACK_ITEMS} />
