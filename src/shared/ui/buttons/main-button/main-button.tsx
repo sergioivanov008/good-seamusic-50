@@ -9,7 +9,7 @@ export const MainBtn = ({
 	...props
 }: MainButtonProps) => {
 	const getClassnameForType = (
-		buttonType: 'text' | 'secondary' | 'primary' | 'arrowBtn'
+		buttonType: 'text' | 'secondary' | 'primary' | 'arrowBtn' | 'blackWhite'
 	) => {
 		switch (buttonType) {
 			case 'primary':
@@ -18,6 +18,8 @@ export const MainBtn = ({
 				return styles.buttonSecondary;
 			case 'text':
 				return styles.buttonText;
+			case 'blackWhite':
+				return styles.buttonBlackWhite;
 			default:
 				return '';
 		}
