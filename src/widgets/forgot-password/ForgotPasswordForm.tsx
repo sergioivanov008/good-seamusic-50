@@ -8,9 +8,13 @@ export const ForgotPasswordForm = () => {
 		<>
 			<FormTitle data={ForgotPasswordFormData} />
 			<div className={s.passwordBlock}>
-						<InputLogin type={'password'} header={TEXT.Password} footer={TEXT.PasswordTips} />
-						<InputLogin type={'password'} header={TEXT.PasswordConfirm} />
-					</div>
+				<InputLogin
+					type={'password'}
+					header={TEXT.Password}
+					footer={TEXT.PasswordTips}
+				/>
+				<InputLogin type={'password'} header={TEXT.PasswordConfirm} />
+			</div>
 			<div className={s.btnWrapper}>
 				<GradientButton to="/">{TEXT.SignIn}</GradientButton>
 			</div>
