@@ -56,12 +56,21 @@ export const TEXT = {
 	Albums: 'Albums',
 	Playlists: 'Playlists',
 	StartTime: '00 : 00',
+	ConfirmAccount: 'Confirm account',
+	ConfirmText: 'We sent to you email ',
+	TempEmail: 'tempemail@tempemail.com',
+	Code: 'Code',
 };
 
 export const LoginFormTitleData = { left: TEXT.SignIn, right: TEXT.LogoTitle };
 
 export const RegisterFormTitleData = {
 	left: TEXT.SignUp,
+	right: TEXT.LogoTitle,
+};
+
+export const ConfirmAccountFormData = {
+	left: TEXT.ConfirmAccount,
 	right: TEXT.LogoTitle,
 };
 
