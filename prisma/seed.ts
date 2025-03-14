@@ -49,26 +49,50 @@ async function tagSeed() {
 	await prisma.tags.createMany({
 		data: [
 			{
-				tag_name: 'Hip-hop',
-				description: 'Hip-hop style',
+				tag_name: 'Deep house',
+				description: 'Deep house style',
 				artist_id: 1,
 				producer_id: 1,
 			},
 			{
-				tag_name: 'Reggae',
-				description: 'Reggae style',
+				tag_name: 'Trap',
+				description: 'Trap style',
 				artist_id: 1,
 				producer_id: 1,
 			},
 			{
-				tag_name: 'Pop',
-				description: 'Pop style',
+				tag_name: 'Minimal',
+				description: 'Minimal style',
 				artist_id: 1,
 				producer_id: 1,
 			},
 			{
-				tag_name: 'Jazz',
-				description: 'Jazz style',
+				tag_name: 'Indie rock',
+				description: 'Indie rock style',
+				artist_id: 1,
+				producer_id: 1,
+			},
+			{
+				tag_name: 'Metal',
+				description: 'Metal style',
+				artist_id: 1,
+				producer_id: 1,
+			},
+			{
+				tag_name: 'Mitol',
+				description: 'Mitol style',
+				artist_id: 1,
+				producer_id: 1,
+			},
+			{
+				tag_name: 'Funk',
+				description: 'Funk style',
+				artist_id: 1,
+				producer_id: 1,
+			},
+			{
+				tag_name: 'Electronica',
+				description: 'Electronica style',
 				artist_id: 1,
 				producer_id: 1,
 			},
@@ -79,8 +103,44 @@ async function tagSeed() {
 				producer_id: 1,
 			},
 			{
-				tag_name: 'Electronic',
-				description: 'Electronic style',
+				tag_name: 'Chill-wave',
+				description: 'Chill-wave style',
+				artist_id: 1,
+				producer_id: 1,
+			},
+			{
+				tag_name: 'NU Disco',
+				description: 'NU Disco style',
+				artist_id: 1,
+				producer_id: 1,
+			},
+			{
+				tag_name: 'NE Disco',
+				description: 'NE Disco style',
+				artist_id: 1,
+				producer_id: 1,
+			},
+			{
+				tag_name: 'Acoustic',
+				description: 'Acoustic style',
+				artist_id: 1,
+				producer_id: 1,
+			},
+			{
+				tag_name: 'Folk',
+				description: 'Folk style',
+				artist_id: 1,
+				producer_id: 1,
+			},
+			{
+				tag_name: 'Lo-fi',
+				description: 'Lo-fi style',
+				artist_id: 1,
+				producer_id: 1,
+			},
+			{
+				tag_name: 'Indie-pop',
+				description: 'Indie-pop style',
 				artist_id: 1,
 				producer_id: 1,
 			},
@@ -90,32 +150,14 @@ async function tagSeed() {
 				artist_id: 1,
 				producer_id: 1,
 			},
-			{
-				tag_name: 'Classical',
-				description: 'Classical style',
-				artist_id: 1,
-				producer_id: 1,
-			},
-			{
-				tag_name: 'Country',
-				description: 'Country style',
-				artist_id: 1,
-				producer_id: 1,
-			},
-			{
-				tag_name: 'Blues',
-				description: 'Blues style',
-				artist_id: 1,
-				producer_id: 1,
-			},
 		],
 	});
 }
 
 async function main() {
 	try {
-		await artistsSeed();
-		await producersSeed();
+		// await artistsSeed();
+		// await producersSeed();
 		await tagSeed();
 	} catch (e) {
 		console.error(e);
