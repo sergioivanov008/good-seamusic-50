@@ -17,16 +17,14 @@ const RootLayout = ({
 		<html lang="ru">
 			<body className={montserrat.className}>
 				<div className={s.main}>
-		    	<MainLogo />
-		    	<MainHeader />
-		    	<MainMenu />
-		    	<div className={s.content}>
-					  <div className={s.mainContent}>
-					    {children}
-					  </div>
-		    	</div>
-		    	<AudioPlayer tracks={TRACK_ITEMS} />
-		    </div>
+					<MainLogo />
+					<MainHeader />
+					<MainMenu />
+					<div className={s.content}>
+						<div className={s.mainContent}>{children}</div>
+					</div>
+					<AudioPlayer tracks={TRACK_ITEMS} />
+				</div>
 			</body>
 		</html>
 	);

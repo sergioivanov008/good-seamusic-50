@@ -11,13 +11,13 @@ import {
 export const Main = () => {
 	return (
 		<>
-					<ContentTop />
-					<ContentTracks />
-					<ContentArtists />
-					<ContentProducers />
-					<ContentBeatpacks />
-					<ContentAlbums />
-					<ContentPlaylists />
+			<ContentTop />
+			<ContentTracks />
+			<ContentArtists />
+			<ContentProducers />
+			<ContentBeatpacks />
+			<ContentAlbums />
+			<ContentPlaylists />
 		</>
 	);
 };
