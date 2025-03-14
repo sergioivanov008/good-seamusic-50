@@ -60,6 +60,7 @@ export const TEXT = {
 	ConfirmText: 'We sent to you email ',
 	TempEmail: 'tempemail@tempemail.com',
 	Code: 'Code',
+	ForgotPassword: 'Forgot password',
 };
 
 export const LoginFormTitleData = { left: TEXT.SignIn, right: TEXT.LogoTitle };
@@ -71,6 +72,11 @@ export const RegisterFormTitleData = {
 
 export const ConfirmAccountFormData = {
 	left: TEXT.ConfirmAccount,
+	right: TEXT.LogoTitle,
+};
+
+export const ForgotPasswordFormData = {
+	left: TEXT.ForgotPassword,
 	right: TEXT.LogoTitle,
 };
 
