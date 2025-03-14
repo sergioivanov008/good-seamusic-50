@@ -11,9 +11,7 @@ const Layout = ({
 	return (
 		<div className={s.auth}>
 			<AuthLeftBlock />
-			<form className={s.form}>
-				{children}
-			</form>
+			<form className={s.form}>{children}</form>
 		</div>
 	);
 };
