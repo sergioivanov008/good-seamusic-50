@@ -9,7 +9,11 @@
 		"lint": "eslint .",
 		"commit": "cz",
 		"format": "prettier . --write --ignore-path ./.prettierignore",
-		"prepare": "husky"
+		"prepare": "husky",
+		"seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
+	},
+	"prisma": {
+		"seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
 	},
 	"dependencies": {
 		"@prisma/client": "^6.5.0",
@@ -30,7 +34,7 @@
 		"@eslint/js": "^9.18.0",
 		"@next/eslint-plugin-next": "^15.1.5",
 		"@svgr/webpack": "^8.1.0",
-		"@types/node": "^20",
+		"@types/node": "^20.17.24",
 		"@types/react": "^18",
 		"@types/react-dom": "^18",
 		"@typescript-eslint/eslint-plugin": "^8.21.0",
@@ -51,7 +55,8 @@
 		"prettier": "^3.4.2",
 		"prisma": "^6.5.0",
 		"sass": "^1.81.1",
-		"typescript": "^5.5.3",
+		"ts-node": "^10.9.2",
+		"typescript": "^5.8.2",
 		"typescript-eslint": "^8.21.0"
 	},
 	"config": {
