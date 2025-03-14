@@ -2,14 +2,34 @@
 
 import Link from 'next/link';
 import s from './RegisterForm.module.scss';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { FormTitle, InputLogin, PreferItem } from '@/shared/ui';
 import { ArrowBtn, GradientButton } from '@/shared/ui/buttons';
-import { PREFER_TEXT, RegisterFormTitleData, TEXT } from '@/shared/constants/constants';
+import { RegisterFormTitleData, TEXT } from '@/shared/constants/constants';
 import ArrowForward from '@/shared/assets/icons/ArrowForward.svg';
+import { Prefer } from '@/entities';
+import { Tags } from '@prisma/client';
 
 export const RegisterForm = () => {
 	const [step, setStep] = useState(1);
+	const [tags, setTags] = useState<Tags[]>([]);
+
+	useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch("/api/tags");
+        if (!response.ok) {
+          throw new Error("Failed to fetch data");
+        }
+        const result = await response.json();
+        setTags(result);
+      } catch (error: unknown) {
+        console.error(error);
+      }
+    };
+
+    fetchData();
+  }, []);
 
 	const setNextStep = () => setStep(2);
 	const setPrevStep = () => setStep(1);
@@ -55,16 +75,7 @@ export const RegisterForm = () => {
 							<div className={s.roleItem}>Listener</div>
 						</div>
 					</div>
-					<div className={s.preferWrapper}>
-						<div className={s.preferTitle}>
-							{TEXT.YouPrefer}
-						</div>
-						<div className={s.prefer}>
-							{PREFER_TEXT.map((el, index) => (
-								<PreferItem key={index} name={el} />
-							))}
-						</div>
-					</div>
+					<Prefer tags={ tags } />
 					<div className={s.termsWrapper}>
 						<input type="checkbox" className={s.termsCheckbox} />
 						<div className={s.termTextWrapper}>

@@ -56,26 +56,6 @@ export const TEXT = {
 	StartTime: '00 : 00',
 };
 
-export const PREFER_TEXT = [
-	'Deep house',
-	'Trap',
-	'Minimal',
-	'Indie rock',
-	'Metal',
-	'Mitol',
-	'Funk',
-	'Electronica',
-	'Rock',
-	'Chill-wave',
-	'NU Disco',
-	'NE Disco',
-	'Acoustic',
-	'Folk',
-	'Lo-fi',
-	'Indie-pop',
-	'Indee-pop',
-];
-
 export const LoginFormTitleData = { left: TEXT.SignIn, right: TEXT.LogoTitle };
 
 export const RegisterFormTitleData = { left: TEXT.SignUp, right: TEXT.LogoTitle };
