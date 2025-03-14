@@ -6,15 +6,13 @@ import { TEXT } from '@/shared/constants/constants';
 import { Tags } from '@prisma/client';
 
 type PreferProps = {
-  tags: Tags[];
+	tags: Tags[];
 };
 
 export function Prefer({ tags }: PreferProps) {
 	return (
 		<div className={s.preferWrapper}>
-			<div className={s.preferTitle}>
-				{TEXT.YouPrefer}
-			</div>
+			<div className={s.preferTitle}>{TEXT.YouPrefer}</div>
 			<div className={s.prefer}>
 				{tags.map((el) => (
 					<PreferItem key={el.id} name={el.tag_name} />
@@ -22,4 +20,4 @@ export function Prefer({ tags }: PreferProps) {
 			</div>
 		</div>
 	);
-};
+}

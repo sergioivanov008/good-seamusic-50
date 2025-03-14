@@ -10,8 +10,8 @@ const PRODUCER_ITEMS = [
 		name: 'Rhythmix',
 		text: 'Bizzarap: “some info” mb about next concert or smth either ',
 		tags: [
-			{id: '1', value: 'hip-hop'},
-			{id: '2', value: 'retrowave'},
+			{ id: '1', value: 'hip-hop' },
+			{ id: '2', value: 'retrowave' },
 		],
 	},
 	{
@@ -20,8 +20,8 @@ const PRODUCER_ITEMS = [
 		name: 'Rhythmix',
 		text: 'Bizzarap: “some info” mb about next concert or smth either ',
 		tags: [
-			{id: '1', value: 'hip-hop'},
-			{id: '2', value: 'retrowave'},
+			{ id: '1', value: 'hip-hop' },
+			{ id: '2', value: 'retrowave' },
 		],
 	},
 	{
@@ -30,8 +30,8 @@ const PRODUCER_ITEMS = [
 		name: 'Rhythmix',
 		text: 'Bizzarap: “some info” mb about next concert or smth either ',
 		tags: [
-			{id: '1', value: 'hip-hop'},
-			{id: '2', value: 'retrowave'},
+			{ id: '1', value: 'hip-hop' },
+			{ id: '2', value: 'retrowave' },
 		],
 	},
 	{
@@ -40,8 +40,8 @@ const PRODUCER_ITEMS = [
 		name: 'Rhythmix',
 		text: 'Bizzarap: “some info” mb about next concert or smth either ',
 		tags: [
-			{id: '1', value: 'hip-hop'},
-			{id: '2', value: 'retrowave'},
+			{ id: '1', value: 'hip-hop' },
+			{ id: '2', value: 'retrowave' },
 		],
 	},
 	{
@@ -50,8 +50,8 @@ const PRODUCER_ITEMS = [
 		name: 'Rhythmix',
 		text: 'Bizzarap: “some info” mb about next concert or smth either ',
 		tags: [
-			{id: '1', value: 'hip-hop'},
-			{id: '2', value: 'retrowave'},
+			{ id: '1', value: 'hip-hop' },
+			{ id: '2', value: 'retrowave' },
 		],
 	},
 	{
@@ -60,8 +60,8 @@ const PRODUCER_ITEMS = [
 		name: 'Rhythmix',
 		text: 'Bizzarap: “some info” mb about next concert or smth either ',
 		tags: [
-			{id: '1', value: 'hip-hop'},
-			{id: '2', value: 'retrowave'},
+			{ id: '1', value: 'hip-hop' },
+			{ id: '2', value: 'retrowave' },
 		],
 	},
 ];

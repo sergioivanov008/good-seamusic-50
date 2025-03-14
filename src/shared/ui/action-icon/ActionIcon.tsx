@@ -6,13 +6,15 @@ type ActionIconProps = {
 };
 
 export const ActionIcon = ({ icon: Icon, handler = null }: ActionIconProps) => {
-	const curStyle = handler ? `${s.actionIcon}` : `${s.actionIcon} ${s.disableAction}`;
+	const curStyle = handler
+		? `${s.actionIcon}`
+		: `${s.actionIcon} ${s.disableAction}`;
 
 	const handlerClick = () => handler && handler();
 
 	return (
 		<div className={curStyle} onClick={handlerClick}>
-		  <Icon width={40} height={40} />
+			<Icon width={40} height={40} />
 		</div>
 	);
 };

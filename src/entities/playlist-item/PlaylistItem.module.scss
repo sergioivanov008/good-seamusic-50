@@ -1,4 +1,4 @@
-@import "../../shared/style/variables.scss";
+@import '../../shared/style/variables.scss';
 
 .playlist {
 	width: 279px;
@@ -7,7 +7,6 @@
 	position: relative;
 
 	.photoAlbum {
-
 		.photo {
 			width: 279px;
 			height: 284px;
@@ -15,11 +14,11 @@
 		}
 	}
 
-  .dataWrapper {
+	.dataWrapper {
 		position: absolute;
 		bottom: 0px;
 		left: 0px;
-		
+
 		display: flex;
 		flex-direction: column;
 		gap: 7px;
@@ -33,7 +32,7 @@
 		.dataValue {
 			color: $--main-white-000;
 		}
- 	}
+	}
 
 	.likeWrapper {
 		position: absolute;

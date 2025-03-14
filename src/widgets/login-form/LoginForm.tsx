@@ -7,21 +7,35 @@ import { LoginFormTitleData, TEXT } from '@/shared/constants/constants';
 import { GradientButton } from '@/shared/ui/buttons';
 
 const IconGoogle: React.FC<React.SVGProps<SVGSVGElement>> = ImportedIconGoogle;
-const IconSpotify: React.FC<React.SVGProps<SVGSVGElement>> = ImportedIconSpotify;
+const IconSpotify: React.FC<React.SVGProps<SVGSVGElement>> =
+	ImportedIconSpotify;
 
 export const LoginForm = () => {
 	return (
 		<form className={s.form}>
 			<FormTitle data={LoginFormTitleData} />
 			<div className={s.loginBlock}>
-				<InputLogin type={'text'} placeholder={TEXT.LogInGooglePlaceholder} icon={IconGoogle} />
-				<InputLogin type={'text'} placeholder={TEXT.LogInSpotifyPlaceholder} icon={IconSpotify} />
+				<InputLogin
+					type={'text'}
+					placeholder={TEXT.LogInGooglePlaceholder}
+					icon={IconGoogle}
+				/>
+				<InputLogin
+					type={'text'}
+					placeholder={TEXT.LogInSpotifyPlaceholder}
+					icon={IconSpotify}
+				/>
 			</div>
 			<Divider text={TEXT.OR} />
 			<InputLogin type={'text'} header={TEXT.EmailAdress} />
-			<InputLogin type={'password'} header={TEXT.Password} footer={TEXT.ForgetPass} footerTo='/'/>
+			<InputLogin
+				type={'password'}
+				header={TEXT.Password}
+				footer={TEXT.ForgetPass}
+				footerTo="/"
+			/>
 			<div className={s.btnWrapper}>
-			  <GradientButton to='/'>{TEXT.SignIn}</GradientButton>
+				<GradientButton to="/">{TEXT.SignIn}</GradientButton>
 			</div>
 			<div className={s.signUpLine}>
 				<div>{TEXT.DontHaveAcc}</div>

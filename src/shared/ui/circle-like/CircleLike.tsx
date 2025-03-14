@@ -6,7 +6,7 @@ const IconLike: React.FC<React.SVGProps<SVGSVGElement>> = ImportedIconLike;
 export const CircleLike = () => {
 	return (
 		<div className={s.circleLike}>
-		  <IconLike width={27} height={23} />
+			<IconLike width={27} height={23} />
 		</div>
 	);
 };

@@ -1,7 +1,11 @@
 import { TrackItem } from '@/shared/ui/track-item/TrackItem';
 import s from './ContentTracks.module.scss';
 import { ContentTitle } from '@/shared/ui';
-import { ContentTracksData, TRACK_ITEM_TITLE, TRACK_ITEMS } from '@/shared/constants/constants';
+import {
+	ContentTracksData,
+	TRACK_ITEM_TITLE,
+	TRACK_ITEMS,
+} from '@/shared/constants/constants';
 
 export const ContentTracks = () => {
 	return (

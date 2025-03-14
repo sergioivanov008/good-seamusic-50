@@ -1,10 +1,10 @@
-export const dynamic = 'force-static'
+export const dynamic = 'force-static';
 
-import { prisma } from "../../../../prisma/prisma";
-import { NextResponse } from "next/server";
+import { prisma } from '../../../../prisma/prisma';
+import { NextResponse } from 'next/server';
 
 export async function GET() {
-  const tags = await prisma.tags.findMany();
+	const tags = await prisma.tags.findMany();
 
-  return NextResponse.json(tags);
+	return NextResponse.json(tags);
 }

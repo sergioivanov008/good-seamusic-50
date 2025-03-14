@@ -1,4 +1,4 @@
-@import "../../shared/style/variables.scss";
+@import '../../shared/style/variables.scss';
 
 .album {
 	width: 278px;
@@ -10,7 +10,6 @@
 	position: relative;
 
 	.photoAlbum {
-
 		.photo {
 			width: 105px;
 			height: 208px;
@@ -18,7 +17,7 @@
 		}
 	}
 
-  .albumData {
+	.albumData {
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
@@ -28,12 +27,12 @@
 		font-size: 20px;
 		line-height: 140%;
 
-  	.dataWrapper {
+		.dataWrapper {
 			display: flex;
 			flex-direction: column;
 			gap: 7px;
 			margin: 20px 0px 38px;
-  	}
+		}
 
 		.dataKey {
 			color: $--main-550;
@@ -41,7 +40,7 @@
 		.dataValue {
 			color: $--main-white-000;
 		}
-  }
+	}
 
 	.likeWrapper {
 		position: absolute;

@@ -15,21 +15,21 @@ export const RegisterForm = () => {
 	const [tags, setTags] = useState<Tags[]>([]);
 
 	useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch("/api/tags");
-        if (!response.ok) {
-          throw new Error("Failed to fetch data");
-        }
-        const result = await response.json();
-        setTags(result);
-      } catch (error: unknown) {
-        console.error(error);
-      }
-    };
+		const fetchData = async () => {
+			try {
+				const response = await fetch('/api/tags');
+				if (!response.ok) {
+					throw new Error('Failed to fetch data');
+				}
+				const result = await response.json();
+				setTags(result);
+			} catch (error: unknown) {
+				console.error(error);
+			}
+		};
 
-    fetchData();
-  }, []);
+		fetchData();
+	}, []);
 
 	const setNextStep = () => setStep(2);
 	const setPrevStep = () => setStep(1);
@@ -42,7 +42,11 @@ export const RegisterForm = () => {
 					<div className={s.registerBlock}>
 						<InputLogin type={'text'} header={TEXT.UserName} />
 						<InputLogin type={'text'} header={TEXT.EmailAdress} />
-						<InputLogin type={'password'} header={TEXT.Password} footer={TEXT.PasswordTips} />
+						<InputLogin
+							type={'password'}
+							header={TEXT.Password}
+							footer={TEXT.PasswordTips}
+						/>
 						<InputLogin type={'password'} header={TEXT.PasswordConfirm} />
 					</div>
 					<div className={s.nextStep}>
@@ -75,7 +79,7 @@ export const RegisterForm = () => {
 							<div className={s.roleItem}>Listener</div>
 						</div>
 					</div>
-					<Prefer tags={ tags } />
+					<Prefer tags={tags} />
 					<div className={s.termsWrapper}>
 						<input type="checkbox" className={s.termsCheckbox} />
 						<div className={s.termTextWrapper}>
@@ -89,7 +93,7 @@ export const RegisterForm = () => {
 							</Link>
 						</div>
 					</div>
-					<GradientButton to='/'>{TEXT.SignUp}</GradientButton>
+					<GradientButton to="/">{TEXT.SignUp}</GradientButton>
 					<div className={s.signUpLine}>
 						<div>{TEXT.HaveAcc}</div>
 						<Link href="/login" className={s.linkUnderline}>

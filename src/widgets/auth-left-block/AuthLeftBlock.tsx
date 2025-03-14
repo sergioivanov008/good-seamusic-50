@@ -24,9 +24,7 @@ export const AuthLeftBlock = () => {
 					className={s.imgTopRight}
 				/>
 			</div>
-			<div className={s.center}>
-				{TEXT.AuthLeftBlockTitle}
-			</div>
+			<div className={s.center}>{TEXT.AuthLeftBlockTitle}</div>
 			<div className={s.bottom}>
 				<div className={s.bottomLeft}>
 					<Image
