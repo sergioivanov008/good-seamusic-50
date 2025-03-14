@@ -9,17 +9,17 @@ const MainLayout = ({
 }: Readonly<{
 	children: React.ReactNode;
 }>) => {
-  return (
-    <div className={s.main}>
-     <MainLogo />
-     <MainHeader />
-     <MainMenu />
-     <div className={s.content}>
-       <div className={s.mainContent}>{children}</div>
-     </div>
-     <AudioPlayer tracks={TRACK_ITEMS} />
-    </div>
-  );
+	return (
+		<div className={s.main}>
+			<MainLogo />
+			<MainHeader />
+			<MainMenu />
+			<div className={s.content}>
+				<div className={s.mainContent}>{children}</div>
+			</div>
+			<AudioPlayer tracks={TRACK_ITEMS} />
+		</div>
+	);
 };
 
 export default MainLayout;
