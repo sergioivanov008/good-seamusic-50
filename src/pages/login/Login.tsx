@@ -1,11 +1,5 @@
-import { AuthLeftBlock, LoginForm } from '@/widgets';
-import s from './Login.module.scss';
+import { LoginForm } from '@/widgets';
 
 export const Login = () => {
-	return (
-		<div className={s.login}>
-			<AuthLeftBlock />
-			<LoginForm />
-		</div>
-	);
+	return <LoginForm />;
 };

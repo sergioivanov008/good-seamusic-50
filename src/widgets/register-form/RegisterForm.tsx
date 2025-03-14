@@ -35,7 +35,7 @@ export const RegisterForm = () => {
 	const setPrevStep = () => setStep(1);
 
 	return (
-		<form className={s.form}>
+		<>
 			{step === 1 && (
 				<>
 					<FormTitle data={RegisterFormTitleData} />
@@ -102,6 +102,6 @@ export const RegisterForm = () => {
 					</div>
 				</>
 			)}
-		</form>
+		</>
 	);
 };

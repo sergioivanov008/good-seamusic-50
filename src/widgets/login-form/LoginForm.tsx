@@ -12,7 +12,7 @@ const IconSpotify: React.FC<React.SVGProps<SVGSVGElement>> =
 
 export const LoginForm = () => {
 	return (
-		<form className={s.form}>
+		<>
 			<FormTitle data={LoginFormTitleData} />
 			<div className={s.loginBlock}>
 				<InputLogin
@@ -43,6 +43,6 @@ export const LoginForm = () => {
 					{TEXT.SignUp}
 				</Link>
 			</div>
-		</form>
+		</>
 	);
 };
