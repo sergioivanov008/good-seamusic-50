@@ -10,19 +10,24 @@ import ArrowForward from '@/shared/assets/icons/ArrowForward.svg';
 import { Prefer } from '@/entities';
 import { Tags } from '@prisma/client';
 
-export type InputLoginKeyType = 'name' | 'email' | 'password' | 'confirmPassword';
+export type InputLoginKeyType =
+	| 'name'
+	| 'email'
+	| 'password'
+	| 'confirmPassword';
 
 type RegistrationDataType = Record<InputLoginKeyType, string>;
 
 export const RegisterForm = () => {
 	const [step, setStep] = useState(1);
 	const [tags, setTags] = useState<Tags[]>([]);
-	const [registrationData, setRegistrationData] = useState<RegistrationDataType>({
-		'name': '',
-		'email': '',
-		'password': '',
-		'confirmPassword': '',
-	});
+	const [registrationData, setRegistrationData] =
+		useState<RegistrationDataType>({
+			name: '',
+			email: '',
+			password: '',
+			confirmPassword: '',
+		});
 
 	useEffect(() => {
 		const fetchData = async () => {
@@ -42,11 +47,11 @@ export const RegisterForm = () => {
 	}, []);
 
 	const handlerInput = (id: InputLoginKeyType, value: string) => {
-		setRegistrationData(prevState => ({ ...prevState, [id]: value }));
+		setRegistrationData((prevState) => ({ ...prevState, [id]: value }));
 	};
 
 	const handlerRegistration = () => {
-		console.log('registrationData:', registrationData)
+		console.log('registrationData:', registrationData);
 	};
 
 	const setNextStep = () => setStep(2);
@@ -59,14 +64,14 @@ export const RegisterForm = () => {
 					<FormTitle data={RegisterFormTitleData} />
 					<div className={s.registerBlock}>
 						<InputLogin
-						  type={'text'}
+							type={'text'}
 							header={TEXT.UserName}
-						  id={'name'}
+							id={'name'}
 							value={registrationData.name}
 							handler={handlerInput}
 						/>
 						<InputLogin
-						  type={'text'}
+							type={'text'}
 							header={TEXT.EmailAdress}
 							id={'email'}
 							value={registrationData.email}
@@ -81,7 +86,7 @@ export const RegisterForm = () => {
 							handler={handlerInput}
 						/>
 						<InputLogin
-						  type={'password'}
+							type={'password'}
 							header={TEXT.PasswordConfirm}
 							footer={''}
 							id={'confirmPassword'}
@@ -133,7 +138,9 @@ export const RegisterForm = () => {
 							</Link>
 						</div>
 					</div>
-					<GradientButton handler={handlerRegistration}>{TEXT.SignUp}</GradientButton>
+					<GradientButton handler={handlerRegistration}>
+						{TEXT.SignUp}
+					</GradientButton>
 					<div className={s.signUpLine}>
 						<div>{TEXT.HaveAcc}</div>
 						<Link href="/login" className={s.linkUnderline}>

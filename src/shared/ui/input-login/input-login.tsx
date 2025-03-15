@@ -26,18 +26,18 @@ export const InputLogin = ({
 	icon: Icon,
 	id,
 	value,
-	handler
+	handler,
 }: InputLoginProps) => {
 	const handlerOnChange = (e: ChangeEvent<HTMLInputElement>) => {
 		const curValue = e.target.value;
-		(handler && id) && handler(id, curValue);
+		handler && id && handler(id, curValue);
 	};
 
 	return (
 		<div className={s.loginInput}>
 			{header && <div className={s.inputHeader}>{header}</div>}
 			<input
-			  className={s.formInput}
+				className={s.formInput}
 				type={type}
 				placeholder={placeholder}
 				value={value}
