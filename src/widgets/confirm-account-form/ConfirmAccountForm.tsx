@@ -1,3 +1,5 @@
+'use client';
+
 import s from './ConfirmAccountForm.module.scss';
 import { FormTitle, InputLogin } from '@/shared/ui';
 import { ConfirmAccountFormData, TEXT } from '@/shared/constants/constants';
