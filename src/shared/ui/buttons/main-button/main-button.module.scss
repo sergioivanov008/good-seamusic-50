@@ -79,6 +79,35 @@
 		color: $--main-500;
 	}
 }
+.buttonBlackWhite {
+	border: 2px solid $--main-white-000;
+	background: $--main-black-1000;
+	border-radius: 31px;
+	padding: 10px 20px;
+	text-decoration: none;
+	cursor: pointer;
+
+	font-family: $--font-family;
+	font-weight: 600;
+	font-size: 20px;
+	line-height: 140%;
+	color: $--main-white-000;
+
+	&:hover {
+		background: $--main-white-000;
+		color: $--main-black-1000;
+	}
+
+	&:active {
+		background: $--main-white-000;
+		color: $--main-black-1000;
+	}
+
+	&:disabled {
+		background: $--main-500;
+		color: $--main-500;
+	}
+}
 
 .buttonInverse {
 	@extend %baseButtonStyle;

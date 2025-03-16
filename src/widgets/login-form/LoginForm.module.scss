@@ -1,43 +1,33 @@
-@import "../../shared/style/variables.scss";
+@import '../../shared/style/variables.scss';
 
-.form {
-	border-radius: 70px;
-	width: 100%;
-	max-width: 870px;
-	backdrop-filter: blur(4px);
-	background: rgba(132, 132, 132, 0.3);
+.loginBlock {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+}
 
-	padding: 60px;
+.signUpLine {
+	margin-top: 8px;
+	display: flex;
+	justify-content: flex-start;
+	gap: 8px;
+	font-family: $--font-family;
+	font-weight: 400;
+	font-size: 18px;
+	line-height: 133%;
+	color: #fff;
+}
 
-	.loginBlock {
-		display: flex;
-		flex-direction: column;
-		gap: 16px;
-	}
+.linkUnderline {
+	font-family: $--font-family;
+	font-weight: 400;
+	font-size: 18px;
+	line-height: 133%;
+	text-decoration: underline;
+	text-decoration-skip-ink: none;
+	color: $--main-white-000;
+}
 
-	.signUpLine {
-		margin-top: 8px;
-		display: flex;
-		justify-content: flex-start;
-		gap: 8px;
-		font-family: $--font-family;
-		font-weight: 400;
-		font-size: 18px;
-		line-height: 133%;
-		color: #fff;
-	}
-
-	.linkUnderline {
-		font-family: $--font-family;
-		font-weight: 400;
-		font-size: 18px;
-		line-height: 133%;
-		text-decoration: underline;
-		text-decoration-skip-ink: none;
-		color: $--main-white-000;
-	}
-
-	.btnWrapper {
-		margin-top: 16px;
-	}
+.btnWrapper {
+	margin-top: 16px;
 }

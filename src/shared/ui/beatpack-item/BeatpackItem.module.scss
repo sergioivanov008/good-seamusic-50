@@ -1,4 +1,4 @@
-@import "../../style/variables.scss";
+@import '../../style/variables.scss';
 
 .beatpack {
 	width: 278px;
@@ -24,13 +24,13 @@
 		}
 	}
 
-  .beatpackData {
+	.beatpackData {
 		padding: 0px 20px 20px;
 		display: flex;
 		flex-direction: column;
 		gap: 7px;
 
-  	.data {
+		.data {
 			display: flex;
 			justify-content: space-between;
 
@@ -39,12 +39,12 @@
 			font-size: 20px;
 			line-height: 140%;
 
-  		.dataKey {
+			.dataKey {
 				color: $--main-550;
 			}
-  		.dataValue {
+			.dataValue {
 				color: $--main-white-000;
 			}
-  	}
-  }
+		}
+	}
 }

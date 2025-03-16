@@ -1,11 +1,5 @@
-import { AuthLeftBlock, RegisterForm } from '@/widgets';
-import s from './Register.module.scss';
+import { RegisterForm } from '@/widgets';
 
 export const Register = () => {
-	return (
-		<div className={s.register}>
-			<AuthLeftBlock />
-			<RegisterForm />
-		</div>
-	);
+	return <RegisterForm />;
 };

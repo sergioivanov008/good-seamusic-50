@@ -8,86 +8,98 @@ datasource db {
 }
 
 model Artists {
-  id    Int     @id @default(autoincrement())
-  artist_name String  @unique
-  description  String 
-  photo_url String @unique
-  tags Tags[]
-  tracks Tracks[]
-  beats Beats[]
+  id          Int      @id @default(autoincrement())
+  artist_name String   @unique
+  description String
+  photo_url   String   @unique
+  beats       Beats[]
+  tags        Tags[]
+  tracks      Tracks[]
 }
 
 model Producers {
-  id Int @id @default(autoincrement())
-  producer_name String  @unique
-  description  String 
-  photo_url String @unique
-  tags Tags[]
-  tracks Tracks[]
-  beats Beats[]
+  id            Int      @id @default(autoincrement())
+  producer_name String   @unique
+  description   String
+  photo_url     String   @unique
+  beats         Beats[]
+  tags          Tags[]
+  tracks        Tracks[]
 }
 
 model Tracks {
-  id Int @id @default(autoincrement())
-  cover_url String
-  track_name String
-  album_name String
-  listens Int
-  playtime Int
-  like Boolean
-  artist_id Int @unique
-  producer_id Int @unique
-  album_id Int @unique
-  file_url String
-  artist Artists @relation(fields: [artist_id], references: [id])
-  producer Producers @relation(fields: [producer_id], references: [id])
-  album Albums @relation(fields: [album_id], references: [id])
+  id          Int       @id @default(autoincrement())
+  cover_url   String
+  track_name  String
+  listens     Int
+  playtime    Int
+  like        Boolean
+  artist_id   Int
+  producer_id Int
+  album_id    Int
+  file_url    String
+  album       Albums    @relation(fields: [album_id], references: [id])
+  artist      Artists   @relation(fields: [artist_id], references: [id])
+  producer    Producers @relation(fields: [producer_id], references: [id])
 }
 
 model Tags {
-  id Int @id @default(autoincrement())
-  tag_name String
+  id          Int       @id @default(autoincrement())
+  tag_name    String
   description String
-  artist_id Int @unique
-  producer_id Int @unique
-  artist Artists @relation(fields: [artist_id], references: [id])
-  producer Producers @relation(fields: [producer_id], references: [id])
+  artist_id   Int
+  producer_id Int
+  artist      Artists   @relation(fields: [artist_id], references: [id])
+  producer    Producers @relation(fields: [producer_id], references: [id])
 }
 
 model Beats {
-  id Int @id @default(autoincrement())
-  cover_url String
-  beat_name String
+  id            Int       @id @default(autoincrement())
+  cover_url     String
+  beat_name     String
   beatpack_name String
-  listens Int
-  playtime Int
-  like Boolean
-  artist_id Int @unique
-  producer_id Int @unique
-  beatpack_id Int @unique
-  file_url String
-  artist Artists @relation(fields: [artist_id], references: [id])
-  producer Producers @relation(fields: [producer_id], references: [id])
-  beatpack Beatpacks @relation(fields: [beatpack_id], references: [id])
+  listens       Int
+  playtime      Int
+  like          Boolean
+  artist_id     Int
+  producer_id   Int
+  beatpack_id   Int
+  file_url      String
+  artist        Artists   @relation(fields: [artist_id], references: [id])
+  beatpack      Beatpacks @relation(fields: [beatpack_id], references: [id])
+  producer      Producers @relation(fields: [producer_id], references: [id])
 }
 
 model Albums {
-  id Int @id @default(autoincrement())
-  cover_url String
-  album_name String
-  description String
+  id           Int      @id @default(autoincrement())
+  cover_url    String
+  album_name   String
+  description  String
   plays_number Int
-  duration Int
-  like Boolean
-  tracks Tracks[]
+  duration     Int
+  like         Boolean
+  tracks       Tracks[]
 }
 
 model Beatpacks {
-  id Int @id @default(autoincrement())
-  cover_url String
+  id            Int     @id @default(autoincrement())
+  cover_url     String
   beatpack_name String
-  description String
-  plays_number Int
-  like Boolean
-  beats Beats[]
+  description   String
+  plays_number  Int
+  like          Boolean
+  beats         Beats[]
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  name      String   @unique
+  email     String   @unique
+  password  String
+  emailVerified Boolean @default(false)
+  verificationToken String?
+  resetToken String?
+  resetTokenExpiry DateTime?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }

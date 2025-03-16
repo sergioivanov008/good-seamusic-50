@@ -4,10 +4,10 @@ import { TEXT } from '@/shared/constants/constants';
 import { CircleLike } from '@/shared/ui';
 
 type PlaylistType = {
-	id: string,
-	photo: StaticImageData,
-	title1: string,
-	title2: string,
+	id: string;
+	photo: StaticImageData;
+	title1: string;
+	title2: string;
 };
 
 type PlaylistProps = {
@@ -18,7 +18,7 @@ export const PlaylistItem = ({ data }: PlaylistProps) => {
 	return (
 		<div className={s.playlist}>
 			<div className={s.photoAlbum}>
-			  <Image
+				<Image
 					src={data.photo}
 					alt={data.title1}
 					role="presentation"
@@ -26,8 +26,8 @@ export const PlaylistItem = ({ data }: PlaylistProps) => {
 				/>
 			</div>
 			<div className={s.dataWrapper}>
-			  <div className={s.dataValue}>{data.title1}</div>
-			  <div className={s.dataValue}>{data.title2}</div>
+				<div className={s.dataValue}>{data.title1}</div>
+				<div className={s.dataValue}>{data.title2}</div>
 			</div>
 			<div className={s.likeWrapper}>
 				<CircleLike />

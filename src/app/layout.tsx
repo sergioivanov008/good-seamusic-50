@@ -1,7 +1,6 @@
 'use client';
 
 import { Montserrat } from 'next/font/google';
-// import StoreProvider from './store-provider';
 import './globals.css';
 
 const montserrat = Montserrat({ subsets: ['latin'] });

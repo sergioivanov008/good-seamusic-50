@@ -4,7 +4,7 @@ import ArrowBack from '@/shared/assets/icons/arrow_back-ios.svg';
 
 export const ArrowBtn = ({ variant, ...props }: MainButtonProps) => {
 	const getClassnameForType = (
-		buttonType: 'text' | 'secondary' | 'primary'
+		buttonType: 'text' | 'secondary' | 'primary' | 'blackWhite'
 	) => {
 		switch (buttonType) {
 			case 'primary':
@@ -13,6 +13,8 @@ export const ArrowBtn = ({ variant, ...props }: MainButtonProps) => {
 				return styles.buttonSecondary;
 			case 'text':
 				return styles.buttonText;
+			case 'blackWhite':
+				return styles.buttonBlackWhite;
 			default:
 				return '';
 		}
