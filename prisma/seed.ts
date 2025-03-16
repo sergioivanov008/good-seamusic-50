@@ -1,5 +1,17 @@
 import { prisma } from './prisma';
 
+async function userSeed() {
+	await prisma.$executeRaw`TRUNCATE TABLE "User" RESTART IDENTITY CASCADE`;
+
+	await prisma.user.create({
+		data: {
+			name: 'Ivan Ivanov',
+			email: 'ivanov@gmail.com',
+			password: '123456',
+		},
+	});
+}
+
 async function artistsSeed() {
 	await prisma.$executeRaw`TRUNCATE TABLE "Artists" RESTART IDENTITY CASCADE`;
 
@@ -114,9 +126,10 @@ async function tagSeed() {
 
 async function main() {
 	try {
+		await userSeed();
 		// await artistsSeed();
 		// await producersSeed();
-		await tagSeed();
+		// await tagSeed();
 	} catch (e) {
 		console.error(e);
 	}
