@@ -132,7 +132,7 @@ export const TRACK_ITEMS: TrackItemType[] = [
 		playTime: '5:38',
 		like: '',
 		trackUrl:
-			'https://dl.musopen.org/recordings/52c86549-d92f-42de-84c3-47bd2d2aa9d5.mp3',
+			'https://storage.yandexcloud.net/seamusic-backet/beats/%23%231%20CATACLYZM%20165BPM%20@WHYSPACY%20@STRALLER.mp3?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=YCAJEDfM0GTxK0zSBvKGgjTso%2F20250316%2Fru-central1%2Fs3%2Faws4_request&X-Amz-Date=20250316T145111Z&X-Amz-Expires=2592000&X-Amz-Signature=9B21045B126D0BBF060E67E65424338581091C52B7C347875FECCFB1800E27FC&X-Amz-SignedHeaders=host',
 	},
 	{
 		number: '2',
@@ -149,7 +149,7 @@ export const TRACK_ITEMS: TrackItemType[] = [
 		playTime: '5:38',
 		like: '',
 		trackUrl:
-			'https://dl.musopen.org/recordings/2ecdca91-7714-4e22-a4b1-aa7009de3879.mp3',
+			'https://storage.yandexcloud.net/seamusic-backet/beats/%23%232%20EUPHORIA%20158BPM%20@WHYSPACY%20@14BAGCHASER%20@INSOFAZE.mp3?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=YCAJEDfM0GTxK0zSBvKGgjTso%2F20250316%2Fru-central1%2Fs3%2Faws4_request&X-Amz-Date=20250316T145137Z&X-Amz-Expires=2592000&X-Amz-Signature=90B9CEC71D7486DAEE3BCEA3E2CE58E7B2774DC806956804279BA6BB4EECFA6E&X-Amz-SignedHeaders=host',
 	},
 	{
 		number: '3',
@@ -166,7 +166,7 @@ export const TRACK_ITEMS: TrackItemType[] = [
 		playTime: '5:38',
 		like: '',
 		trackUrl:
-			'https://dl.musopen.org/recordings/0d2b20df-6ba6-46c9-b058-62f5e7976cb0.mp3',
+			'https://storage.yandexcloud.net/seamusic-backet/beats/%23%232%20EUPHORIA%20158BPM%20@WHYSPACY%20@14BAGCHASER%20@INSOFAZE.mp3?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=YCAJEDfM0GTxK0zSBvKGgjTso%2F20250316%2Fru-central1%2Fs3%2Faws4_request&X-Amz-Date=20250316T145137Z&X-Amz-Expires=2592000&X-Amz-Signature=90B9CEC71D7486DAEE3BCEA3E2CE58E7B2774DC806956804279BA6BB4EECFA6E&X-Amz-SignedHeaders=host',
 	},
 ];
 
