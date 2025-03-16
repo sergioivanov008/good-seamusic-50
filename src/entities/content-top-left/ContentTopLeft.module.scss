@@ -1,9 +1,11 @@
 .contentTopLeft {
 	border-radius: 40px;
 	background: #282828;
+	width: 60%;
 
 	padding: 30px;
 	display: flex;
+	flex-wrap: wrap;
 	gap: 60px;
 
 	.blockText {
@@ -40,6 +42,7 @@
 	}
 	.blockImages {
 		display: flex;
+		flex-wrap: wrap;
 		gap: 30px;
 	}
 }

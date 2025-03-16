@@ -1,7 +1,12 @@
 .contentTopRight {
 	border-radius: 40px;
-	width: 587px;
+	width: 40%;
+	overflow: hidden;
 	position: relative;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
 
 	.mainImage {
 		border-radius: 40px;
