@@ -181,3 +181,9 @@ export const AUDIO_ICONS = {
 	IconSound,
 	IconLink,
 };
+
+export const ROLE_LIST = [
+	{ id: '1', name: 'Artist', role: 'artist' },
+	{ id: '2', name: 'Producer', role: 'producer' },
+	{ id: '3', name: 'Listener', role: 'listener' },
+];

@@ -5,9 +5,13 @@ import s from './RegisterForm.module.scss';
 import { useEffect, useState } from 'react';
 import { FormTitle, InputLogin } from '@/shared/ui';
 import { ArrowBtn, GradientButton } from '@/shared/ui/buttons';
-import { RegisterFormTitleData, TEXT } from '@/shared/constants/constants';
+import {
+	RegisterFormTitleData,
+	ROLE_LIST,
+	TEXT,
+} from '@/shared/constants/constants';
 import ArrowForward from '@/shared/assets/icons/ArrowForward.svg';
-import { Prefer } from '@/entities';
+import { Prefer, Role } from '@/entities';
 import { Tags } from '@prisma/client';
 
 export type InputLoginKeyType =
@@ -16,7 +20,10 @@ export type InputLoginKeyType =
 	| 'password'
 	| 'confirmPassword';
 
-type RegistrationDataType = Record<InputLoginKeyType, string>;
+export type InputChoiceKeyType = 'userRole' | 'prefer';
+
+type RegistrationDataType = Record<InputLoginKeyType, string> &
+	Record<InputChoiceKeyType, string[]>;
 
 export const RegisterForm = () => {
 	const [step, setStep] = useState(1);
@@ -27,6 +34,8 @@ export const RegisterForm = () => {
 			email: '',
 			password: '',
 			confirmPassword: '',
+			userRole: [],
+			prefer: [],
 		});
 
 	useEffect(() => {
@@ -50,12 +59,37 @@ export const RegisterForm = () => {
 		setRegistrationData((prevState) => ({ ...prevState, [id]: value }));
 	};
 
+	const handlerRole = (role: string) => {
+		setRegistrationData((prevState) => ({ ...prevState, userRole: [role] }));
+	};
+
+	const handlerPrefer = (prefer: string) => {
+		if (
+			registrationData.prefer.length &&
+			registrationData.prefer.includes(prefer)
+		) {
+			const index = registrationData.prefer.findIndex((el) => el === prefer);
+			const newArr = [
+				...registrationData.prefer.slice(0, index),
+				...registrationData.prefer.slice(index + 1),
+			];
+
+			setRegistrationData((prevState) => ({ ...prevState, prefer: newArr }));
+		} else {
+			const newArr = [...registrationData.prefer, prefer];
+
+			setRegistrationData((prevState) => ({ ...prevState, prefer: newArr }));
+		}
+	};
+
 	const handlerRegistration = () => {
 		console.log('registrationData:', registrationData);
 	};
 
-	const setNextStep = () => setStep(2);
-	const setPrevStep = () => setStep(1);
+	const handlerStep = () => {
+		if (step === 1) setStep(2);
+		else if (step === 2) setStep(1);
+	};
 
 	return (
 		<>
@@ -95,7 +129,7 @@ export const RegisterForm = () => {
 						/>
 					</div>
 					<div className={s.nextStep}>
-						<div className={s.nextBtn} onClick={setNextStep}>
+						<div className={s.nextBtn} onClick={handlerStep}>
 							<div className={s.left}>{TEXT.LastStep}</div>
 							<ArrowForward width={13} height={26} />
 						</div>
@@ -111,20 +145,21 @@ export const RegisterForm = () => {
 			{step === 2 && (
 				<>
 					<div className={s.titleWrapper}>
-						<div onClick={setPrevStep} className={s.btnWrapper}>
+						<div className={s.btnWrapper} onClick={handlerStep}>
 							<ArrowBtn variant="primary" />
 						</div>
 						<div className={s.logo}>{TEXT.LogoTitle}</div>
 					</div>
-					<div className={s.roleWrapper}>
-						<div className={s.roleTitle}>{TEXT.WhoAreYou}</div>
-						<div className={s.role}>
-							<div className={`${s.roleItem} ${s.active}`}>Artist</div>
-							<div className={s.roleItem}>Producer</div>
-							<div className={s.roleItem}>Listener</div>
-						</div>
-					</div>
-					<Prefer tags={tags} />
+					<Role
+						role={ROLE_LIST}
+						handler={handlerRole}
+						userRole={registrationData.userRole[0]}
+					/>
+					<Prefer
+						tags={tags}
+						handler={handlerPrefer}
+						userPrefer={registrationData.prefer}
+					/>
 					<div className={s.termsWrapper}>
 						<input type="checkbox" className={s.termsCheckbox} />
 						<div className={s.termTextWrapper}>

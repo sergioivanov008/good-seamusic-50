@@ -7,15 +7,22 @@ import { Tags } from '@prisma/client';
 
 type PreferProps = {
 	tags: Tags[];
+	handler: (prefer: string) => void;
+	userPrefer: string[];
 };
 
-export function Prefer({ tags }: PreferProps) {
+export function Prefer({ tags, handler, userPrefer }: PreferProps) {
 	return (
 		<div className={s.preferWrapper}>
 			<div className={s.preferTitle}>{TEXT.YouPrefer}</div>
 			<div className={s.prefer}>
 				{tags.map((el) => (
-					<PreferItem key={el.id} name={el.tag_name} />
+					<PreferItem
+						key={el.id}
+						name={el.tag_name}
+						handler={handler}
+						userPrefer={userPrefer}
+					/>
 				))}
 			</div>
 		</div>

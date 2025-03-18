@@ -10,4 +10,12 @@
 	color: #f7f7f7;
 
 	cursor: pointer;
+	transition: 0.2s;
+	background-color: transparent;
+}
+.preferItem.active,
+.preferItem:hover {
+	border: none;
+	color: #f7f7f7;
+	background: linear-gradient(219deg, #0a946d 0%, #19385c 100%);
 }
