@@ -13,3 +13,4 @@ export { ArtistProducerItem } from './artist-producer-item/ArtistProducerItem';
 export { BeatpackItem } from './beatpack-item/BeatpackItem';
 export { CircleLike } from './circle-like/CircleLike';
 export { ActionIcon } from './action-icon/ActionIcon';
+export { RoleItem } from './role-item/RoleItem';
