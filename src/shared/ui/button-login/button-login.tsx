@@ -6,7 +6,11 @@ export type ButtonLoginProps = {
 	handler?: () => void;
 };
 
-export const ButtonLogin = ({ icon: Icon, btnText, handler }: ButtonLoginProps) => {
+export const ButtonLogin = ({
+	icon: Icon,
+	btnText,
+	handler,
+}: ButtonLoginProps) => {
 	const handerClick = () => {
 		handler && handler();
 	};
@@ -14,8 +18,8 @@ export const ButtonLogin = ({ icon: Icon, btnText, handler }: ButtonLoginProps) 
 	return (
 		<div className={s.buttonLogin} onClick={handerClick}>
 			<div className={s.content}>
-			  <Icon width={24} height={24} />
-			  <div className={s.text}>{btnText}</div>
+				<Icon width={24} height={24} />
+				<div className={s.text}>{btnText}</div>
 			</div>
 		</div>
 	);
