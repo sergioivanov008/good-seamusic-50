@@ -13,11 +13,12 @@ export type MenuItemDataType = {
 };
 
 export type MenuItemType = {
-	id: string;
+	id?: string;
 	data: MenuItemDataType;
+	handler?: () => Promise<undefined>;
 };
 
-export const NavItem = ({ data }: MenuItemType) => {
+export const NavItem = ({ data, handler }: MenuItemType) => {
 	const [isCurElHover, setIsCurElHover] = useState(false);
 
 	const handlerIsCurElHover = () => {
@@ -28,11 +29,17 @@ export const NavItem = ({ data }: MenuItemType) => {
 		return isCurElHover ? data.imgWhite : data.img;
 	};
 
+	const handlerClick = () => {
+		console.log('handlerClick');
+		handler && handler();
+	};
+
 	return (
 		<div
 			className={s.navItem}
 			onMouseEnter={handlerIsCurElHover}
-			onMouseLeave={handlerIsCurElHover}>
+			onMouseLeave={handlerIsCurElHover}
+			onClick={handlerClick}>
 			<Image
 				src={curImgSrc()}
 				alt=""
