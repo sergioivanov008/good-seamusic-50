@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import s from './LoginForm.module.scss';
-import { Divider, FormTitle, InputLogin } from '@/shared/ui';
+import { ButtonLogin, Divider, FormTitle, InputLogin } from '@/shared/ui';
 import ImportedIconGoogle from '@/shared/assets/icons/SocialMediaLogoGoogle.svg';
 import ImportedIconSpotify from '@/shared/assets/icons/SocialMediaLogoSpotify.svg';
 import { LoginFormTitleData, TEXT } from '@/shared/constants/constants';
@@ -17,16 +17,8 @@ export const LoginForm = () => {
 		<>
 			<FormTitle data={LoginFormTitleData} />
 			<div className={s.loginBlock}>
-				<InputLogin
-					type={'text'}
-					placeholder={TEXT.LogInGooglePlaceholder}
-					icon={IconGoogle}
-				/>
-				<InputLogin
-					type={'text'}
-					placeholder={TEXT.LogInSpotifyPlaceholder}
-					icon={IconSpotify}
-				/>
+				<ButtonLogin icon={IconGoogle} btnText={TEXT.LogInGooglePlaceholder} />
+				<ButtonLogin icon={IconSpotify} btnText={TEXT.LogInSpotifyPlaceholder} />
 			</div>
 			<Divider text={TEXT.OR} />
 			<InputLogin type={'text'} header={TEXT.EmailAdress} />
