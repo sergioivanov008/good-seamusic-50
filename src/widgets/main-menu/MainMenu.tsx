@@ -31,14 +31,14 @@ export const MainMenu = () => {
 					))}
 				</div>
 			</div>
-				{session.data &&
-			    <div className={s.navItems}>
-				    {MAIN_MENU_ITEMS.menuSettingsItems.map((el) => (
-				    	<NavItem key={el.id} id={el.id} data={el.data} />
-				    ))}
-				    <NavItem data={MAIN_MENU_ITEMS.logOutBtn} handler={handlerSignOut}/>
-			    </div>
-				}
+			{session.data && (
+				<div className={s.navItems}>
+					{MAIN_MENU_ITEMS.menuSettingsItems.map((el) => (
+						<NavItem key={el.id} id={el.id} data={el.data} />
+					))}
+					<NavItem data={MAIN_MENU_ITEMS.logOutBtn} handler={handlerSignOut} />
+				</div>
+			)}
 		</div>
 	);
 };
