@@ -10,6 +10,25 @@ import ImportedIconRepeat from '@/shared/assets/icons/action_repeat.svg';
 import ImportedIconMute from '@/shared/assets/icons/action_mute.svg';
 import ImportedIconSound from '@/shared/assets/icons/action_sound.svg';
 import ImportedIconLink from '@/shared/assets/icons/action_link.svg';
+import imgHomeImage from '@/shared/assets/icons/home_line.svg?url';
+import imgHomeImageWhite from '@/shared/assets/icons/home_line_white.svg?url';
+import imgMessagesImage from '@/shared/assets/icons/messages_line.svg?url';
+import imgMessagesImageWhite from '@/shared/assets/icons/messages_line_white.svg?url';
+import imgDashboardImage from '@/shared/assets/icons/dashboard_line.svg?url';
+import imgDashboardImageWhite from '@/shared/assets/icons/dashboard_line_white.svg?url';
+import imgPlaylistsImage from '@/shared/assets/icons/playlists_line.svg?url';
+import imgPlaylistsImageWhite from '@/shared/assets/icons/playlists_line_white.svg?url';
+import imgSettingsImage from '@/shared/assets/icons/settings_line.svg?url';
+import imgSettingsImageWhite from '@/shared/assets/icons/settings_line_white.svg?url';
+import imgLogoutImage from '@/shared/assets/icons/logout_line.svg?url';
+import imgLogoutImageWhite from '@/shared/assets/icons/logout_line_white.svg?url';
+import { MenuItemDataType, MenuItemType } from '@/shared/ui/nav-item/NavItem';
+
+type MainMenuItems = {
+	menuMainItems: Array<MenuItemType>;
+	menuSettingsItems: Array<MenuItemType>;
+	logOutBtn: MenuItemDataType;
+};
 
 const IconShuffle: React.FC<React.SVGProps<SVGSVGElement>> =
 	ImportedIconShuffle;
@@ -55,7 +74,7 @@ export const TEXT = {
 	Duration: 'Duration',
 	Albums: 'Albums',
 	Playlists: 'Playlists',
-	StartTime: '00 : 00',
+	StartTime: '-- : --',
 	ConfirmAccount: 'Confirm account',
 	ConfirmText: 'We sent to you email ',
 	TempEmail: 'tempemail@tempemail.com',
@@ -187,3 +206,61 @@ export const ROLE_LIST = [
 	{ id: '2', name: 'Producer', role: 'producer' },
 	{ id: '3', name: 'Listener', role: 'listener' },
 ];
+
+export const MAIN_MENU_ITEMS: MainMenuItems = {
+	menuMainItems: [
+		{
+			id: '001',
+			data: {
+				id: '001',
+				text: 'Home',
+				img: imgHomeImage,
+				imgWhite: imgHomeImageWhite,
+			},
+		},
+		{
+			id: '002',
+			data: {
+				id: '002',
+				text: 'Messages',
+				img: imgMessagesImage,
+				imgWhite: imgMessagesImageWhite,
+			},
+		},
+		{
+			id: '003',
+			data: {
+				id: '003',
+				text: 'Dashboard',
+				img: imgDashboardImage,
+				imgWhite: imgDashboardImageWhite,
+			},
+		},
+		{
+			id: '004',
+			data: {
+				id: '004',
+				text: 'Playlists',
+				img: imgPlaylistsImage,
+				imgWhite: imgPlaylistsImageWhite,
+			},
+		},
+	],
+	menuSettingsItems: [
+		{
+			id: '005',
+			data: {
+				id: '005',
+				text: 'Settings',
+				img: imgSettingsImage,
+				imgWhite: imgSettingsImageWhite,
+			},
+		},
+	],
+	logOutBtn: {
+		id: '006',
+		text: 'Log out',
+		img: imgLogoutImage,
+		imgWhite: imgLogoutImageWhite,
+	},
+};
