@@ -7,15 +7,18 @@ import ImportedIconGoogle from '@/shared/assets/icons/SocialMediaLogoGoogle.svg'
 import ImportedIconSpotify from '@/shared/assets/icons/SocialMediaLogoSpotify.svg';
 import { LoginFormTitleData, TEXT } from '@/shared/constants/constants';
 import { GradientButton } from '@/shared/ui/buttons';
-import { signIn } from 'next-auth/react';
+import { signIn, useSession } from 'next-auth/react';
 
 const IconGoogle: React.FC<React.SVGProps<SVGSVGElement>> = ImportedIconGoogle;
 const IconSpotify: React.FC<React.SVGProps<SVGSVGElement>> =
 	ImportedIconSpotify;
 
 export const LoginForm = () => {
-	const signinGoogle = () => signIn('google');
-	const signinSpotify = () => signIn('spotify');
+	const signinGoogle = () => signIn('google', { redirectTo: '/profile' });
+	const signinSpotify = () => signIn('spotify', { redirectTo: '/profile' });
+	const session = useSession();
+
+	console.log('LoginForm session: ', session);
 
 	return (
 		<>
