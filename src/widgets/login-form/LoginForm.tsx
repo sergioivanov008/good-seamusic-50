@@ -18,7 +18,10 @@ export const LoginForm = () => {
 			<FormTitle data={LoginFormTitleData} />
 			<div className={s.loginBlock}>
 				<ButtonLogin icon={IconGoogle} btnText={TEXT.LogInGooglePlaceholder} />
-				<ButtonLogin icon={IconSpotify} btnText={TEXT.LogInSpotifyPlaceholder} />
+				<ButtonLogin
+					icon={IconSpotify}
+					btnText={TEXT.LogInSpotifyPlaceholder}
+				/>
 			</div>
 			<Divider text={TEXT.OR} />
 			<InputLogin type={'text'} header={TEXT.EmailAdress} />
