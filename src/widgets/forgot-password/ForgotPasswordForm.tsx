@@ -1,5 +1,3 @@
-'use client';
-
 import s from './ForgotPasswordForm.module.scss';
 import { FormTitle, InputLogin } from '@/shared/ui';
 import { ForgotPasswordFormData, TEXT } from '@/shared/constants/constants';

@@ -1,5 +1,3 @@
-'use client';
-
 import { RoleItem } from '@/shared/ui';
 import s from './Role.module.scss';
 import { TEXT } from '@/shared/constants/constants';

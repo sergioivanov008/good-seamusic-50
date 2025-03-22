@@ -1,5 +1,3 @@
-'use client';
-
 import s from './Prefer.module.scss';
 import { PreferItem } from '@/shared/ui';
 import { TEXT } from '@/shared/constants/constants';

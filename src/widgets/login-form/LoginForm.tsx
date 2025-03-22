@@ -1,5 +1,3 @@
-'use client';
-
 import Link from 'next/link';
 import s from './LoginForm.module.scss';
 import { ButtonLogin, Divider, FormTitle, InputLogin } from '@/shared/ui';

@@ -1,5 +1,3 @@
-'use client';
-
 import { AuthLeftBlock } from '@/widgets';
 import s from './Auth.module.scss';
 
