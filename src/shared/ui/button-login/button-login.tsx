@@ -1,9 +1,10 @@
+import { SignInResponse } from 'next-auth/react';
 import s from './button-login.module.scss';
 
 export type ButtonLoginProps = {
 	icon: React.FC<React.SVGProps<SVGSVGElement>>;
 	btnText: string;
-	handler?: () => void;
+	handler?: () => Promise<SignInResponse | undefined>;
 };
 
 export const ButtonLogin = ({
@@ -11,12 +12,12 @@ export const ButtonLogin = ({
 	btnText,
 	handler,
 }: ButtonLoginProps) => {
-	const handerClick = () => {
+	const handlerClick = () => {
 		handler && handler();
 	};
 
 	return (
-		<div className={s.buttonLogin} onClick={handerClick}>
+		<div className={s.buttonLogin} onClick={handlerClick}>
 			<div className={s.content}>
 				<Icon width={24} height={24} />
 				<div className={s.text}>{btnText}</div>

@@ -1,3 +1,5 @@
+'use client';
+
 import Link from 'next/link';
 import s from './LoginForm.module.scss';
 import { ButtonLogin, Divider, FormTitle, InputLogin } from '@/shared/ui';
@@ -5,17 +7,24 @@ import ImportedIconGoogle from '@/shared/assets/icons/SocialMediaLogoGoogle.svg'
 import ImportedIconSpotify from '@/shared/assets/icons/SocialMediaLogoSpotify.svg';
 import { LoginFormTitleData, TEXT } from '@/shared/constants/constants';
 import { GradientButton } from '@/shared/ui/buttons';
+import { signIn } from "next-auth/react"
 
 const IconGoogle: React.FC<React.SVGProps<SVGSVGElement>> = ImportedIconGoogle;
 const IconSpotify: React.FC<React.SVGProps<SVGSVGElement>> =
 	ImportedIconSpotify;
 
 export const LoginForm = () => {
+	const signinGoogle = () => signIn("google");
+
 	return (
 		<>
 			<FormTitle data={LoginFormTitleData} />
 			<div className={s.loginBlock}>
-				<ButtonLogin icon={IconGoogle} btnText={TEXT.LogInGooglePlaceholder} />
+				<ButtonLogin
+				  icon={IconGoogle}
+					btnText={TEXT.LogInGooglePlaceholder}
+					handler={signinGoogle}
+				/>
 				<ButtonLogin
 					icon={IconSpotify}
 					btnText={TEXT.LogInSpotifyPlaceholder}
