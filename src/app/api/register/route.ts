@@ -1,6 +1,7 @@
 import bcrypt from 'bcryptjs';
 import { prisma } from '../../../../prisma/prisma';
 import { NextRequest, NextResponse } from 'next/server';
+import nodemailer from 'nodemailer';
 
 export async function POST(req: NextRequest) {
 	try {
@@ -20,7 +21,7 @@ export async function POST(req: NextRequest) {
 			);
 		}
 
-		const userByName = await prisma.user.findUnique({ where: { name } });
+		const userByName = await prisma.user.findFirst({ where: { name } });
 		const userByEmail = await prisma.user.findUnique({ where: { email } });
 
 		if (userByName && userByEmail) {
@@ -50,6 +51,25 @@ export async function POST(req: NextRequest) {
 				password: hashedPassword,
 				updatedAt: new Date(),
 			},
+		});
+
+		const transporter = nodemailer.createTransport({
+			host: process.env.SMTP_HOST,
+			port: Number(process.env.SMTP_PORT),
+			secure: false,
+			auth: {
+				user: process.env.SMTP_USER,
+				pass: process.env.SMTP_PASS,
+			},
+		});
+
+		await transporter.sendMail({
+			from: `"GoodSeamusic Admin" <${process.env.SMTP_USER}>`,
+			to: newUser.email,
+			subject: 'Подтверждение email',
+			html: `<p>Здравствуйте, ${newUser.name}!</p>
+		         <p>Для подтверждения email перейдите по ссылке:</p>
+		         <p>Ссылка действует 1 час.</p>`,
 		});
 
 		return NextResponse.json(

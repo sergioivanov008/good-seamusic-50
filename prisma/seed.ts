@@ -3,13 +3,28 @@ import { prisma } from './prisma';
 async function userSeed() {
 	await prisma.$executeRaw`TRUNCATE TABLE "User" RESTART IDENTITY CASCADE`;
 
-	await prisma.user.create({
-		data: {
-			name: 'Ivan Ivanov',
-			email: 'ivanov@gmail.com',
-			password: '123456',
-		},
-	});
+	// await prisma.user.createMany({
+	// 	data: [
+	// 		{
+	// 			name: 'sam1',
+	// 			email: 'sam1@gmail.com',
+	// 			password: '123456',
+	// 			updatedAt: new Date(),
+	// 		},
+	// 		{
+	// 			name: 'sam2',
+	// 			email: 'sam2@gmail.com',
+	// 			password: '123456',
+	// 			updatedAt: new Date(),
+	// 		},
+	// 		{
+	// 			name: 'sam3',
+	// 			email: 'sam3@gmail.com',
+	// 			password: '123456',
+	// 			updatedAt: new Date(),
+	// 		},
+	// 	],
+	// });
 }
 
 async function artistsSeed() {
@@ -44,12 +59,12 @@ async function producersSeed() {
 			{
 				producer_name: 'Super Producer',
 				description: 'Super Producer description',
-				photo_url: 'http://www.www.com',
+				photo_url: 'http://www.www.comr',
 			},
 			{
-				producer_name: 'Super Producer2',
+				producer_name: 'Super Producer2tt',
 				description: 'Super Producer2 description',
-				photo_url: 'http://www.www.com',
+				photo_url: 'http://www.www.comtt',
 			},
 		],
 	});
@@ -126,10 +141,10 @@ async function tagSeed() {
 
 async function main() {
 	try {
-		await userSeed();
-		// await artistsSeed();
-		// await producersSeed();
-		// await tagSeed();
+		// await userSeed();
+		await artistsSeed();
+		await producersSeed();
+		await tagSeed();
 	} catch (e) {
 		console.error(e);
 	}

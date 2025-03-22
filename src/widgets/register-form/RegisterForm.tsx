@@ -37,6 +37,7 @@ export const RegisterForm = () => {
 			userRole: [],
 			prefer: [],
 		});
+	const [isSending, setIsSending] = useState(false);
 
 	useEffect(() => {
 		const fetchData = async () => {
@@ -84,6 +85,25 @@ export const RegisterForm = () => {
 
 	const handlerRegistration = () => {
 		console.log('registrationData:', registrationData);
+		setIsSending(true);
+
+		const registerUser = async () => {
+			const { name, email, password } = registrationData;
+			const body = { name, email, password };
+			const apiUrl = '/api/register';
+
+			const response = await fetch(apiUrl, {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify(body),
+			});
+
+			const data = await response.json();
+			console.log(data.message);
+			setIsSending(false);
+		};
+
+		registerUser();
 	};
 
 	const handlerStep = () => {
@@ -182,6 +202,7 @@ export const RegisterForm = () => {
 							{TEXT.SignIn}
 						</Link>
 					</div>
+					{isSending && <h2 style={{ color: 'red' }}>Sending request...</h2>}
 				</>
 			)}
 		</>
