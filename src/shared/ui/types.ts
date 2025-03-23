@@ -1,6 +1,6 @@
-import { StaticImageData } from "next/image";
-import { SignInResponse } from "next-auth/react";
-import { InputLoginKeyType } from "@/widgets/register-form/RegisterForm";
+import { StaticImageData } from 'next/image';
+import { SignInResponse } from 'next-auth/react';
+import { InputLoginKeyType } from '@/widgets/register-form/RegisterForm';
 
 export type ActionIconProps = {
 	icon: React.FC<React.SVGProps<SVGSVGElement>>;
@@ -63,28 +63,28 @@ export type FormTitleProps = {
 export type InputType = 'text' | 'password';
 
 export type InputLoginProps = {
-  type: InputType;
-  header?: string;
-  placeholder?: string;
-  footer?: string;
-  footerTo?: string;
-  icon?: React.FC<React.SVGProps<SVGSVGElement>>;
-  id?: InputLoginKeyType;
-  value?: string;
-  handler?: (id: InputLoginKeyType, value: string) => void;
+	type: InputType;
+	header?: string;
+	placeholder?: string;
+	footer?: string;
+	footerTo?: string;
+	icon?: React.FC<React.SVGProps<SVGSVGElement>>;
+	id?: InputLoginKeyType;
+	value?: string;
+	handler?: (id: InputLoginKeyType, value: string) => void;
 };
 
 export type MenuItemDataType = {
-  id: string;
-  text: string;
-  img: StaticImageData;
-  imgWhite: StaticImageData;
+	id: string;
+	text: string;
+	img: StaticImageData;
+	imgWhite: StaticImageData;
 };
 
 export type MenuItemType = {
-  id?: string;
-  data: MenuItemDataType;
-  handler?: () => Promise<undefined>;
+	id?: string;
+	data: MenuItemDataType;
+	handler?: () => Promise<undefined>;
 };
 
 export type PreferItemProps = {
