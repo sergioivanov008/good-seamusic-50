@@ -13,14 +13,7 @@ import {
 import ArrowForward from '@/shared/assets/icons/ArrowForward.svg';
 import { Prefer, Role } from '@/entities';
 import { Tags } from '@prisma/client';
-
-export type InputLoginKeyType =
-	| 'name'
-	| 'email'
-	| 'password'
-	| 'confirmPassword';
-
-export type InputChoiceKeyType = 'userRole' | 'prefer';
+import { InputChoiceKeyType, InputLoginKeyType } from '../types';
 
 type RegistrationDataType = Record<InputLoginKeyType, string> &
 	Record<InputChoiceKeyType, string[]>;
