@@ -5,9 +5,9 @@ export type AudioPlayerProps = {
 };
 
 export type InputLoginKeyType =
-  | 'name'
-  | 'email'
-  | 'password'
-  | 'confirmPassword';
+	| 'name'
+	| 'email'
+	| 'password'
+	| 'confirmPassword';
 
 export type InputChoiceKeyType = 'userRole' | 'prefer';
