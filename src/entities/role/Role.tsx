@@ -1,18 +1,7 @@
 import { RoleItem } from '@/shared/ui';
 import s from './Role.module.scss';
 import { TEXT } from '@/shared/constants/constants';
-
-type RoleType = {
-	id: string;
-	name: string;
-	role: string;
-};
-
-type RoleProps = {
-	role: RoleType[];
-	handler: (role: string) => void;
-	userRole: string;
-};
+import { RoleProps } from '../types';
 
 export function Role({ role, handler, userRole }: RoleProps) {
 	return (

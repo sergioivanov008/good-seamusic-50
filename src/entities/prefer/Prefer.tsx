@@ -1,13 +1,7 @@
 import s from './Prefer.module.scss';
 import { PreferItem } from '@/shared/ui';
 import { TEXT } from '@/shared/constants/constants';
-import { Tags } from '@prisma/client';
-
-type PreferProps = {
-	tags: Tags[];
-	handler: (prefer: string) => void;
-	userPrefer: string[];
-};
+import { PreferProps } from '../types';
 
 export function Prefer({ tags, handler, userPrefer }: PreferProps) {
 	return (

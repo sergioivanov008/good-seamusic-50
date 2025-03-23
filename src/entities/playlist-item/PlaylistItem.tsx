@@ -1,18 +1,7 @@
-import Image, { StaticImageData } from 'next/image';
+import Image from 'next/image';
 import s from './PlaylistItem.module.scss';
-import { TEXT } from '@/shared/constants/constants';
 import { CircleLike } from '@/shared/ui';
-
-type PlaylistType = {
-	id: string;
-	photo: StaticImageData;
-	title1: string;
-	title2: string;
-};
-
-type PlaylistProps = {
-	data: PlaylistType;
-};
+import { PlaylistProps } from '../types';
 
 export const PlaylistItem = ({ data }: PlaylistProps) => {
 	return (
