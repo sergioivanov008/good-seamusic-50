@@ -1,5 +1,5 @@
-import { Tags } from "@prisma/client";
-import { StaticImageData } from "next/image";
+import { Tags } from '@prisma/client';
+import { StaticImageData } from 'next/image';
 
 export type AlbumItemType = {
 	id: string;
