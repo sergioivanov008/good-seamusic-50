@@ -1,18 +1,7 @@
-import Image, { StaticImageData } from 'next/image';
+import Image from 'next/image';
 import s from './ArtistProducerItem.module.scss';
-import { Tag, TagProps } from '../tag/Tag';
-
-type ArtistItemType = {
-	id: string;
-	photo: StaticImageData;
-	name: string;
-	text: string;
-	tags: TagProps[];
-};
-
-type ArtistItemProps = {
-	data: ArtistItemType;
-};
+import { Tag } from '../tag/Tag';
+import { ArtistItemProps } from '../types';
 
 export const ArtistProducerItem = ({ data }: ArtistItemProps) => {
 	return (

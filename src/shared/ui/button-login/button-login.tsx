@@ -1,11 +1,5 @@
-import { SignInResponse } from 'next-auth/react';
 import s from './button-login.module.scss';
-
-export type ButtonLoginProps = {
-	icon: React.FC<React.SVGProps<SVGSVGElement>>;
-	btnText: string;
-	handler?: () => Promise<SignInResponse | undefined>;
-};
+import { ButtonLoginProps } from '../types';
 
 export const ButtonLogin = ({
 	icon: Icon,

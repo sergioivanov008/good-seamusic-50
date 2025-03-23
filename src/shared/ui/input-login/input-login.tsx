@@ -1,21 +1,7 @@
 import Link from 'next/link';
 import s from './input-login.module.scss';
 import { ChangeEvent } from 'react';
-import { InputLoginKeyType } from '@/widgets/register-form/RegisterForm';
-
-export type InputType = 'text' | 'password';
-
-export type InputLoginProps = {
-	type: InputType;
-	header?: string;
-	placeholder?: string;
-	footer?: string;
-	footerTo?: string;
-	icon?: React.FC<React.SVGProps<SVGSVGElement>>;
-	id?: InputLoginKeyType;
-	value?: string;
-	handler?: (id: InputLoginKeyType, value: string) => void;
-};
+import { InputLoginProps } from '../types';
 
 export const InputLogin = ({
 	type,

@@ -4,19 +4,7 @@ import s from './NavItem.module.scss';
 import Image, { StaticImageData } from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
-
-export type MenuItemDataType = {
-	id: string;
-	text: string;
-	img: StaticImageData;
-	imgWhite: StaticImageData;
-};
-
-export type MenuItemType = {
-	id?: string;
-	data: MenuItemDataType;
-	handler?: () => Promise<undefined>;
-};
+import { MenuItemType } from '../types';
 
 export const NavItem = ({ data, handler }: MenuItemType) => {
 	const [isCurElHover, setIsCurElHover] = useState(false);

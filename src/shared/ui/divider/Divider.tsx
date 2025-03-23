@@ -1,8 +1,5 @@
+import { DividerProps } from '../types';
 import s from './Divider.module.scss';
-
-type DividerProps = {
-	text: string;
-};
 
 export const Divider = ({ text }: DividerProps) => {
 	return (

@@ -1,11 +1,6 @@
-import Image, { StaticImageData } from 'next/image';
+import Image from 'next/image';
 import s from './TopImage.module.scss';
-
-type ImgData = {
-	id: string;
-	value: string;
-	image: StaticImageData;
-};
+import { ImgData } from '../types';
 
 export const TopImage = ({ value, image }: ImgData) => {
 	return (

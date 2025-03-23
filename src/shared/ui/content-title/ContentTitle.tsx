@@ -1,13 +1,5 @@
+import { ContentTitleProps } from '../types';
 import s from './ContentTitle.module.scss';
-
-type ContentTitleType = {
-	left: string;
-	right: string;
-};
-
-type ContentTitleProps = {
-	data: ContentTitleType;
-};
 
 export const ContentTitle = ({ data }: ContentTitleProps) => {
 	return (

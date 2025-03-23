@@ -1,4 +1,3 @@
-import { TrackItemType } from '../ui/track-item/TrackItem';
 import trackItemImg from '@/shared/assets/images/track_item_01.png';
 
 import ImportedIconShuffle from '@/shared/assets/icons/action_shuffle.svg';
@@ -22,7 +21,7 @@ import imgSettingsImage from '@/shared/assets/icons/settings_line.svg?url';
 import imgSettingsImageWhite from '@/shared/assets/icons/settings_line_white.svg?url';
 import imgLogoutImage from '@/shared/assets/icons/logout_line.svg?url';
 import imgLogoutImageWhite from '@/shared/assets/icons/logout_line_white.svg?url';
-import { MenuItemDataType, MenuItemType } from '@/shared/ui/nav-item/NavItem';
+import { MenuItemDataType, MenuItemType, TrackItemType } from '../ui/types';
 
 type MainMenuItems = {
 	menuMainItems: Array<MenuItemType>;

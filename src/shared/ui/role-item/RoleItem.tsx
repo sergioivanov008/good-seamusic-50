@@ -1,11 +1,5 @@
+import { RoleItemProps } from '../types';
 import s from './RoleItem.module.scss';
-
-type RoleItemProps = {
-	name: string;
-	role: string;
-	handler: (role: string) => void;
-	userRole: string;
-};
 
 export function RoleItem({ name, role, handler, userRole }: RoleItemProps) {
 	const curStyle =

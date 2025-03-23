@@ -1,10 +1,5 @@
+import { PreferItemProps } from '../types';
 import s from './PreferItem.module.scss';
-
-type PreferItemProps = {
-	name: string;
-	handler: (prefer: string) => void;
-	userPrefer: string[];
-};
 
 export const PreferItem = ({ name, handler, userPrefer }: PreferItemProps) => {
 	let curStyle = '';
