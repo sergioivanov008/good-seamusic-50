@@ -17,7 +17,7 @@ export const ConfirmAccountForm = () => {
 	};
 
 	const handlerSignIn = () => {
-		console.log('confirmAccountData: ', confirmAccountData)
+		console.log('confirmAccountData: ', confirmAccountData);
 	};
 
 	return (
@@ -28,7 +28,7 @@ export const ConfirmAccountForm = () => {
 				<span className={s.tempEmail}>{TEXT.TempEmail}</span>
 			</div>
 			<InputLogin
-			  type={'text'}
+				type={'text'}
 				header={TEXT.Code}
 				id={'code'}
 				value={confirmAccountData.code}
