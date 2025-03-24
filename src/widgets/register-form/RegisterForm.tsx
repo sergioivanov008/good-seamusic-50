@@ -13,10 +13,7 @@ import {
 import ArrowForward from '@/shared/assets/icons/ArrowForward.svg';
 import { Prefer, Role } from '@/entities';
 import { Tags } from '@prisma/client';
-import { InputChoiceKeyType, InputLoginKeyType } from '../types';
-
-type RegistrationDataType = Record<InputLoginKeyType, string> &
-	Record<InputChoiceKeyType, string[]>;
+import { InputLoginKeyType, RegistrationDataType } from '../types';
 
 export const RegisterForm = () => {
 	const [step, setStep] = useState(1);

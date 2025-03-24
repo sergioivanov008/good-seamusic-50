@@ -8,6 +8,10 @@ export type InputLoginKeyType =
 	| 'name'
 	| 'email'
 	| 'password'
-	| 'confirmPassword';
+	| 'confirmPassword'
+	| 'code';
 
 export type InputChoiceKeyType = 'userRole' | 'prefer';
+
+export type RegistrationDataType = Partial<Record<InputLoginKeyType, string>> &
+	Record<InputChoiceKeyType, string[]>;
