@@ -1,6 +1,6 @@
 import { StaticImageData } from 'next/image';
 import { SignInResponse } from 'next-auth/react';
-import { InputLoginKeyType } from '@/widgets/register-form/RegisterForm';
+import { InputLoginKeyType } from '@/widgets/types';
 
 export type ActionIconProps = {
 	icon: React.FC<React.SVGProps<SVGSVGElement>>;

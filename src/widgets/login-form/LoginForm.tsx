@@ -7,18 +7,43 @@ import ImportedIconGoogle from '@/shared/assets/icons/SocialMediaLogoGoogle.svg'
 import ImportedIconSpotify from '@/shared/assets/icons/SocialMediaLogoSpotify.svg';
 import { LoginFormTitleData, TEXT } from '@/shared/constants/constants';
 import { GradientButton } from '@/shared/ui/buttons';
-import { signIn, useSession } from 'next-auth/react';
+import { signIn } from 'next-auth/react';
+import { useState } from 'react';
+import { InputLoginKeyType } from '../types';
+import { useRouter } from 'next/navigation';
 
 const IconGoogle: React.FC<React.SVGProps<SVGSVGElement>> = ImportedIconGoogle;
 const IconSpotify: React.FC<React.SVGProps<SVGSVGElement>> =
 	ImportedIconSpotify;
 
 export const LoginForm = () => {
+	const router = useRouter();
+	const [loginData, setLoginData] = useState({
+		email: '',
+		password: '',
+	});
+
+	const handlerInput = (id: InputLoginKeyType, value: string) => {
+		setLoginData((prevState) => ({ ...prevState, [id]: value }));
+	};
+
 	const signinGoogle = () => signIn('google', { redirectTo: '/profile' });
 	const signinSpotify = () => signIn('spotify', { redirectTo: '/profile' });
-	const session = useSession();
+	const handlerSignIn = async () => {
+		const response = await signIn('credentials', {
+			email: loginData.email,
+			password: loginData.password,
+			redirect: false,
+		});
 
-	console.log('LoginForm session: ', session);
+		if (response?.error) {
+			console.error('Ошибка авторизации:', response.error);
+			console.log('response: ', response)
+			alert(response.error);
+		} else {
+			router.push('/profile');
+		}
+	};
 
 	return (
 		<>
@@ -36,15 +61,24 @@ export const LoginForm = () => {
 				/>
 			</div>
 			<Divider text={TEXT.OR} />
-			<InputLogin type={'text'} header={TEXT.EmailAdress} />
+			<InputLogin
+				type={'text'}
+				header={TEXT.EmailAdress}
+				id={'email'}
+				value={loginData.email}
+				handler={handlerInput}
+				/>
 			<InputLogin
 				type={'password'}
 				header={TEXT.Password}
 				footer={TEXT.ForgetPass}
 				footerTo="/"
-			/>
-			<div className={s.btnWrapper}>
-				<GradientButton to="/">{TEXT.SignIn}</GradientButton>
+				id={'password'}
+				value={loginData.password}
+				handler={handlerInput}
+				/>
+			<div className={s.btnWrapper} onClick={handlerSignIn}>
+				<GradientButton>{TEXT.SignIn}</GradientButton>
 			</div>
 			<div className={s.signUpLine}>
 				<div>{TEXT.DontHaveAcc}</div>

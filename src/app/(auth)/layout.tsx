@@ -9,7 +9,7 @@ const Layout = ({
 	return (
 		<div className={s.auth}>
 			<AuthLeftBlock />
-			<form className={s.form}>{children}</form>
+			<div className={s.form}>{children}</div>
 		</div>
 	);
 };
