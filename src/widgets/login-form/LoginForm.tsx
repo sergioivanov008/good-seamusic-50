@@ -38,8 +38,7 @@ export const LoginForm = () => {
 
 		if (response?.error) {
 			console.error('Ошибка авторизации:', response.error);
-			console.log('response: ', response)
-			alert(response.error);
+			console.log('response: ', response);
 		} else {
 			router.push('/profile');
 		}
@@ -67,7 +66,7 @@ export const LoginForm = () => {
 				id={'email'}
 				value={loginData.email}
 				handler={handlerInput}
-				/>
+			/>
 			<InputLogin
 				type={'password'}
 				header={TEXT.Password}
@@ -76,7 +75,7 @@ export const LoginForm = () => {
 				id={'password'}
 				value={loginData.password}
 				handler={handlerInput}
-				/>
+			/>
 			<div className={s.btnWrapper} onClick={handlerSignIn}>
 				<GradientButton>{TEXT.SignIn}</GradientButton>
 			</div>
