@@ -111,6 +111,8 @@ model User {
   email         String          @unique
   emailVerified DateTime?
   image         String?
+  verificationCode        String?
+  verificationCodeExpires DateTime?
   accounts      Account[]
   sessions      Session[]
   // Optional for WebAuthn support
