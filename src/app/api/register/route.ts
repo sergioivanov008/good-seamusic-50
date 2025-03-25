@@ -2,6 +2,8 @@ import bcrypt from 'bcryptjs';
 import { prisma } from '../../../../prisma/prisma';
 import { NextRequest, NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
+import { getRandomCode } from '@/shared/utils';
+import { EMAIL_CODE_LENGTH } from '@/shared/constants/constants';
 
 export async function POST(req: NextRequest) {
 	try {
@@ -44,11 +46,19 @@ export async function POST(req: NextRequest) {
 		}
 
 		const hashedPassword = await bcrypt.hash(password, 10);
+		const verificationCode = getRandomCode(EMAIL_CODE_LENGTH).toString();
+		const verificationCodeExpires = new Date();
+		verificationCodeExpires.setMinutes(
+			verificationCodeExpires.getMinutes() + 10
+		);
+
 		const newUser = await prisma.user.create({
 			data: {
 				name,
 				email,
 				password: hashedPassword,
+				verificationCode,
+				verificationCodeExpires,
 				updatedAt: new Date(),
 			},
 		});
@@ -68,12 +78,12 @@ export async function POST(req: NextRequest) {
 			to: newUser.email,
 			subject: 'Подтверждение email',
 			html: `<p>Здравствуйте, ${newUser.name}!</p>
-		         <p>Для подтверждения email перейдите по ссылке:</p>
-		         <p>Ссылка действует 1 час.</p>`,
+		         <p>Ваш код подтверждения: <strong>${newUser.verificationCode}</strong></p>
+             <p>Код действует 10 минут.</p>`,
 		});
 
 		return NextResponse.json(
-			{ message: 'Пользователь успешно зарегистрирован', user: newUser },
+			{ message: 'Пользователь успешно зарегистрирован', email: newUser.email },
 			{ status: 201 }
 		);
 	} catch (error) {

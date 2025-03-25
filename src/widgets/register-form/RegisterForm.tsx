@@ -14,8 +14,10 @@ import ArrowForward from '@/shared/assets/icons/ArrowForward.svg';
 import { Prefer, Role } from '@/entities';
 import { Tags } from '@prisma/client';
 import { InputLoginKeyType, RegistrationDataType } from '../types';
+import { useRouter } from 'next/navigation';
 
 export const RegisterForm = () => {
+	const router = useRouter();
 	const [step, setStep] = useState(1);
 	const [tags, setTags] = useState<Tags[]>([]);
 	const [registrationData, setRegistrationData] =
@@ -89,8 +91,17 @@ export const RegisterForm = () => {
 			});
 
 			const data = await response.json();
-			console.log(data.message);
+			console.log(
+				'response: ',
+				response,
+				'RegisterForm data: ',
+				data,
+				'data.message',
+				data.message
+			);
 			setIsSending(false);
+			if (response.status === 201)
+				router.push(`/confirm-account?email=${encodeURIComponent(data.email)}`);
 		};
 
 		registerUser();
