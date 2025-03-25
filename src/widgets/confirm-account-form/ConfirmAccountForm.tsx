@@ -55,31 +55,29 @@ export const ConfirmAccountForm = () => {
 			<FormTitle data={ConfirmAccountFormData} />
 			{step === 1 && (
 				<>
-				  <div className={s.confirmText}>
-				  		{TEXT.ConfirmText}
-				  		<span className={s.tempEmail}>{curEmail}</span>
-				  		{TEXT.ConfirmTextExpires}
-			    </div>
-				  <InputLogin
-				  	type={'text'}
-				  	header={TEXT.Code}
-				  	id={'code'}
-				  	value={confirmAccountData.code}
-				  	handler={handlerInput}
-				  	/>
-				  <div className={s.btnWrapper} onClick={handlerConfirmAccount}>
-				  	<GradientButton>{TEXT.Confirm}</GradientButton>
-				  </div>
+					<div className={s.confirmText}>
+						{TEXT.ConfirmText}
+						<span className={s.tempEmail}>{curEmail}</span>
+						{TEXT.ConfirmTextExpires}
+					</div>
+					<InputLogin
+						type={'text'}
+						header={TEXT.Code}
+						id={'code'}
+						value={confirmAccountData.code}
+						handler={handlerInput}
+					/>
+					<div className={s.btnWrapper} onClick={handlerConfirmAccount}>
+						<GradientButton>{TEXT.Confirm}</GradientButton>
+					</div>
 				</>
 			)}
 			{step === 2 && (
 				<>
-				  <div className={s.confirmText}>
-				    {TEXT.ConfirmAccountOk}
-			    </div>
-				  <div className={s.btnWrapper} onClick={handlerSigninBtn}>
-				  	<GradientButton>{TEXT.Login}</GradientButton>
-				  </div>
+					<div className={s.confirmText}>{TEXT.ConfirmAccountOk}</div>
+					<div className={s.btnWrapper} onClick={handlerSigninBtn}>
+						<GradientButton>{TEXT.Login}</GradientButton>
+					</div>
 				</>
 			)}
 		</>
