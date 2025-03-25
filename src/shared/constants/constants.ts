@@ -75,10 +75,15 @@ export const TEXT = {
 	Playlists: 'Playlists',
 	StartTime: '-- : --',
 	ConfirmAccount: 'Confirm account',
-	ConfirmText: 'We sent to you email ',
-	TempEmail: 'tempemail@tempemail.com',
+	ConfirmText:
+		'We sent to your email letter with code for confirm your account. Please check your email ',
+	ConfirmTextExpires: '. Code expired in 10 minutes.',
 	Code: 'Code',
 	ForgotPassword: 'Forgot password',
+	Confirm: 'Confirm',
+	ConfirmAccountOk:
+		'Congratulations! Your account is now verified and you can log in.',
+	Login: 'Log In',
 };
 
 export const LoginFormTitleData = { left: TEXT.SignIn, right: TEXT.LogoTitle };
@@ -263,3 +268,5 @@ export const MAIN_MENU_ITEMS: MainMenuItems = {
 		imgWhite: imgLogoutImageWhite,
 	},
 };
+
+export const EMAIL_CODE_LENGTH = 6;
