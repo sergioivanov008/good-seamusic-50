@@ -53,34 +53,34 @@ export const ConfirmAccountForm = () => {
 	return (
 		<>
 			<FormTitle data={ConfirmAccountFormData} />
-			<div className={s.confirmText}>
-				{step === 1 && (
-					<>
-						{TEXT.ConfirmText}
-						<span className={s.tempEmail}>{curEmail}</span>
-						{TEXT.ConfirmTextExpires}
-					</>
-				)}
-				{step === 2 && <>{TEXT.ConfirmAccountOk}</>}
-			</div>
 			{step === 1 && (
-				<InputLogin
-					type={'text'}
-					header={TEXT.Code}
-					id={'code'}
-					value={confirmAccountData.code}
-					handler={handlerInput}
-				/>
-			)}
-			{step === 1 && (
-				<div className={s.btnWrapper} onClick={handlerConfirmAccount}>
-					<GradientButton>{TEXT.Confirm}</GradientButton>
-				</div>
+				<>
+				  <div className={s.confirmText}>
+				  		{TEXT.ConfirmText}
+				  		<span className={s.tempEmail}>{curEmail}</span>
+				  		{TEXT.ConfirmTextExpires}
+			    </div>
+				  <InputLogin
+				  	type={'text'}
+				  	header={TEXT.Code}
+				  	id={'code'}
+				  	value={confirmAccountData.code}
+				  	handler={handlerInput}
+				  	/>
+				  <div className={s.btnWrapper} onClick={handlerConfirmAccount}>
+				  	<GradientButton>{TEXT.Confirm}</GradientButton>
+				  </div>
+				</>
 			)}
 			{step === 2 && (
-				<div className={s.btnWrapper} onClick={handlerSigninBtn}>
-					<GradientButton>{TEXT.Login}</GradientButton>
-				</div>
+				<>
+				  <div className={s.confirmText}>
+				    {TEXT.ConfirmAccountOk}
+			    </div>
+				  <div className={s.btnWrapper} onClick={handlerSigninBtn}>
+				  	<GradientButton>{TEXT.Login}</GradientButton>
+				  </div>
+				</>
 			)}
 		</>
 	);
