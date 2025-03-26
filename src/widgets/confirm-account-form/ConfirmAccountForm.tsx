@@ -61,7 +61,6 @@ export const ConfirmAccountForm = () => {
 						{TEXT.ConfirmTextExpires}
 					</div>
 					<InputLogin
-						type={'text'}
 						header={TEXT.Code}
 						id={'code'}
 						value={confirmAccountData.code}

@@ -79,7 +79,6 @@ export const ForgotPasswordForm = () => {
 				<>
 					<div className={s.confirmText}>{TEXT.WriteEmail}</div>
 					<InputLogin
-						type={'text'}
 						header={TEXT.Email}
 						id={'email'}
 						value={forgotPasswordData.email}
@@ -95,16 +94,16 @@ export const ForgotPasswordForm = () => {
 				<>
 					<div className={s.passwordBlock}>
 						<InputLogin
-							type={'password'}
 							header={TEXT.Password}
 							footer={TEXT.PasswordTips}
+							isInputPasswordType={true}
 							id={'password'}
 							value={forgotPasswordData.password}
 							handler={handlerInput}
 						/>
 						<InputLogin
-							type={'password'}
 							header={TEXT.PasswordConfirm}
+							isInputPasswordType={true}
 							id={'confirmPassword'}
 							value={forgotPasswordData.confirmPassword}
 							handler={handlerInput}
