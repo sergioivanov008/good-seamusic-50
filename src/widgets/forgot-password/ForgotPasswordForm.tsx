@@ -5,11 +5,12 @@ import { FormTitle, InputLogin } from '@/shared/ui';
 import { ForgotPasswordFormData, TEXT } from '@/shared/constants/constants';
 import { GradientButton } from '@/shared/ui/buttons';
 import { useEffect, useState } from 'react';
-import { useSearchParams } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { InputLoginKeyType } from '../types';
 
 export const ForgotPasswordForm = () => {
 	const searchParams = useSearchParams();
+	const router = useRouter();
 	const [step, setStep] = useState(1);
 	const [forgotPasswordData, setForgotPasswordData] = useState({
 		email: '',
@@ -48,6 +49,29 @@ export const ForgotPasswordForm = () => {
 		sendEmailToken();
 	};
 
+	const handlerSetNewPassword = () => {
+		const setNewPassword = async () => {
+			const { password } = forgotPasswordData;
+			const body = { token, password };
+			const apiUrl = '/api/forgot-password';
+
+			const response = await fetch(apiUrl, {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify(body),
+			});
+
+			const data = await response.json();
+			console.log('response: ', response, 'RegisterForm data: ', data);
+
+			if (response.status === 200) setStep(4);
+		};
+
+		setNewPassword();
+	};
+
+	const handlerSigninBtn = () => router.push('/login');
+
 	return (
 		<>
 			<FormTitle data={ForgotPasswordFormData} />
@@ -74,11 +98,28 @@ export const ForgotPasswordForm = () => {
 							type={'password'}
 							header={TEXT.Password}
 							footer={TEXT.PasswordTips}
+							id={'password'}
+						  value={forgotPasswordData.password}
+						  handler={handlerInput}
 						/>
-						<InputLogin type={'password'} header={TEXT.PasswordConfirm} />
+						<InputLogin
+						  type={'password'}
+							header={TEXT.PasswordConfirm}
+							id={'confirmPassword'}
+							value={forgotPasswordData.confirmPassword}
+							handler={handlerInput}
+						/>
 					</div>
-					<div className={s.btnWrapper}>
-						<GradientButton>{TEXT.SignIn}</GradientButton>
+					<div className={s.btnWrapper} onClick={handlerSetNewPassword}>
+						<GradientButton>{TEXT.SetNewPassword}</GradientButton>
+					</div>
+				</>
+			)}
+			{step === 4 && (
+				<>
+				  <div className={s.confirmText}>{TEXT.ConfirmNewPasswordOk}</div>
+					<div className={s.btnWrapper} onClick={handlerSigninBtn}>
+						<GradientButton>{TEXT.Login}</GradientButton>
 					</div>
 				</>
 			)}
