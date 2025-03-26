@@ -15,6 +15,13 @@ import { Prefer, Role } from '@/entities';
 import { Tags } from '@prisma/client';
 import { InputLoginKeyType, RegistrationDataType } from '../types';
 import { useRouter } from 'next/navigation';
+import ImportedIconEyeClosed from '@/shared/assets/icons/eye_closed.svg';
+import ImportedIconEyeOpened from '@/shared/assets/icons/eye_opened.svg';
+
+const IconEyeClosed: React.FC<React.SVGProps<SVGSVGElement>> =
+	ImportedIconEyeClosed;
+const IconEyeOpened: React.FC<React.SVGProps<SVGSVGElement>> =
+	ImportedIconEyeOpened;
 
 export const RegisterForm = () => {
 	const router = useRouter();
@@ -30,6 +37,23 @@ export const RegisterForm = () => {
 			prefer: [],
 		});
 	const [isSending, setIsSending] = useState(false);
+
+	const [isVisiblePassword, setIsVisiblePassword] = useState(false);
+	const [isVisibleConfirmPassword, setIsVisibleConfirmPassword] =
+		useState(false);
+
+	const inputPasswordIcon = isVisiblePassword ? IconEyeOpened : IconEyeClosed;
+	const inputConfirmPasswordIcon = isVisibleConfirmPassword
+		? IconEyeOpened
+		: IconEyeClosed;
+	const inputPasswordType = isVisiblePassword ? 'text' : 'password';
+	const inputConfirmPasswordType = isVisibleConfirmPassword
+		? 'text'
+		: 'password';
+	const handlerInputPasswordType = () =>
+		setIsVisiblePassword(!isVisiblePassword);
+	const handlerInputConfirmPasswordType = () =>
+		setIsVisibleConfirmPassword(!isVisibleConfirmPassword);
 
 	useEffect(() => {
 		const fetchData = async () => {
@@ -133,17 +157,21 @@ export const RegisterForm = () => {
 							handler={handlerInput}
 						/>
 						<InputLogin
-							type={'password'}
+							type={inputPasswordType}
 							header={TEXT.Password}
 							footer={TEXT.PasswordTips}
+							icon={inputPasswordIcon}
+							iconHandler={handlerInputPasswordType}
 							id={'password'}
 							value={registrationData.password}
 							handler={handlerInput}
 						/>
 						<InputLogin
-							type={'password'}
+							type={inputConfirmPasswordType}
 							header={TEXT.PasswordConfirm}
 							footer={''}
+							icon={inputConfirmPasswordIcon}
+							iconHandler={handlerInputConfirmPasswordType}
 							id={'confirmPassword'}
 							value={registrationData.confirmPassword}
 							handler={handlerInput}
