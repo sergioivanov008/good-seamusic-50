@@ -5,6 +5,8 @@ import s from './LoginForm.module.scss';
 import { ButtonLogin, Divider, FormTitle, InputLogin } from '@/shared/ui';
 import ImportedIconGoogle from '@/shared/assets/icons/SocialMediaLogoGoogle.svg';
 import ImportedIconSpotify from '@/shared/assets/icons/SocialMediaLogoSpotify.svg';
+import ImportedIconEyeClosed from '@/shared/assets/icons/eye_closed.svg';
+import ImportedIconEyeOpened from '@/shared/assets/icons/eye_opened.svg';
 import { LoginFormTitleData, TEXT } from '@/shared/constants/constants';
 import { GradientButton } from '@/shared/ui/buttons';
 import { signIn } from 'next-auth/react';
@@ -15,6 +17,10 @@ import { useRouter } from 'next/navigation';
 const IconGoogle: React.FC<React.SVGProps<SVGSVGElement>> = ImportedIconGoogle;
 const IconSpotify: React.FC<React.SVGProps<SVGSVGElement>> =
 	ImportedIconSpotify;
+const IconEyeClosed: React.FC<React.SVGProps<SVGSVGElement>> =
+	ImportedIconEyeClosed;
+const IconEyeOpened: React.FC<React.SVGProps<SVGSVGElement>> =
+	ImportedIconEyeOpened;
 
 export const LoginForm = () => {
 	const router = useRouter();
@@ -22,6 +28,12 @@ export const LoginForm = () => {
 		email: '',
 		password: '',
 	});
+	const [isVisiblePassword, setIsVisiblePassword] = useState(false);
+
+	const inputPasswordIcon = isVisiblePassword ? IconEyeOpened : IconEyeClosed;
+	const inputPasswordType = isVisiblePassword ? 'text' : 'password';
+	const handlerInputPasswordType = () =>
+		setIsVisiblePassword(!isVisiblePassword);
 
 	const handlerInput = (id: InputLoginKeyType, value: string) => {
 		setLoginData((prevState) => ({ ...prevState, [id]: value }));
@@ -68,10 +80,12 @@ export const LoginForm = () => {
 				handler={handlerInput}
 			/>
 			<InputLogin
-				type={'password'}
+				type={inputPasswordType}
 				header={TEXT.Password}
 				footer={TEXT.ForgetPass}
 				footerTo="/forgot-password"
+				icon={inputPasswordIcon}
+				iconHandler={handlerInputPasswordType}
 				id={'password'}
 				value={loginData.password}
 				handler={handlerInput}
