@@ -113,6 +113,8 @@ model User {
   image         String?
   verificationCode        String?
   verificationCodeExpires DateTime?
+  passwordToken        String?
+  passwordTokenExpires DateTime?
   accounts      Account[]
   sessions      Session[]
   // Optional for WebAuthn support
