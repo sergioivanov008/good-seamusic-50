@@ -71,7 +71,7 @@ export const LoginForm = () => {
 				type={'password'}
 				header={TEXT.Password}
 				footer={TEXT.ForgetPass}
-				footerTo="/"
+				footerTo="/forgot-password"
 				id={'password'}
 				value={loginData.password}
 				handler={handlerInput}

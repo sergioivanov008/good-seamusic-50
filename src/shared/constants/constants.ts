@@ -84,6 +84,12 @@ export const TEXT = {
 	ConfirmAccountOk:
 		'Congratulations! Your account is now verified and you can log in.',
 	Login: 'Log In',
+	WriteEmail:
+		'Write your email related with your account on SeaMusic, we’ll send you link to restoration your password',
+	Email: 'Email',
+	Send: 'Send',
+	CheckEmail:
+		'Password change instructions have been sent to the email you provided. Please check your inbox and follow the instructions.',
 };
 
 export const LoginFormTitleData = { left: TEXT.SignIn, right: TEXT.LogoTitle };
