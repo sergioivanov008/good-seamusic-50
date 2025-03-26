@@ -3,8 +3,8 @@ import { Suspense } from 'react';
 
 export const ForgotPassword = () => {
 	return (
-    <Suspense fallback={<div>Загрузка...</div>}>
-      <ForgotPasswordForm />
-    </Suspense>
-  );
+		<Suspense fallback={<div>Загрузка...</div>}>
+			<ForgotPasswordForm />
+		</Suspense>
+	);
 };
