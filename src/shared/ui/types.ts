@@ -69,6 +69,7 @@ export type InputLoginProps = {
 	footer?: string;
 	footerTo?: string;
 	icon?: React.FC<React.SVGProps<SVGSVGElement>>;
+	iconHandler?: () => void;
 	id?: InputLoginKeyType;
 	value?: string;
 	handler?: (id: InputLoginKeyType, value: string) => void;

@@ -10,6 +10,7 @@ export const InputLogin = ({
 	footer,
 	footerTo,
 	icon: Icon,
+	iconHandler,
 	id,
 	value,
 	handler,
@@ -18,6 +19,8 @@ export const InputLogin = ({
 		const curValue = e.target.value;
 		handler && id && handler(id, curValue);
 	};
+
+	const handlerIconClick = () => iconHandler && iconHandler();
 
 	return (
 		<div className={s.loginInput}>
@@ -38,7 +41,7 @@ export const InputLogin = ({
 			)}
 			{footer && !footerTo && <div className={s.inputFooterText}>{footer}</div>}
 			{Icon && (
-				<div className={s.imgLogoInput}>
+				<div className={s.imgLogoInput} onClick={handlerIconClick}>
 					<Icon width={24} height={24} />
 				</div>
 			)}
