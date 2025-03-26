@@ -20,7 +20,9 @@ export async function POST(req: NextRequest) {
 			);
 		}
 
-		const curUser = await prisma.user.findFirst({ where: { passwordToken: token } });
+		const curUser = await prisma.user.findFirst({
+			where: { passwordToken: token },
+		});
 
 		if (!curUser) {
 			return NextResponse.json(

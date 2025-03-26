@@ -90,8 +90,7 @@ export const TEXT = {
 	Send: 'Send',
 	CheckEmail:
 		'Password change instructions have been sent to the email you provided. Please check your inbox and follow the instructions.',
-	SetNewPassword:
-		'Set new password',
+	SetNewPassword: 'Set new password',
 	ConfirmNewPasswordOk:
 		'Congratulations! You have changed your password and can now log in with your new password.',
 };

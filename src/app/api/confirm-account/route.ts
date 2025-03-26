@@ -1,8 +1,5 @@
-import bcrypt from 'bcryptjs';
 import { prisma } from '../../../../prisma/prisma';
 import { NextRequest, NextResponse } from 'next/server';
-import { getRandomCode } from '@/shared/utils';
-import { EMAIL_CODE_LENGTH } from '@/shared/constants/constants';
 
 export async function POST(req: NextRequest) {
 	try {

@@ -99,11 +99,11 @@ export const ForgotPasswordForm = () => {
 							header={TEXT.Password}
 							footer={TEXT.PasswordTips}
 							id={'password'}
-						  value={forgotPasswordData.password}
-						  handler={handlerInput}
+							value={forgotPasswordData.password}
+							handler={handlerInput}
 						/>
 						<InputLogin
-						  type={'password'}
+							type={'password'}
 							header={TEXT.PasswordConfirm}
 							id={'confirmPassword'}
 							value={forgotPasswordData.confirmPassword}
@@ -117,7 +117,7 @@ export const ForgotPasswordForm = () => {
 			)}
 			{step === 4 && (
 				<>
-				  <div className={s.confirmText}>{TEXT.ConfirmNewPasswordOk}</div>
+					<div className={s.confirmText}>{TEXT.ConfirmNewPasswordOk}</div>
 					<div className={s.btnWrapper} onClick={handlerSigninBtn}>
 						<GradientButton>{TEXT.Login}</GradientButton>
 					</div>
