@@ -1,13 +1,5 @@
+import { FormTitleProps } from '../types';
 import s from './FormTitle.module.scss';
-
-export type FormTitleType = {
-	left: string;
-	right: string;
-};
-
-type FormTitleProps = {
-	data: FormTitleType;
-};
 
 export const FormTitle = ({ data }: FormTitleProps) => {
 	return (

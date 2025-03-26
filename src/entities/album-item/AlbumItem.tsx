@@ -1,20 +1,8 @@
-import Image, { StaticImageData } from 'next/image';
+import Image from 'next/image';
 import s from './AlbumItem.module.scss';
 import { TEXT } from '@/shared/constants/constants';
 import { CircleLike } from '@/shared/ui';
-
-type AlbumItemType = {
-	id: string;
-	photo: StaticImageData;
-	title: string;
-	title1: string;
-	title2: string;
-	plays: string;
-};
-
-type AlbumItemProps = {
-	data: AlbumItemType;
-};
+import { AlbumItemProps } from '../types';
 
 export const AlbumItem = ({ data }: AlbumItemProps) => {
 	return (

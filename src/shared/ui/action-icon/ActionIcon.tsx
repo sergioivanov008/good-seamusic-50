@@ -1,9 +1,5 @@
+import { ActionIconProps } from '../types';
 import s from './ActionIcon.module.scss';
-
-type ActionIconProps = {
-	icon: React.FC<React.SVGProps<SVGSVGElement>>;
-	handler?: (() => void) | null;
-};
 
 export const ActionIcon = ({ icon: Icon, handler = null }: ActionIconProps) => {
 	const curStyle = handler

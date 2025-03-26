@@ -1,44 +1,45 @@
+'use client';
+
 import Link from 'next/link';
 import s from './input-login.module.scss';
-import { ChangeEvent } from 'react';
-import { InputLoginKeyType } from '@/widgets/register-form/RegisterForm';
+import { ChangeEvent, useState } from 'react';
+import { InputLoginProps } from '../types';
+import ImportedIconEyeClosed from '@/shared/assets/icons/eye_closed.svg';
+import ImportedIconEyeOpened from '@/shared/assets/icons/eye_opened.svg';
 
-export type InputType = 'text' | 'password';
-
-export type InputLoginProps = {
-	type: InputType;
-	header?: string;
-	placeholder?: string;
-	footer?: string;
-	footerTo?: string;
-	icon?: React.FC<React.SVGProps<SVGSVGElement>>;
-	id?: InputLoginKeyType;
-	value?: string;
-	handler?: (id: InputLoginKeyType, value: string) => void;
-};
+const IconEyeClosed: React.FC<React.SVGProps<SVGSVGElement>> =
+	ImportedIconEyeClosed;
+const IconEyeOpened: React.FC<React.SVGProps<SVGSVGElement>> =
+	ImportedIconEyeOpened;
 
 export const InputLogin = ({
-	type,
 	header,
 	placeholder = '',
 	footer,
 	footerTo,
-	icon: Icon,
+	isInputPasswordType = false,
 	id,
 	value,
 	handler,
 }: InputLoginProps) => {
+	const [isVisible, setIsVisible] = useState(false);
+	const inputPasswordType = isVisible ? 'text' : 'password';
+	const curType = isInputPasswordType ? inputPasswordType : 'text';
+	const Icon = isVisible ? IconEyeOpened : IconEyeClosed;
+
 	const handlerOnChange = (e: ChangeEvent<HTMLInputElement>) => {
 		const curValue = e.target.value;
 		handler && id && handler(id, curValue);
 	};
+
+	const handlerIconClick = () => setIsVisible(!isVisible);
 
 	return (
 		<div className={s.loginInput}>
 			{header && <div className={s.inputHeader}>{header}</div>}
 			<input
 				className={s.formInput}
-				type={type}
+				type={curType}
 				placeholder={placeholder}
 				value={value}
 				onChange={handlerOnChange}
@@ -51,8 +52,8 @@ export const InputLogin = ({
 				</div>
 			)}
 			{footer && !footerTo && <div className={s.inputFooterText}>{footer}</div>}
-			{Icon && (
-				<div className={s.imgLogoInput}>
+			{isInputPasswordType && (
+				<div className={s.imgLogoInput} onClick={handlerIconClick}>
 					<Icon width={24} height={24} />
 				</div>
 			)}

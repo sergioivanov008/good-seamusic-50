@@ -1,19 +1,7 @@
-import Image, { StaticImageData } from 'next/image';
+import Image from 'next/image';
 import s from './BeatpackItem.module.scss';
 import { TEXT } from '@/shared/constants/constants';
-
-type BeatpackItemType = {
-	id: string;
-	photo: StaticImageData;
-	title1: string;
-	title2: string;
-	plays: string;
-	duration: string;
-};
-
-type BeatpackItemProps = {
-	data: BeatpackItemType;
-};
+import { BeatpackItemProps } from '../types';
 
 export const BeatpackItem = ({ data }: BeatpackItemProps) => {
 	return (

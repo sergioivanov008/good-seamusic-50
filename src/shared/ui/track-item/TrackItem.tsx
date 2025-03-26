@@ -1,27 +1,6 @@
-import Image, { StaticImageData } from 'next/image';
+import Image from 'next/image';
 import s from './TrackItem.module.scss';
-
-export type TrackItemType = {
-	number: string;
-	cover: {
-		title: string;
-		cover?: StaticImageData;
-	};
-	name: {
-		title: string;
-		author?: string;
-	};
-	album: string;
-	listens: string;
-	playTime: string;
-	like: string;
-	trackUrl?: string;
-	isTitle?: boolean;
-};
-
-type TrackItemProps = {
-	data: TrackItemType;
-};
+import { TrackItemProps } from '../types';
 
 export const TrackItem = ({ data }: TrackItemProps) => {
 	return data.isTitle ? (

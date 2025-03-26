@@ -1,5 +1,10 @@
 import { ConfirmAccountForm } from '@/widgets';
+import { Suspense } from 'react';
 
 export const ConfirmAccount = () => {
-	return <ConfirmAccountForm />;
+	return (
+		<Suspense fallback={<div>Загрузка...</div>}>
+			<ConfirmAccountForm />
+		</Suspense>
+	);
 };

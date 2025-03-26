@@ -1,5 +1,10 @@
 import { ForgotPasswordForm } from '@/widgets';
+import { Suspense } from 'react';
 
 export const ForgotPassword = () => {
-	return <ForgotPasswordForm />;
+	return (
+		<Suspense fallback={<div>Загрузка...</div>}>
+			<ForgotPasswordForm />
+		</Suspense>
+	);
 };

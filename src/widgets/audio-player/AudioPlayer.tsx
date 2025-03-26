@@ -3,12 +3,8 @@
 import s from './AudioPlayer.module.scss';
 import { ActionIcon } from '@/shared/ui';
 import { useRef, useState } from 'react';
-import { TrackItemType } from '@/shared/ui/track-item/TrackItem';
 import { AUDIO_ICONS, TEXT } from '@/shared/constants/constants';
-
-type AudioPlayerProps = {
-	tracks: TrackItemType[];
-};
+import { AudioPlayerProps } from '../types';
 
 export const AudioPlayer = ({ tracks }: AudioPlayerProps) => {
 	const audioRef = useRef<HTMLAudioElement>(null);

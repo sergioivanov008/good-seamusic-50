@@ -7,50 +7,35 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model Albums {
+  id           Int      @id @default(autoincrement())
+  cover_url    String
+  album_name   String
+  description  String
+  plays_number Int
+  duration     Int
+  like         Boolean
+  Tracks       Tracks[]
+}
+
 model Artists {
   id          Int      @id @default(autoincrement())
   artist_name String   @unique
   description String
   photo_url   String   @unique
-  beats       Beats[]
-  tags        Tags[]
-  tracks      Tracks[]
+  Beats       Beats[]
+  Tags        Tags[]
+  Tracks      Tracks[]
 }
 
-model Producers {
-  id            Int      @id @default(autoincrement())
-  producer_name String   @unique
+model Beatpacks {
+  id            Int     @id @default(autoincrement())
+  cover_url     String
+  beatpack_name String
   description   String
-  photo_url     String   @unique
-  beats         Beats[]
-  tags          Tags[]
-  tracks        Tracks[]
-}
-
-model Tracks {
-  id          Int       @id @default(autoincrement())
-  cover_url   String
-  track_name  String
-  listens     Int
-  playtime    Int
-  like        Boolean
-  artist_id   Int
-  producer_id Int
-  album_id    Int
-  file_url    String
-  album       Albums    @relation(fields: [album_id], references: [id])
-  artist      Artists   @relation(fields: [artist_id], references: [id])
-  producer    Producers @relation(fields: [producer_id], references: [id])
-}
-
-model Tags {
-  id          Int       @id @default(autoincrement())
-  tag_name    String
-  description String
-  artist_id   Int
-  producer_id Int
-  artist      Artists   @relation(fields: [artist_id], references: [id])
-  producer    Producers @relation(fields: [producer_id], references: [id])
+  plays_number  Int
+  like          Boolean
+  Beats         Beats[]
 }
 
 model Beats {
@@ -65,41 +50,131 @@ model Beats {
   producer_id   Int
   beatpack_id   Int
   file_url      String
-  artist        Artists   @relation(fields: [artist_id], references: [id])
-  beatpack      Beatpacks @relation(fields: [beatpack_id], references: [id])
-  producer      Producers @relation(fields: [producer_id], references: [id])
+  Artists       Artists   @relation(fields: [artist_id], references: [id])
+  Beatpacks     Beatpacks @relation(fields: [beatpack_id], references: [id])
+  Producers     Producers @relation(fields: [producer_id], references: [id])
 }
 
-model Albums {
-  id           Int      @id @default(autoincrement())
-  cover_url    String
-  album_name   String
-  description  String
-  plays_number Int
-  duration     Int
-  like         Boolean
-  tracks       Tracks[]
-}
-
-model Beatpacks {
-  id            Int     @id @default(autoincrement())
-  cover_url     String
-  beatpack_name String
+model Producers {
+  id            Int      @id @default(autoincrement())
+  producer_name String   @unique
   description   String
-  plays_number  Int
-  like          Boolean
-  beats         Beats[]
+  photo_url     String   @unique
+  Beats         Beats[]
+  Tags          Tags[]
+  Tracks        Tracks[]
 }
+
+model Tags {
+  id          Int       @id @default(autoincrement())
+  tag_name    String
+  description String
+  artist_id   Int
+  producer_id Int
+  Artists     Artists   @relation(fields: [artist_id], references: [id])
+  Producers   Producers @relation(fields: [producer_id], references: [id])
+}
+
+model Tracks {
+  id          Int       @id @default(autoincrement())
+  cover_url   String
+  track_name  String
+  listens     Int
+  playtime    Int
+  like        Boolean
+  artist_id   Int
+  producer_id Int
+  album_id    Int
+  file_url    String
+  Albums      Albums    @relation(fields: [album_id], references: [id])
+  Artists     Artists   @relation(fields: [artist_id], references: [id])
+  Producers   Producers @relation(fields: [producer_id], references: [id])
+}
+
+// model User {
+//   id                Int       @id @default(autoincrement())
+//   name              String    @unique
+//   email             String    @unique
+//   password          String
+//   emailVerified     Boolean   @default(false)
+//   verificationToken String?
+//   resetToken        String?
+//   resetTokenExpiry  DateTime?
+//   createdAt         DateTime  @default(now())
+//   updatedAt         DateTime
+// }
 
 model User {
-  id        Int      @id @default(autoincrement())
-  name      String   @unique
-  email     String   @unique
-  password  String
-  emailVerified Boolean @default(false)
-  verificationToken String?
-  resetToken String?
-  resetTokenExpiry DateTime?
+  id            String          @id @default(cuid())
+  name          String          @unique
+  password      String
+  email         String          @unique
+  emailVerified DateTime?
+  image         String?
+  verificationCode        String?
+  verificationCodeExpires DateTime?
+  passwordToken        String?
+  passwordTokenExpires DateTime?
+  accounts      Account[]
+  sessions      Session[]
+  // Optional for WebAuthn support
+  Authenticator Authenticator[]
+
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+}
+
+model Account {
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+  session_state     String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@id([provider, providerAccountId])
+}
+
+model Session {
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model VerificationToken {
+  identifier String
+  token      String
+  expires    DateTime
+
+  @@id([identifier, token])
+}
+
+// Optional for WebAuthn support
+model Authenticator {
+  credentialID         String  @unique
+  userId               String
+  providerAccountId    String
+  credentialPublicKey  String
+  counter              Int
+  credentialDeviceType String
+  credentialBackedUp   Boolean
+  transports           String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@id([userId, credentialID])
 }

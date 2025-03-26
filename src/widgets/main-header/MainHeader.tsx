@@ -1,6 +1,14 @@
+'use client';
+
+import { useSession } from 'next-auth/react';
 import s from './MainHeader.module.scss';
+import { HeaderNav } from '@/features';
+import { GradientButton } from '@/shared/ui/buttons';
+import { TEXT } from '@/shared/constants/constants';
 
 export const MainHeader = () => {
+	const session = useSession();
+
 	return (
 		<div className={s.mainHeader}>
 			<div className={s.mainHeaderWrapper}>
@@ -8,14 +16,11 @@ export const MainHeader = () => {
 					<input className={s.headerSearch} type="text" placeholder="Search" />
 					<div className={s.searchLogo} />
 				</div>
-				<div className={s.mainHeaderNav}>
-					<div className={s.navBell} />
-					<div className={s.navAvatar}>
-						<div className={s.avatarName}>Sam</div>
-						<div className={s.avatarArrow} />
-						<div className={s.avatarFoto} />
-					</div>
-				</div>
+				{session.data ? (
+					<HeaderNav />
+				) : (
+					<GradientButton to="/login">{TEXT.SignIn}</GradientButton>
+				)}
 			</div>
 		</div>
 	);

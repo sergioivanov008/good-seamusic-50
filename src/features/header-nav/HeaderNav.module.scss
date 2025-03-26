@@ -1,0 +1,47 @@
+.mainHeaderNav {
+	display: flex;
+	gap: 30px;
+	align-items: center;
+
+	.navBell {
+		width: 36px;
+		height: 36px;
+		background: transparent url(../../shared/assets/icons/Bell_24.svg) center
+			center no-repeat;
+	}
+	.navAvatar {
+		border-radius: 22px;
+		width: 176px;
+		height: 44px;
+		background: #282828;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		gap: 25px;
+		position: relative;
+		padding: 0 25px 0 68px;
+
+		.avatarName {
+			font-family: var(--font-family);
+			font-weight: 600;
+			font-size: 20px;
+			line-height: 140%;
+			color: #fff;
+		}
+		.avatarArrow {
+			width: 16px;
+			height: 14px;
+			background: transparent url(../../shared/assets/icons/Arrow_16.svg) center
+				center no-repeat;
+		}
+		.avatarFoto {
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			width: 44px;
+			height: 44px;
+			background: transparent url(../../shared/assets/images/Image-60.png)
+				center center no-repeat;
+		}
+	}
+}

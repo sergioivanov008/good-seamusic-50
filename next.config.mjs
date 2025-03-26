@@ -4,7 +4,7 @@ const nextConfig = {
 	eslint: {
 		ignoreDuringBuilds: true,
 	},
-	output: 'export',
+	// output: 'export',
 	images: { unoptimized: true },
 	// pageExtensions: ['page.tsx', 'page.ts', 'page.jsx', 'page.js'],
 

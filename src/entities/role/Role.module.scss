@@ -1,0 +1,27 @@
+@import '../../shared/style/variables.scss';
+
+.roleWrapper {
+	display: flex;
+	flex-direction: column;
+	gap: 18px;
+
+	margin-bottom: 50px;
+
+	.roleTitle {
+		font-family: $--font-family;
+		font-weight: 400;
+		font-size: 18px;
+		line-height: 133%;
+		color: #fff;
+	}
+	.role {
+		border: 1px solid #fff;
+		border-radius: 40px;
+		height: 64px;
+		padding: 0 2px;
+
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+	}
+}
