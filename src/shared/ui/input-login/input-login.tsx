@@ -1,33 +1,45 @@
+'use client';
+
 import Link from 'next/link';
 import s from './input-login.module.scss';
-import { ChangeEvent } from 'react';
+import { ChangeEvent, useState } from 'react';
 import { InputLoginProps } from '../types';
+import ImportedIconEyeClosed from '@/shared/assets/icons/eye_closed.svg';
+import ImportedIconEyeOpened from '@/shared/assets/icons/eye_opened.svg';
+
+const IconEyeClosed: React.FC<React.SVGProps<SVGSVGElement>> =
+	ImportedIconEyeClosed;
+const IconEyeOpened: React.FC<React.SVGProps<SVGSVGElement>> =
+	ImportedIconEyeOpened;
 
 export const InputLogin = ({
-	type,
 	header,
 	placeholder = '',
 	footer,
 	footerTo,
-	icon: Icon,
-	iconHandler,
+	isInputPasswordType = false,
 	id,
 	value,
 	handler,
 }: InputLoginProps) => {
+	const [isVisible, setIsVisible] = useState(false);
+	const inputPasswordType = isVisible ? 'text' : 'password';
+	const curType = isInputPasswordType ? inputPasswordType : 'text';
+	const Icon = isVisible ? IconEyeOpened : IconEyeClosed;
+
 	const handlerOnChange = (e: ChangeEvent<HTMLInputElement>) => {
 		const curValue = e.target.value;
 		handler && id && handler(id, curValue);
 	};
 
-	const handlerIconClick = () => iconHandler && iconHandler();
+	const handlerIconClick = () => setIsVisible(!isVisible);
 
 	return (
 		<div className={s.loginInput}>
 			{header && <div className={s.inputHeader}>{header}</div>}
 			<input
 				className={s.formInput}
-				type={type}
+				type={curType}
 				placeholder={placeholder}
 				value={value}
 				onChange={handlerOnChange}
@@ -40,7 +52,7 @@ export const InputLogin = ({
 				</div>
 			)}
 			{footer && !footerTo && <div className={s.inputFooterText}>{footer}</div>}
-			{Icon && (
+			{isInputPasswordType && (
 				<div className={s.imgLogoInput} onClick={handlerIconClick}>
 					<Icon width={24} height={24} />
 				</div>

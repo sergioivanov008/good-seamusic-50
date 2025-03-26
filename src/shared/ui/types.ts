@@ -63,13 +63,11 @@ export type FormTitleProps = {
 export type InputType = 'text' | 'password';
 
 export type InputLoginProps = {
-	type: InputType;
 	header?: string;
 	placeholder?: string;
 	footer?: string;
 	footerTo?: string;
-	icon?: React.FC<React.SVGProps<SVGSVGElement>>;
-	iconHandler?: () => void;
+	isInputPasswordType?: boolean;
 	id?: InputLoginKeyType;
 	value?: string;
 	handler?: (id: InputLoginKeyType, value: string) => void;
