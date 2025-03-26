@@ -35,9 +35,7 @@ export async function POST(req: NextRequest) {
 		const passwordToken = getRandomCode(EMAIL_CODE_LENGTH).toString();
 		const hashedToken = await bcrypt.hash(passwordToken, 10);
 		const passwordTokenExpires = new Date();
-		passwordTokenExpires.setMinutes(
-			passwordTokenExpires.getMinutes() + 10
-		);
+		passwordTokenExpires.setMinutes(passwordTokenExpires.getMinutes() + 10);
 		const resetUrl = `${process.env.NEXTAUTH_URL}/forgot-password?token=${hashedToken}`;
 
 		await prisma.user.update({
@@ -49,7 +47,7 @@ export async function POST(req: NextRequest) {
 			},
 		});
 
-    const transporter = nodemailer.createTransport({
+		const transporter = nodemailer.createTransport({
 			host: process.env.SMTP_HOST,
 			port: Number(process.env.SMTP_PORT),
 			secure: false,
