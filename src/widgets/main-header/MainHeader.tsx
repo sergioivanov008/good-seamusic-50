@@ -8,7 +8,6 @@ import { TEXT } from '@/shared/constants/constants';
 
 export const MainHeader = () => {
 	const session = useSession();
-	console.log('session: ', session.data?.user?.name)
 
 	return (
 		<div className={s.mainHeader}>
