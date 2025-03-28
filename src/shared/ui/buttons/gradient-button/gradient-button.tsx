@@ -12,7 +12,9 @@ export const GradientButton = ({
 }: GradientButtonProps) => {
 	const router = useRouter();
 
-	const curStyle = isDisabled ? `${s.btnGradient} ${s.disabled}` : s.btnGradient;
+	const curStyle = isDisabled
+		? `${s.btnGradient} ${s.disabled}`
+		: s.btnGradient;
 	const handlerClick = () => {
 		if (isDisabled) return;
 
