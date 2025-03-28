@@ -71,6 +71,8 @@ export type InputLoginProps = {
 	id?: InputLoginKeyType;
 	value?: string;
 	handler?: (id: InputLoginKeyType, value: string) => void;
+	error?: string;
+	isTouched?: boolean;
 };
 
 export type MenuItemDataType = {
