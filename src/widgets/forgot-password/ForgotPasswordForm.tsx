@@ -84,8 +84,8 @@ export const ForgotPasswordForm = () => {
 						value={forgotPasswordData.email}
 						handler={handlerInput}
 					/>
-					<div className={s.btnWrapper} onClick={handlerSend}>
-						<GradientButton>{TEXT.Send}</GradientButton>
+					<div className={s.btnWrapper}>
+						<GradientButton handler={handlerSend}>{TEXT.Send}</GradientButton>
 					</div>
 				</>
 			)}
@@ -109,16 +109,20 @@ export const ForgotPasswordForm = () => {
 							handler={handlerInput}
 						/>
 					</div>
-					<div className={s.btnWrapper} onClick={handlerSetNewPassword}>
-						<GradientButton>{TEXT.SetNewPassword}</GradientButton>
+					<div className={s.btnWrapper}>
+						<GradientButton handler={handlerSetNewPassword}>
+							{TEXT.SetNewPassword}
+						</GradientButton>
 					</div>
 				</>
 			)}
 			{step === 4 && (
 				<>
 					<div className={s.confirmText}>{TEXT.ConfirmNewPasswordOk}</div>
-					<div className={s.btnWrapper} onClick={handlerSigninBtn}>
-						<GradientButton>{TEXT.Login}</GradientButton>
+					<div className={s.btnWrapper}>
+						<GradientButton handler={handlerSigninBtn}>
+							{TEXT.Login}
+						</GradientButton>
 					</div>
 				</>
 			)}

@@ -75,8 +75,8 @@ export const LoginForm = () => {
 				value={loginData.password}
 				handler={handlerInput}
 			/>
-			<div className={s.btnWrapper} onClick={handlerSignIn}>
-				<GradientButton>{TEXT.SignIn}</GradientButton>
+			<div className={s.btnWrapper}>
+				<GradientButton handler={handlerSignIn}>{TEXT.SignIn}</GradientButton>
 			</div>
 			<div className={s.signUpLine}>
 				<div>{TEXT.DontHaveAcc}</div>
