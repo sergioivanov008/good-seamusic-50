@@ -55,5 +55,9 @@ export const forgotPassStepThreeSchema = z
 
 export type LoginSchemaType = z.infer<typeof loginSchema>;
 export type RegisterSchemaType = z.infer<typeof registerSchema>;
-export type ForgotPassStepOneSchemaType = z.infer<typeof forgotPassStepOneSchema>;
-export type ForgotPassStepThreeSchemaType = z.infer<typeof forgotPassStepThreeSchema>;
+export type ForgotPassStepOneSchemaType = z.infer<
+	typeof forgotPassStepOneSchema
+>;
+export type ForgotPassStepThreeSchemaType = z.infer<
+	typeof forgotPassStepThreeSchema
+>;
