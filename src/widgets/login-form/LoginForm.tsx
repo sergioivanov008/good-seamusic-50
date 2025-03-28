@@ -58,8 +58,8 @@ export const LoginForm = () => {
 	const handlerInput = (id: InputLoginKeyType, value: string) => {
 		if (!isTouched[id])
 			setIsTouched((prevState) => ({ ...prevState, [id]: true }));
-		  setLoginData((prevState) => ({ ...prevState, [id]: value }));
-	  };
+		setLoginData((prevState) => ({ ...prevState, [id]: value }));
+	};
 
 	const signinGoogle = () => signIn('google', { redirectTo: '/profile' });
 	const signinSpotify = () => signIn('spotify', { redirectTo: '/profile' });
