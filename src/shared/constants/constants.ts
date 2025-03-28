@@ -49,7 +49,7 @@ export const TEXT = {
 	EmailAdress: 'Email adress',
 	Password: 'Password',
 	PasswordTips:
-		'Use 8 or more characters with a mix of letters, numbers & symbols',
+		'Use 8 or more characters with a mix of latin letters, capitalize letters, numbers & symbols',
 	PasswordConfirm: 'Confirm your password',
 	LastStep: 'Last Step',
 	HaveAcc: 'Already have an account? ',
