@@ -70,9 +70,8 @@ export const ConfirmAccountForm = () => {
 					/>
 					<div className={s.btnWrapper}>
 						<GradientButton
-						  isDisabled={Boolean(!confirmAccountData.code)}
-							handler={handlerConfirmAccount}
-						>
+							isDisabled={Boolean(!confirmAccountData.code)}
+							handler={handlerConfirmAccount}>
 							{TEXT.Confirm}
 						</GradientButton>
 					</div>
