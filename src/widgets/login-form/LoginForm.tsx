@@ -8,9 +8,13 @@ import ImportedIconSpotify from '@/shared/assets/icons/SocialMediaLogoSpotify.sv
 import { LoginFormTitleData, TEXT } from '@/shared/constants/constants';
 import { GradientButton } from '@/shared/ui/buttons';
 import { signIn } from 'next-auth/react';
-import { useState } from 'react';
-import { InputLoginKeyType } from '../types';
+import { useEffect, useState } from 'react';
+import { InputLoginKeyType, IsTouchedType, LoginDataType } from '../types';
 import { useRouter } from 'next/navigation';
+import {
+	loginSchema,
+	LoginSchemaType,
+} from '@/shared/validations/validation-schems';
 
 const IconGoogle: React.FC<React.SVGProps<SVGSVGElement>> = ImportedIconGoogle;
 const IconSpotify: React.FC<React.SVGProps<SVGSVGElement>> =
@@ -18,18 +22,50 @@ const IconSpotify: React.FC<React.SVGProps<SVGSVGElement>> =
 
 export const LoginForm = () => {
 	const router = useRouter();
-	const [loginData, setLoginData] = useState({
+	const [loginData, setLoginData] = useState<LoginDataType>({
 		email: '',
 		password: '',
 	});
+	const [isTouched, setIsTouched] = useState<IsTouchedType>({
+		email: false,
+		password: false,
+	});
+
+	const [errors, setErrors] = useState<
+		Partial<Record<keyof LoginSchemaType, string>>
+	>({});
+	const [isValid, setIsValid] = useState(false);
+
+	useEffect(() => {
+		const validation = loginSchema.safeParse(loginData);
+
+		if (!validation.success) {
+			const fieldErrors: Partial<Record<keyof LoginSchemaType, string>> = {};
+			validation.error.errors.forEach((err) => {
+				const fieldName = err.path[0] as keyof LoginSchemaType;
+				if (!fieldErrors[fieldName]) {
+					fieldErrors[fieldName] = err.message;
+				}
+			});
+			setErrors(fieldErrors);
+			setIsValid(false);
+		} else {
+			setErrors({});
+			setIsValid(true);
+		}
+	}, [loginData]);
 
 	const handlerInput = (id: InputLoginKeyType, value: string) => {
-		setLoginData((prevState) => ({ ...prevState, [id]: value }));
-	};
+		if (!isTouched[id])
+			setIsTouched((prevState) => ({ ...prevState, [id]: true }));
+		  setLoginData((prevState) => ({ ...prevState, [id]: value }));
+	  };
 
 	const signinGoogle = () => signIn('google', { redirectTo: '/profile' });
 	const signinSpotify = () => signIn('spotify', { redirectTo: '/profile' });
 	const handlerSignIn = async () => {
+		if (!isValid) return;
+
 		const response = await signIn('credentials', {
 			email: loginData.email,
 			password: loginData.password,
@@ -65,6 +101,8 @@ export const LoginForm = () => {
 				id={'email'}
 				value={loginData.email}
 				handler={handlerInput}
+				error={errors.email}
+				isTouched={isTouched.email}
 			/>
 			<InputLogin
 				header={TEXT.Password}
@@ -74,9 +112,13 @@ export const LoginForm = () => {
 				id={'password'}
 				value={loginData.password}
 				handler={handlerInput}
+				error={errors.password}
+				isTouched={isTouched.password}
 			/>
 			<div className={s.btnWrapper}>
-				<GradientButton handler={handlerSignIn}>{TEXT.SignIn}</GradientButton>
+				<GradientButton isDisabled={!isValid} handler={handlerSignIn}>
+					{TEXT.SignIn}
+				</GradientButton>
 			</div>
 			<div className={s.signUpLine}>
 				<div>{TEXT.DontHaveAcc}</div>
