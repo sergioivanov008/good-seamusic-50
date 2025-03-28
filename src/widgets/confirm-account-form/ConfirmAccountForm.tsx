@@ -28,6 +28,8 @@ export const ConfirmAccountForm = () => {
 	};
 
 	const handlerConfirmAccount = () => {
+		if (!confirmAccountData.code) return;
+
 		const confirmAccount = async () => {
 			const { code } = confirmAccountData;
 			const body = { code, email: curEmail };
@@ -66,16 +68,22 @@ export const ConfirmAccountForm = () => {
 						value={confirmAccountData.code}
 						handler={handlerInput}
 					/>
-					<div className={s.btnWrapper} onClick={handlerConfirmAccount}>
-						<GradientButton>{TEXT.Confirm}</GradientButton>
+					<div className={s.btnWrapper}>
+						<GradientButton
+							isDisabled={Boolean(!confirmAccountData.code)}
+							handler={handlerConfirmAccount}>
+							{TEXT.Confirm}
+						</GradientButton>
 					</div>
 				</>
 			)}
 			{step === 2 && (
 				<>
 					<div className={s.confirmText}>{TEXT.ConfirmAccountOk}</div>
-					<div className={s.btnWrapper} onClick={handlerSigninBtn}>
-						<GradientButton>{TEXT.Login}</GradientButton>
+					<div className={s.btnWrapper}>
+						<GradientButton handler={handlerSigninBtn}>
+							{TEXT.Login}
+						</GradientButton>
 					</div>
 				</>
 			)}

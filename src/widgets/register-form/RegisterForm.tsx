@@ -13,8 +13,16 @@ import {
 import ArrowForward from '@/shared/assets/icons/ArrowForward.svg';
 import { Prefer, Role } from '@/entities';
 import { Tags } from '@prisma/client';
-import { InputLoginKeyType, RegistrationDataType } from '../types';
+import {
+	InputLoginKeyType,
+	IsTouchedType,
+	RegistrationDataType,
+} from '../types';
 import { useRouter } from 'next/navigation';
+import {
+	registerSchema,
+	RegisterSchemaType,
+} from '@/shared/validations/validation-schems';
 
 export const RegisterForm = () => {
 	const router = useRouter();
@@ -30,6 +38,34 @@ export const RegisterForm = () => {
 			prefer: [],
 		});
 	const [isSending, setIsSending] = useState(false);
+	const [isTouched, setIsTouched] = useState<IsTouchedType>({
+		name: false,
+		email: false,
+		password: false,
+		confirmPassword: false,
+	});
+
+	const [errors, setErrors] = useState<
+		Partial<Record<keyof RegisterSchemaType, string>>
+	>({});
+	const [isValid, setIsValid] = useState(false);
+
+	useEffect(() => {
+		const validation = registerSchema.safeParse(registrationData);
+
+		if (!validation.success) {
+			const zodErrors: Partial<Record<keyof RegisterSchemaType, string>> = {};
+			validation.error.errors.forEach((error) => {
+				const field = error.path[0] as keyof RegisterSchemaType;
+				zodErrors[field] = error.message;
+			});
+			setErrors(zodErrors);
+			setIsValid(false);
+		} else {
+			setErrors({});
+			setIsValid(true);
+		}
+	}, [registrationData]);
 
 	useEffect(() => {
 		const fetchData = async () => {
@@ -49,6 +85,8 @@ export const RegisterForm = () => {
 	}, []);
 
 	const handlerInput = (id: InputLoginKeyType, value: string) => {
+		if (!isTouched[id])
+			setIsTouched((prevState) => ({ ...prevState, [id]: true }));
 		setRegistrationData((prevState) => ({ ...prevState, [id]: value }));
 	};
 
@@ -108,9 +146,13 @@ export const RegisterForm = () => {
 	};
 
 	const handlerStep = () => {
+		if (!isValid) return;
+
 		if (step === 1) setStep(2);
 		else if (step === 2) setStep(1);
 	};
+
+	const nextBtnStyle = !isValid ? `${s.nextBtn} ${s.disabled}` : s.nextBtn;
 
 	return (
 		<>
@@ -123,12 +165,16 @@ export const RegisterForm = () => {
 							id={'name'}
 							value={registrationData.name}
 							handler={handlerInput}
+							error={errors.name}
+							isTouched={isTouched.name}
 						/>
 						<InputLogin
 							header={TEXT.EmailAdress}
 							id={'email'}
 							value={registrationData.email}
 							handler={handlerInput}
+							error={errors.email}
+							isTouched={isTouched.email}
 						/>
 						<InputLogin
 							header={TEXT.Password}
@@ -137,6 +183,8 @@ export const RegisterForm = () => {
 							id={'password'}
 							value={registrationData.password}
 							handler={handlerInput}
+							error={errors.password}
+							isTouched={isTouched.password}
 						/>
 						<InputLogin
 							header={TEXT.PasswordConfirm}
@@ -145,10 +193,12 @@ export const RegisterForm = () => {
 							id={'confirmPassword'}
 							value={registrationData.confirmPassword}
 							handler={handlerInput}
+							error={errors.confirmPassword}
+							isTouched={isTouched.confirmPassword}
 						/>
 					</div>
 					<div className={s.nextStep}>
-						<div className={s.nextBtn} onClick={handlerStep}>
+						<div className={nextBtnStyle} onClick={handlerStep}>
 							<div className={s.left}>{TEXT.LastStep}</div>
 							<ArrowForward width={13} height={26} />
 						</div>

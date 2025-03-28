@@ -21,11 +21,17 @@ export const InputLogin = ({
 	id,
 	value,
 	handler,
+	error,
+	isTouched,
 }: InputLoginProps) => {
 	const [isVisible, setIsVisible] = useState(false);
 	const inputPasswordType = isVisible ? 'text' : 'password';
 	const curType = isInputPasswordType ? inputPasswordType : 'text';
 	const Icon = isVisible ? IconEyeOpened : IconEyeClosed;
+
+	const headerStyle =
+		error && isTouched ? `${s.inputHeader} ${s.error}` : s.inputHeader;
+	const headerContent = error && isTouched ? error : header;
 
 	const handlerOnChange = (e: ChangeEvent<HTMLInputElement>) => {
 		const curValue = e.target.value;
@@ -36,7 +42,7 @@ export const InputLogin = ({
 
 	return (
 		<div className={s.loginInput}>
-			{header && <div className={s.inputHeader}>{header}</div>}
+			{header && <div className={headerStyle}>{headerContent}</div>}
 			<input
 				className={s.formInput}
 				type={curType}
