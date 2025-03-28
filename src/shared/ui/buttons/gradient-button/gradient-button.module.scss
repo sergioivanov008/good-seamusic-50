@@ -15,6 +15,12 @@
 
 		border: none;
 		cursor: pointer;
+		transition: 0.2s;
+
+		&.disabled {
+			background: $--main-700;
+			cursor: not-allowed;
+		}
 
 		.btnText {
 			font-family: $--font-family;

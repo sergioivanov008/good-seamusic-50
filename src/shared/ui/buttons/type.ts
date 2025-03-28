@@ -11,4 +11,5 @@ export type GradientButtonProps = {
 	children: ReactNode;
 	to?: string;
 	handler?: () => void;
+	isDisabled?: boolean;
 };
