@@ -1,9 +1,8 @@
 'use client';
 
 import s from './ForgotPasswordForm.module.scss';
-import { FormTitle, InputLogin } from '@/shared/ui';
+import { FormTitle, InputLogin, GradientButton } from '@/shared/ui';
 import { ForgotPasswordFormData, TEXT } from '@/shared/constants/constants';
-import { GradientButton } from '@/shared/ui/buttons';
 import { useEffect, useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { InputLoginKeyType, IsTouchedType, LoginDataType } from '../types';

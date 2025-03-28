@@ -15,3 +15,4 @@ export { CircleLike } from './circle-like/CircleLike';
 export { ActionIcon } from './action-icon/ActionIcon';
 export { RoleItem } from './role-item/RoleItem';
 export { ButtonLogin } from './button-login/button-login';
+export { GradientButton } from './buttons/gradient-button/gradient-button';
