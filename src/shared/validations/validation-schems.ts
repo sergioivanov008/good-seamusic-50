@@ -39,5 +39,21 @@ export const registerSchema = z
 		message: 'Passwords do not match',
 	});
 
+export const forgotPassStepOneSchema = z.object({
+	email: emailSchema,
+});
+
+export const forgotPassStepThreeSchema = z
+	.object({
+		password: passwordSchema,
+		confirmPassword: z.string(),
+	})
+	.refine((data) => data.password === data.confirmPassword, {
+		path: ['confirmPassword'],
+		message: 'Passwords do not match',
+	});
+
 export type LoginSchemaType = z.infer<typeof loginSchema>;
 export type RegisterSchemaType = z.infer<typeof registerSchema>;
+export type ForgotPassStepOneSchemaType = z.infer<typeof forgotPassStepOneSchema>;
+export type ForgotPassStepThreeSchemaType = z.infer<typeof forgotPassStepThreeSchema>;
