@@ -121,7 +121,8 @@
 			color: #525252;
 			cursor: pointer;
 
-			&:hover {
+			&:hover,
+			&.active {
 				color: $--main-white-000;
 			}
 		}

@@ -93,6 +93,7 @@ export const TEXT = {
 	SetNewPassword: 'Set new password',
 	ConfirmNewPasswordOk:
 		'Congratulations! You have changed your password and can now log in with your new password.',
+	AddTrack: '+ Add Track',
 };
 
 export const LoginFormTitleData = { left: TEXT.SignIn, right: TEXT.LogoTitle };
@@ -279,3 +280,23 @@ export const MAIN_MENU_ITEMS: MainMenuItems = {
 };
 
 export const EMAIL_CODE_LENGTH = 6;
+
+export const PROFILE_TEMP_DATA = {
+	profileBtns: ['Edit profile', 'Share profile', 'Settings'],
+	profileInfo: ['25 Subscribers', '3850 Plays'],
+	navigationLink: [
+		{ id: 0, title: 'Main', ready: false },
+		{ id: 1, title: 'Activity', ready: false },
+		{ id: 2, title: 'Tracks', ready: true },
+		{ id: 3, title: 'Albums', ready: false },
+		{ id: 4, title: 'Beats', ready: true },
+		{ id: 5, title: 'Beatpacks', ready: false },
+		{ id: 6, title: 'Playlists', ready: false },
+	],
+	text: {
+		name: 'Sam Mattal',
+		login: '@sammattmusic',
+		contentDescription:
+			'Hey, I’m Sam—an artist blending indie vibes with the grooves of house and deep house. I create music to move both your heart and your feet. Let’s vibe together 🤙',
+	},
+};

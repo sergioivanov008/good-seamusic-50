@@ -133,3 +133,7 @@ export type TrackItemType = {
 export type TrackItemProps = {
 	data: TrackItemType;
 };
+
+export type TempComponentProps = {
+	name: string;
+};
