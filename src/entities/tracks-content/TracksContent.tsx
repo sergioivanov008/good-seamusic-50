@@ -6,13 +6,13 @@ export function TracksContent() {
 	return (
 		<div className={s.tracksContent}>
 			<div className={s.header}>
-			  <div className={s.left}>
-					<TempComponent name='Filter'/>
+				<div className={s.left}>
+					<TempComponent name="Filter" />
 				</div>
 				<GradientButton>{TEXT.AddTrack}</GradientButton>
 			</div>
 			<div className={s.content}>
-			  <TempComponent name='Tracks content'/>
+				<TempComponent name="Tracks content" />
 			</div>
 		</div>
 	);
