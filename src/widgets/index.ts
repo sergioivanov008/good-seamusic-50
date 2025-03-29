@@ -15,3 +15,4 @@ export { AudioPlayer } from './audio-player/AudioPlayer';
 export { ProfileHeader } from './profile-header/ProfileHeader';
 export { ConfirmAccountForm } from './confirm-account-form/ConfirmAccountForm';
 export { ForgotPasswordForm } from './forgot-password/ForgotPasswordForm';
+export { ProfileContent } from './profile-content/ProfileContent';

@@ -1,5 +1,4 @@
-import { ProfileContent } from '@/features';
-import { ProfileHeader } from '@/widgets';
+import { ProfileContent, ProfileHeader } from '@/widgets';
 
 export const Profile = () => {
 	return (
