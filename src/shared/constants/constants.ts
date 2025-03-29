@@ -93,6 +93,7 @@ export const TEXT = {
 	SetNewPassword: 'Set new password',
 	ConfirmNewPasswordOk:
 		'Congratulations! You have changed your password and can now log in with your new password.',
+	AddTrack: '+ Add Track',
 };
 
 export const LoginFormTitleData = { left: TEXT.SignIn, right: TEXT.LogoTitle };
