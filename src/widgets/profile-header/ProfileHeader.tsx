@@ -12,9 +12,7 @@ export const ProfileHeader = () => {
 	const { tab } = useAppSelector(userSelector);
 
 	const navigationLinkStyle = (num: number) =>
-		num === tab?.id
-			? `${s.navigationLink} ${s.active}`
-			: s.navigationLink;
+		num === tab?.id ? `${s.navigationLink} ${s.active}` : s.navigationLink;
 
 	const handlerClickTab = (tab: ProfileTabType) => {
 		dispatch(userActions.setTab(tab));

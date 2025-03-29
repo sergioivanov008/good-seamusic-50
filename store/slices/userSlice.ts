@@ -4,11 +4,11 @@ import { ProfileTabType } from '@/widgets/types';
 import { PROFILE_TEMP_DATA } from '@/shared/constants/constants';
 
 interface MainState {
-  tab: ProfileTabType;
+	tab: ProfileTabType;
 }
 
 const initialState: MainState = {
-  tab: PROFILE_TEMP_DATA.navigationLink[0],
+	tab: PROFILE_TEMP_DATA.navigationLink[0],
 };
 
 export const userSlice = createSlice({

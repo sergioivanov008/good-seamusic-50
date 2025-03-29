@@ -8,7 +8,7 @@ import { userSelector } from '../../../store/slices/userSlice';
 
 export const ProfileContent = () => {
 	const { tab } = useAppSelector(userSelector);
-	
+
 	const content = () => {
 		let tmp = <TempComponent name={tab?.title} />;
 		if (tab?.ready) {
