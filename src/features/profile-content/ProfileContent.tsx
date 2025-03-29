@@ -1,14 +1,18 @@
+'use client';
+
 import s from './ProfileContent.module.scss';
-import { ProfileContentProps } from '../types';
 import { TempComponent } from '@/shared/ui';
 import { TracksContent } from '@/entities';
+import { useAppSelector } from '../../../store/hooks';
+import { userSelector } from '../../../store/slices/userSlice';
 
-export const ProfileContent = ({ tab }: ProfileContentProps) => {
-	console.log('ProfileContent tab: ', tab);
+export const ProfileContent = () => {
+	const { tab } = useAppSelector(userSelector);
+	
 	const content = () => {
-		let tmp = <TempComponent name={tab.title} />;
-		if (tab.ready) {
-			switch (tab.id) {
+		let tmp = <TempComponent name={tab?.title} />;
+		if (tab?.ready) {
+			switch (tab?.id) {
 				case 2:
 					tmp = <TracksContent />;
 					break;

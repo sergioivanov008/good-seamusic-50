@@ -3,21 +3,22 @@
 import { MainBtn } from '@/shared/ui/buttons';
 import s from './ProfileHeader.module.scss';
 import { PROFILE_TEMP_DATA } from '@/shared/constants/constants';
-import { ProfileContent } from '@/features';
-import { useState } from 'react';
 import { ProfileTabType } from '../types';
+import { useAppDispatch, useAppSelector } from '../../../store/hooks';
+import { userActions, userSelector } from '../../../store/slices/userSlice';
 
 export const ProfileHeader = () => {
-	const [profileTab, setProfileTab] = useState<ProfileTabType>(
-		PROFILE_TEMP_DATA.navigationLink[0]
-	);
+	const dispatch = useAppDispatch();
+	const { tab } = useAppSelector(userSelector);
 
 	const navigationLinkStyle = (num: number) =>
-		num === profileTab.id
+		num === tab?.id
 			? `${s.navigationLink} ${s.active}`
 			: s.navigationLink;
 
-	const handlerClickTab = (tab: ProfileTabType) => setProfileTab(tab);
+	const handlerClickTab = (tab: ProfileTabType) => {
+		dispatch(userActions.setTab(tab));
+	};
 
 	return (
 		<div className={s.profileHeader}>
@@ -72,7 +73,6 @@ export const ProfileHeader = () => {
 					</div>
 				))}
 			</div>
-			<ProfileContent tab={profileTab} />
 		</div>
 	);
 };

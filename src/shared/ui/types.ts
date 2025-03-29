@@ -135,5 +135,5 @@ export type TrackItemProps = {
 };
 
 export type TempComponentProps = {
-	name: string;
+	name?: string;
 };
