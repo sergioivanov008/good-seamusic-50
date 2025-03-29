@@ -1,8 +1,5 @@
+import { TempComponentProps } from '../types';
 import s from './TempComponent.module.scss';
-
-export type TempComponentProps = {
-	name: string;
-};
 
 export const TempComponent = ({ name }: TempComponentProps) => {
 	return (
