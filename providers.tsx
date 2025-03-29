@@ -6,10 +6,8 @@ import { store } from './store/store';
 
 export const Providers = ({ children }: { children: React.ReactNode }) => {
 	return (
-	  <Provider store={store}>
-			<SessionProvider>
-				{children}
-			</SessionProvider>
+		<Provider store={store}>
+			<SessionProvider>{children}</SessionProvider>
 		</Provider>
 	);
 };

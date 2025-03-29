@@ -1,23 +1,23 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { RootState } from "../store";
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { RootState } from '../store';
 
 interface MainState {
-  id: string;
+	id: string;
 }
 
 const initialState: MainState = {
-  id: '',
-}
+	id: '',
+};
 
 export const userSlice = createSlice({
-  name: 'user',
-  initialState,
-  reducers: {
-    setId(state, action: PayloadAction<string>) {
-      state.id = action.payload;
-    },
-  },
-})
+	name: 'user',
+	initialState,
+	reducers: {
+		setId(state, action: PayloadAction<string>) {
+			state.id = action.payload;
+		},
+	},
+});
 
 export const { reducer: userReducer, actions: mainActions } = userSlice;
 
