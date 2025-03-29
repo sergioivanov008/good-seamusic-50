@@ -18,3 +18,9 @@ export type RegistrationDataType = Partial<Record<InputLoginKeyType, string>> &
 
 export type LoginDataType = Partial<Record<InputLoginKeyType, string>>;
 export type IsTouchedType = Partial<Record<InputLoginKeyType, boolean>>;
+
+export type ProfileTabType = {
+	id: number;
+	title: string;
+	ready: boolean;
+};

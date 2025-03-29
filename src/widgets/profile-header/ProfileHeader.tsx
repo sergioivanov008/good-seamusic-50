@@ -1,19 +1,24 @@
+'use client';
+
 import { MainBtn } from '@/shared/ui/buttons';
 import s from './ProfileHeader.module.scss';
-
-const PROFILE_TEMP_DATA = {
-	profileBtns: ['Edit profile', 'Share profile', 'Settings'],
-	profileInfo: ['25 Subscribers', '3850 Plays'],
-	navigationLink: ['Main', 'Activity', 'Tracks', 'Beats', 'Albums'],
-	text: {
-		name: 'Sam Mattal',
-		login: '@sammattmusic',
-		contentDescription:
-			'Hey, I’m Sam—an artist blending indie vibes with the grooves of house and deep house. I create music to move both your heart and your feet. Let’s vibe together 🤙',
-	},
-};
+import { PROFILE_TEMP_DATA } from '@/shared/constants/constants';
+import { ProfileContent } from '@/features';
+import { useState } from 'react';
+import { ProfileTabType } from '../types';
 
 export const ProfileHeader = () => {
+	const [profileTab, setProfileTab] = useState<ProfileTabType>(
+		PROFILE_TEMP_DATA.navigationLink[0]
+	);
+
+	const navigationLinkStyle = (num: number) =>
+		num === profileTab.id
+			? `${s.navigationLink} ${s.active}`
+			: s.navigationLink;
+
+	const handlerClickTab = (tab: ProfileTabType) => setProfileTab(tab);
+
 	return (
 		<div className={s.profileHeader}>
 			<div className={s.header}>
@@ -58,12 +63,16 @@ export const ProfileHeader = () => {
 				<div className={s.userBanner}></div>
 			</div>
 			<div className={s.navigation}>
-				{PROFILE_TEMP_DATA.navigationLink.map((el, index) => (
-					<div key={index} className={s.navigationLink}>
-						{el}
+				{PROFILE_TEMP_DATA.navigationLink.map((el) => (
+					<div
+						key={el.id}
+						className={navigationLinkStyle(el.id)}
+						onClick={() => handlerClickTab(el)}>
+						{el.title}
 					</div>
 				))}
 			</div>
+			<ProfileContent tab={profileTab} />
 		</div>
 	);
 };
