@@ -1,0 +1,46 @@
+@import '../../shared/style/variables.scss';
+
+.modalForm {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+
+	padding: 60px;
+	border-radius: 60px;
+	background-color: $--main-950;
+
+	.title {
+		font-family: $--font-family;
+		font-weight: 600;
+		font-size: 32px;
+		line-height: 131%;
+		color: $--main-white-000;
+	}
+
+	.item {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+
+		.text {
+			font-family: $--font-family;
+			font-weight: 600;
+			font-size: 16px;
+			line-height: 131%;
+			color: $--main-white-000;
+		}
+	}
+
+	.btnWrapper {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.modalClose {
+		position: absolute;
+		top: 0px;
+		right: 0px;
+	}
+}
