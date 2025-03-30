@@ -5,10 +5,12 @@ import { PROFILE_TEMP_DATA } from '@/shared/constants/constants';
 
 interface MainState {
 	tab: ProfileTabType;
+	isAddTrackModal: boolean;
 }
 
 const initialState: MainState = {
 	tab: PROFILE_TEMP_DATA.navigationLink[0],
+	isAddTrackModal: false,
 };
 
 export const userSlice = createSlice({
@@ -17,6 +19,9 @@ export const userSlice = createSlice({
 	reducers: {
 		setTab(state, action: PayloadAction<ProfileTabType>) {
 			state.tab = action.payload;
+		},
+		setIsAddTrackModal(state, action: PayloadAction<boolean>) {
+			state.isAddTrackModal = action.payload;
 		},
 	},
 });
